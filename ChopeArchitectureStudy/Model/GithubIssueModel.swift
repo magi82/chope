@@ -5,6 +5,7 @@
 
 import Foundation
 import Alamofire
+import XCGLogger
 
 let GithubIssuesChangedNotification: Notification.Name = Notification.Name("githubIssuesChanged")
 
@@ -20,7 +21,9 @@ class GithubIssueModel {
     }
 
     func load() {
-        Alamofire.request("https://api.github.com/repos/\(user)/\(repo)/issues").responseJSON { response in
+        let issueEndpoint = "https://api.github.com/repos/\(user)/\(repo)/issues"
+        XCGLogger.default.info(issueEndpoint)
+        Alamofire.request(issueEndpoint).responseJSON { response in
                     if let json = response.result.value as? [[String: AnyObject]] {
                         self.issues = []
 

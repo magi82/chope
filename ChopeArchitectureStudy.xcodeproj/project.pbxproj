@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3E11B2A38EC4F4DD80CABA88 /* GithubIssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B941BAA8467CE7CB1299 /* GithubIssuesViewController.swift */; };
-		3E11B3385D6F7F7316998046 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B0EBEDB6ABD5A7B75FAD /* Info.plist */; };
 		3E11B3A8B92332C6FDE04EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B7F9CD42F592C57719F1 /* LaunchScreen.storyboard */; };
 		3E11B3C539A814A9B7D72F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */; };
 		3E11B4234C44A54508DDD362 /* GithubIssueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9DB56CC802E49A60578 /* GithubIssueModel.swift */; };
 		3E11B62AC2264B293B62AA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B907046A53462B8588BF /* AppDelegate.swift */; };
 		3E11B672B99A906D8E821ECE /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB61E2BC0D26E79241F2 /* GithubUser.swift */; };
+		3E11BAD32BB7E1FC4B8DCAEF /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */; };
 		3E11BC5F273B0060FF5AD31D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11BA455E1F2A867C6D4459 /* Main.storyboard */; };
 		3E11BD1AC2C17B0746746F8D /* GithubIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B10DC824A3904A880ED7 /* GithubIssue.swift */; };
 		D54A087099DE0D3431495B60 /* Pods_ChopeArchitectureStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E5F9090C95D2CB0D0E819A /* Pods_ChopeArchitectureStudy.framework */; };
@@ -32,6 +32,7 @@
 		3E11B941BAA8467CE7CB1299 /* GithubIssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssuesViewController.swift; sourceTree = "<group>"; };
 		3E11B9DB56CC802E49A60578 /* GithubIssueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueModel.swift; sourceTree = "<group>"; };
 		3E11BB61E2BC0D26E79241F2 /* GithubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		3E11BEB2ABC1B2BAB50E30A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +92,7 @@
 				3E11B032853FA444FF60A2C2 /* Data */,
 				3E11B398B9E0EA033083C196 /* Model */,
 				3E11B7FD74403FA2CC4CA654 /* Controller */,
+				3E11BF456E104F5D749CB2DC /* View */,
 			);
 			path = ChopeArchitectureStudy;
 			sourceTree = "<group>";
@@ -103,6 +105,14 @@
 				5B7B6C9936D92B0EFB6E3060 /* Pods */,
 				570B22BBE65A1EB5FDF9FEA4 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		3E11BF456E104F5D749CB2DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		570B22BBE65A1EB5FDF9FEA4 /* Frameworks */ = {
@@ -151,6 +161,7 @@
 		3E11BE0B26331B07BBBCC37B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Chope;
 			};
 			buildConfigurationList = 3E11B5B83BB5C338F072E858 /* Build configuration list for PBXProject "ChopeArchitectureStudy" */;
@@ -175,7 +186,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E11B3385D6F7F7316998046 /* Info.plist in Resources */,
 				3E11B3C539A814A9B7D72F37 /* Assets.xcassets in Resources */,
 				3E11B3A8B92332C6FDE04EF6 /* LaunchScreen.storyboard in Resources */,
 				3E11BC5F273B0060FF5AD31D /* Main.storyboard in Resources */,
@@ -242,6 +252,7 @@
 				3E11B672B99A906D8E821ECE /* GithubUser.swift in Sources */,
 				3E11B4234C44A54508DDD362 /* GithubIssueModel.swift in Sources */,
 				3E11B2A38EC4F4DD80CABA88 /* GithubIssuesViewController.swift in Sources */,
+				3E11BAD32BB7E1FC4B8DCAEF /* IssueTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +414,7 @@
 				3E11B0946946D3482D7F0FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

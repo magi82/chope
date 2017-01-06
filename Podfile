@@ -5,4 +5,8 @@ target 'ChopeArchitectureStudy' do
   pod 'Alamofire'
   pod 'RealmSwift'
   pod 'SwiftyJSON'
+
+  pod 'Kingfisher'
+  pod 'XCGLogger'
+  pod 'BonMot'
 end

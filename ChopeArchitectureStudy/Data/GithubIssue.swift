@@ -8,6 +8,7 @@ import SwiftyJSON
 
 class GithubIssue: Object {
     dynamic var id = 0
+    dynamic var number = 0
     dynamic var title = ""
     dynamic var body = ""
     dynamic var user: GithubUser?
@@ -21,6 +22,7 @@ class GithubIssue: Object {
 
         let json = JSON(jsonObject)
         id = json["id"].int ?? 0
+        number = json["number"].int ?? 0
         title = json["title"].string ?? ""
         body = json["body"].string ?? ""
 
