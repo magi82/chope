@@ -59,7 +59,8 @@ class IssueTableViewCell: UITableViewCell {
         )
 
         titleLabel.attributedText = NSAttributedString.composed(of: [
-                "#\(id) ".styled(with: styleOfId),
+                "#\(id)".styled(with: styleOfId),
+                Tab.headIndent(10),
                 title.styled(with: styleOfTitle)
         ])
     }
