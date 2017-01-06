@@ -12,7 +12,7 @@ import UIKit
 class GithubIssuesViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
-    let model = GithubIssueModel(user: "JakeWharton", repo: "DiskLruCache")
+    let model = GithubIssueModel(user: "Alamofire", repo: "Alamofire")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,12 @@ extension GithubIssuesViewController: UITableViewDataSource {
         issueCell.id = issue.number
         issueCell.username = issue.user?.name
         issueCell.userImageURL = URL(string: issue.user?.avatarUrl ?? "")
+        issueCell.onTouchedUser = {
+            guard let user = issue.user, let url = URL(string: user.githubUrl) else {
+                return
+            }
+            UIApplication.shared.open(url)
+        }
         return issueCell
     }
 }

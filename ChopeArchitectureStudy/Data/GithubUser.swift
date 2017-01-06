@@ -10,6 +10,7 @@ class GithubUser: Object {
     dynamic var id = 0
     dynamic var name = ""
     dynamic var avatarUrl = ""
+    dynamic var githubUrl = ""
 
     override class func primaryKey() -> String? {
         return "id"
@@ -22,5 +23,6 @@ class GithubUser: Object {
         id = json["id"].int ?? 0
         name = json["login"].string ?? ""
         avatarUrl = json["avatar_url"].string ?? ""
+        githubUrl = json["html_url"].string ?? ""
     }
 }

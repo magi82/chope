@@ -28,21 +28,25 @@ class IssueTableViewCell: UITableViewCell {
 
     var userImageURL: URL? {
         didSet {
-            userImageView.kf.setImage(with: userImageURL, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+            userImageButton.kf.setImage(with: userImageURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
         }
     }
 
+    var onTouchedUser: (()->Void)?
+
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var userImageView: UIImageView!
+    @IBOutlet private weak var userImageButton: UIButton!
     @IBOutlet private weak var usernameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        userImageView.layer.cornerRadius = userImageView.bounds.midX
-        userImageView.layer.masksToBounds = true
-        userImageView.layer.borderColor = UIColor.lightGray.cgColor
-        userImageView.layer.borderWidth = 1.0
+        userImageButton.layer.cornerRadius = userImageButton.bounds.midX
+        userImageButton.layer.masksToBounds = true
+        userImageButton.layer.borderColor = UIColor.lightGray.cgColor
+        userImageButton.layer.borderWidth = 1.0
+
+        userImageButton.addTarget(self, action: #selector(onTouchedUserPhoto), for: .touchUpInside)
     }
 
     private func updateTitle() {
@@ -63,5 +67,9 @@ class IssueTableViewCell: UITableViewCell {
                 Tab.headIndent(10),
                 title.styled(with: styleOfTitle)
         ])
+    }
+
+    func onTouchedUserPhoto() {
+        onTouchedUser?()
     }
 }
