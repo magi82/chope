@@ -35,16 +35,11 @@ class IssueTableViewCell: UITableViewCell {
     var onTouchedUser: (()->Void)?
 
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var userImageButton: UIButton!
+    @IBOutlet private weak var userImageButton: UserThumbnailButton!
     @IBOutlet private weak var usernameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        userImageButton.layer.cornerRadius = userImageButton.bounds.midX
-        userImageButton.layer.masksToBounds = true
-        userImageButton.layer.borderColor = UIColor.lightGray.cgColor
-        userImageButton.layer.borderWidth = 1.0
 
         userImageButton.addTarget(self, action: #selector(onTouchedUserPhoto), for: .touchUpInside)
     }

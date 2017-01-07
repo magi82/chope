@@ -12,7 +12,7 @@ import UIKit
 class GithubIssuesViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
-    let model = GithubIssueModel(user: "Alamofire", repo: "Alamofire")
+    let model = GithubIssuesModel(user: "Alamofire", repo: "Alamofire")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +20,24 @@ class GithubIssuesViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
 
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues(_:)), name: GithubIssuesChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues(_:)), name: GithubIssuesModel.ChangedNotification, object: nil)
 
         model.load()
     }
+
+    override func prepare(`for` segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(`for`: segue, sender: sender)
+
+        guard let identifier = segue.identifier, identifier == "issueDetail",
+              let cell = sender as? UITableViewCell,
+              let indexPath = tableView.indexPath(for: cell),
+              let issue: GithubIssue = model.issues[indexPath.row],
+              let issueDetailVC = segue.destination as? GithubIssueDetailViewController
+        else { return }
+
+        issueDetailVC.issueModel = GithubIssueDetailModel(user: model.user, repo: model.repo, number: issue.number)
+    }
+
 
     func onChangedIssues(_ notification: Notification) {
         tableView.reloadData()

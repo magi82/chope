@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E11B133987EE690A53AFA3B /* GithubIssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B7DA61DA3934D340B01C /* GithubIssueDetailViewController.swift */; };
+		3E11B15447A6DF933917869A /* UserThumbnailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BE27AE6D288688837483 /* UserThumbnailButton.swift */; };
+		3E11B20F950C6DFFAD02E01B /* GithubIssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B330D6AC23B5E6537DE4 /* GithubIssueDetailModel.swift */; };
 		3E11B2A38EC4F4DD80CABA88 /* GithubIssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B941BAA8467CE7CB1299 /* GithubIssuesViewController.swift */; };
 		3E11B3A8B92332C6FDE04EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B7F9CD42F592C57719F1 /* LaunchScreen.storyboard */; };
 		3E11B3C539A814A9B7D72F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */; };
-		3E11B4234C44A54508DDD362 /* GithubIssueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9DB56CC802E49A60578 /* GithubIssueModel.swift */; };
+		3E11B4234C44A54508DDD362 /* GithubIssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9DB56CC802E49A60578 /* GithubIssuesModel.swift */; };
 		3E11B62AC2264B293B62AA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B907046A53462B8588BF /* AppDelegate.swift */; };
 		3E11B672B99A906D8E821ECE /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB61E2BC0D26E79241F2 /* GithubUser.swift */; };
 		3E11BAD32BB7E1FC4B8DCAEF /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */; };
@@ -26,13 +29,16 @@
 		3E11B0EBEDB6ABD5A7B75FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		3E11B10DC824A3904A880ED7 /* GithubIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssue.swift; sourceTree = "<group>"; };
 		3E11B22A1231514EC667941F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3E11B330D6AC23B5E6537DE4 /* GithubIssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueDetailModel.swift; sourceTree = "<group>"; };
 		3E11B33CC4B62CB3B2608C81 /* ChopeArchitectureStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChopeArchitectureStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3E11B7DA61DA3934D340B01C /* GithubIssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueDetailViewController.swift; sourceTree = "<group>"; };
 		3E11B907046A53462B8588BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E11B941BAA8467CE7CB1299 /* GithubIssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssuesViewController.swift; sourceTree = "<group>"; };
-		3E11B9DB56CC802E49A60578 /* GithubIssueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueModel.swift; sourceTree = "<group>"; };
+		3E11B9DB56CC802E49A60578 /* GithubIssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssuesModel.swift; sourceTree = "<group>"; };
 		3E11BB61E2BC0D26E79241F2 /* GithubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
 		3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
+		3E11BE27AE6D288688837483 /* UserThumbnailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserThumbnailButton.swift; sourceTree = "<group>"; };
 		3E11BEB2ABC1B2BAB50E30A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +66,8 @@
 		3E11B398B9E0EA033083C196 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3E11B9DB56CC802E49A60578 /* GithubIssueModel.swift */,
+				3E11B9DB56CC802E49A60578 /* GithubIssuesModel.swift */,
+				3E11B330D6AC23B5E6537DE4 /* GithubIssueDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -77,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				3E11B941BAA8467CE7CB1299 /* GithubIssuesViewController.swift */,
+				3E11B7DA61DA3934D340B01C /* GithubIssueDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */,
+				3E11BE27AE6D288688837483 /* UserThumbnailButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,9 +259,12 @@
 				3E11B62AC2264B293B62AA78 /* AppDelegate.swift in Sources */,
 				3E11BD1AC2C17B0746746F8D /* GithubIssue.swift in Sources */,
 				3E11B672B99A906D8E821ECE /* GithubUser.swift in Sources */,
-				3E11B4234C44A54508DDD362 /* GithubIssueModel.swift in Sources */,
+				3E11B4234C44A54508DDD362 /* GithubIssuesModel.swift in Sources */,
 				3E11B2A38EC4F4DD80CABA88 /* GithubIssuesViewController.swift in Sources */,
 				3E11BAD32BB7E1FC4B8DCAEF /* IssueTableViewCell.swift in Sources */,
+				3E11B20F950C6DFFAD02E01B /* GithubIssueDetailModel.swift in Sources */,
+				3E11B133987EE690A53AFA3B /* GithubIssueDetailViewController.swift in Sources */,
+				3E11B15447A6DF933917869A /* UserThumbnailButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
