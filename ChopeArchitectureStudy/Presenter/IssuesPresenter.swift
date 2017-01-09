@@ -20,8 +20,11 @@ class IssuesPresenter {
         NotificationCenter.default.removeObserver(self)
     }
 
-    func touchUserPhoto(atIndex: Int) {
-
+    func touchUserPhoto(atIndex index: Int) {
+        guard let urlString = model.issues[index].user?.photoUrl, let url = URL(string: urlString) else {
+            return
+        }
+        view.open(url: url)
     }
 
     func issues() {

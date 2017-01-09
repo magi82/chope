@@ -7,4 +7,5 @@ import Foundation
 
 protocol IssuesView {
     func set(issues: [Issue])
+    func open(url: URL)
 }

@@ -63,11 +63,8 @@ extension IssuesViewController: UITableViewDataSource {
 
         let issue = issues[indexPath.row]
         presenter.display(issue: issue, inView: cellView)
-        issueCell.onTouchedUser = {
-            guard let user = issue.user, let url = URL(string: user.profileUrl) else {
-                return
-            }
-            UIApplication.shared.open(url)
+        issueCell.onTouchedUser = { [weak self] in
+            self?.presenter.touchUserPhoto(atIndex: indexPath.row)
         }
         return issueCell
     }
@@ -80,5 +77,9 @@ extension IssuesViewController: UITableViewDelegate {
 extension IssuesViewController: IssuesView {
     func set(issues: [Issue]) {
         self.issues = issues
+    }
+
+    func open(url: URL) {
+        UIApplication.shared.open(url)
     }
 }
