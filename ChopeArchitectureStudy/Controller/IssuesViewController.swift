@@ -1,5 +1,5 @@
 //
-//  GithubIssuesViewController.swift
+//  IssuesViewController.swift
 //  ChopeArchitectureStudy
 //
 //  Created by Chope on 2017. 1. 5..
@@ -9,10 +9,10 @@
 import UIKit
 
 
-class GithubIssuesViewController: UIViewController {
+class IssuesViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
-    let model = GithubIssuesModel(user: "Alamofire", repo: "Alamofire")
+    let model = IssuesModel(user: "Alamofire", repo: "Alamofire")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class GithubIssuesViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
 
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues(_:)), name: GithubIssuesModel.ChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues(_:)), name: IssuesModel.ChangedNotification, object: nil)
 
         model.load()
     }
@@ -31,11 +31,11 @@ class GithubIssuesViewController: UIViewController {
         guard let identifier = segue.identifier, identifier == "issueDetail",
               let cell = sender as? UITableViewCell,
               let indexPath = tableView.indexPath(for: cell),
-              let issue: GithubIssue = model.issues[indexPath.row],
-              let issueDetailVC = segue.destination as? GithubIssueDetailViewController
+              let issue: Issue = model.issues[indexPath.row],
+              let issueDetailVC = segue.destination as? IssueDetailViewController
         else { return }
 
-        issueDetailVC.issueModel = GithubIssueDetailModel(user: model.user, repo: model.repo, number: issue.number)
+        issueDetailVC.issueModel = IssueDetailModel(user: model.user, repo: model.repo, number: issue.number)
     }
 
 
@@ -44,7 +44,7 @@ class GithubIssuesViewController: UIViewController {
     }
 }
 
-extension GithubIssuesViewController: UITableViewDataSource {
+extension IssuesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.issues.count
     }
@@ -54,13 +54,13 @@ extension GithubIssuesViewController: UITableViewDataSource {
             assertionFailure()
             return UITableViewCell()
         }
-        let issue: GithubIssue = model.issues[indexPath.row]
+        let issue: Issue = model.issues[indexPath.row]
         issueCell.title = issue.title
         issueCell.id = issue.number
         issueCell.username = issue.user?.name
-        issueCell.userImageURL = URL(string: issue.user?.avatarUrl ?? "")
+        issueCell.userImageURL = URL(string: issue.user?.photoUrl ?? "")
         issueCell.onTouchedUser = {
-            guard let user = issue.user, let url = URL(string: user.githubUrl) else {
+            guard let user = issue.user, let url = URL(string: user.profileUrl) else {
                 return
             }
             UIApplication.shared.open(url)
@@ -69,6 +69,6 @@ extension GithubIssuesViewController: UITableViewDataSource {
     }
 }
 
-extension GithubIssuesViewController: UITableViewDelegate {
+extension IssuesViewController: UITableViewDelegate {
 
 }

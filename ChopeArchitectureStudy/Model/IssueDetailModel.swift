@@ -7,14 +7,14 @@ import Foundation
 import Alamofire
 import XCGLogger
 
-class GithubIssueDetailModel {
+class IssueDetailModel {
     static let ChangedNotification: Notification.Name = Notification.Name("githubIssueDetailChanged")
 
     private let user: String
     private let repo: String
     private let number: Int
 
-    private(set) var issue: GithubIssue = GithubIssue()
+    private(set) var issue: Issue = Issue()
 
     init(user: String, repo: String, number: Int) {
         self.user = user
@@ -27,7 +27,7 @@ class GithubIssueDetailModel {
         XCGLogger.default.info(issueEndpoint)
         Alamofire.request(issueEndpoint).responseJSON { response in
                     if let json = response.result.value as? [String: AnyObject] {
-                        self.issue = GithubIssue(json: json)
+                        self.issue = Issue(json: json)
 
                         NotificationCenter.default.post(name: type(of: self).ChangedNotification, object: self)
                     }

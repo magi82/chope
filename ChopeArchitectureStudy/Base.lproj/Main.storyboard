@@ -28,7 +28,7 @@
         <!--Issues-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="GithubIssuesViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="IssuesViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -113,7 +113,7 @@
         <!--Github Issue Detail View Controller-->
         <scene sceneID="Cdl-4N-Ufb">
             <objects>
-                <viewController id="wmD-XK-esz" customClass="GithubIssueDetailViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wmD-XK-esz" customClass="IssueDetailViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fLr-7r-A8A"/>
                         <viewControllerLayoutGuide type="bottom" id="R4D-wa-vcM"/>

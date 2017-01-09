@@ -6,11 +6,11 @@
 import RealmSwift
 import SwiftyJSON
 
-class GithubUser: Object {
+class User: Object {
     dynamic var id = 0
     dynamic var name = ""
-    dynamic var avatarUrl = ""
-    dynamic var githubUrl = ""
+    dynamic var photoUrl = ""
+    dynamic var profileUrl = ""
 
     override class func primaryKey() -> String? {
         return "id"
@@ -22,7 +22,7 @@ class GithubUser: Object {
         let json = JSON(jsonObject)
         id = json["id"].int ?? 0
         name = json["login"].string ?? ""
-        avatarUrl = json["avatar_url"].string ?? ""
-        githubUrl = json["html_url"].string ?? ""
+        photoUrl = json["avatar_url"].string ?? ""
+        profileUrl = json["html_url"].string ?? ""
     }
 }

@@ -6,12 +6,12 @@
 import RealmSwift
 import SwiftyJSON
 
-class GithubIssue: Object {
+class Issue: Object {
     dynamic var id = 0
     dynamic var number = 0
     dynamic var title = ""
     dynamic var body = ""
-    dynamic var user: GithubUser?
+    dynamic var user: User?
 
     override class func primaryKey() -> String? {
         return "id"
@@ -27,7 +27,7 @@ class GithubIssue: Object {
         body = json["body"].string ?? ""
 
         if let userObject = jsonObject["user"] as? [String: AnyObject] {
-            user = GithubUser(json: userObject)
+            user = User(json: userObject)
         }
     }
 }

@@ -7,13 +7,13 @@ import Foundation
 import Alamofire
 import XCGLogger
 
-class GithubIssuesModel {
+class IssuesModel {
     static let ChangedNotification: Notification.Name = Notification.Name("githubIssuesChanged")
 
     let user: String
     let repo: String
 
-    private(set) var issues: [GithubIssue] = []
+    private(set) var issues: [Issue] = []
 
     init(user: String, repo: String) {
         self.user = user
@@ -28,7 +28,7 @@ class GithubIssuesModel {
                         self.issues = []
 
                         json.forEach { issueJson in
-                            self.issues.append(GithubIssue(json: issueJson))
+                            self.issues.append(Issue(json: issueJson))
                         }
 
                         NotificationCenter.default.post(name: type(of: self).ChangedNotification, object: self)

@@ -7,8 +7,8 @@ import UIKit
 import Kingfisher
 import BonMot
 
-class GithubIssueDetailViewController: UIViewController {
-    var issueModel: GithubIssueDetailModel!
+class IssueDetailViewController: UIViewController {
+    var issueModel: IssueDetailModel!
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var bodyTextView: UITextView!
@@ -21,7 +21,7 @@ class GithubIssueDetailViewController: UIViewController {
         bodyTextView.contentInset = UIEdgeInsets()
         bodyTextView.textContainerInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangeIssue), name: GithubIssueDetailModel.ChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangeIssue), name: IssueDetailModel.ChangedNotification, object: nil)
 
         assert(issueModel != nil)
         issueModel.load()
@@ -46,7 +46,7 @@ class GithubIssueDetailViewController: UIViewController {
         guard let user = issue.user else { return }
         usernameLabel.text = user.name
 
-        if let userImageUrl = URL(string: user.avatarUrl) {
+        if let userImageUrl = URL(string: user.photoUrl) {
             userImageButton.kf.setImage(with: userImageUrl, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
         }
     }
