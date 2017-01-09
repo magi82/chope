@@ -1,5 +1,5 @@
 //
-// Created by Chope on 2017. 1. 5..
+// Created by Chope on 2017. 1. 10..
 // Copyright (c) 2017 Chope. All rights reserved.
 //
 
@@ -7,32 +7,14 @@ import Foundation
 import Alamofire
 import XCGLogger
 
-class IssuesModel {
-    static let ChangedNotification: Notification.Name = Notification.Name("githubIssuesChanged")
+protocol IssuesModel {
+    var issues: [Issue] { get set }
 
-    let user: String
-    let repo: String
+    func load()
+}
 
-    private(set) var issues: [Issue] = []
-
-    init(user: String, repo: String) {
-        self.user = user
-        self.repo = repo
-    }
-
-    func load() {
-        let issueEndpoint = "https://api.github.com/repos/\(user)/\(repo)/issues"
-        XCGLogger.default.info(issueEndpoint)
-        Alamofire.request(issueEndpoint).responseJSON { response in
-                    if let json = response.result.value as? [[String: AnyObject]] {
-                        self.issues = []
-
-                        json.forEach { issueJson in
-                            self.issues.append(Issue(json: issueJson))
-                        }
-
-                        NotificationCenter.default.post(name: type(of: self).ChangedNotification, object: self)
-                    }
-                }
+extension IssuesModel {
+    func postNotification() {
+        NotificationCenter.default.post(name: Notification.Name.changedIssues, object: nil)
     }
 }

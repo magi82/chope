@@ -8,35 +8,14 @@ import Kingfisher
 import BonMot
 
 class IssueTableViewCell: UITableViewCell {
-    var id: Int = 0 {
-        didSet {
-            updateTitle()
-        }
-    }
-
-    var title: String? {
-        didSet {
-            updateTitle()
-        }
-    }
-
-    var username: String? {
-        didSet {
-            usernameLabel.text = username
-        }
-    }
-
-    var userImageURL: URL? {
-        didSet {
-            userImageButton.kf.setImage(with: userImageURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
-        }
-    }
-
     var onTouchedUser: (()->Void)?
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var userImageButton: UserThumbnailButton!
-    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet fileprivate weak var titleLabel: UILabel!
+    @IBOutlet fileprivate weak var userImageButton: UserThumbnailButton!
+    @IBOutlet fileprivate weak var usernameLabel: UILabel!
+
+    fileprivate var title: String?
+    fileprivate var number: String = ""
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,7 +23,7 @@ class IssueTableViewCell: UITableViewCell {
         userImageButton.addTarget(self, action: #selector(onTouchedUserPhoto), for: .touchUpInside)
     }
 
-    private func updateTitle() {
+    fileprivate func updateTitle() {
         guard let title = title else {
             titleLabel.text = nil
             return
@@ -58,7 +37,7 @@ class IssueTableViewCell: UITableViewCell {
         )
 
         titleLabel.attributedText = NSAttributedString.composed(of: [
-                "#\(id)".styled(with: styleOfId),
+                "#\(number)".styled(with: styleOfId),
                 Tab.headIndent(10),
                 title.styled(with: styleOfTitle)
         ])
@@ -66,5 +45,25 @@ class IssueTableViewCell: UITableViewCell {
 
     func onTouchedUserPhoto() {
         onTouchedUser?()
+    }
+}
+
+extension IssueTableViewCell: IssuesCellView {
+    func set(title: String) {
+        self.title = title
+        updateTitle()
+    }
+
+    func set(number: String) {
+        self.number = number
+        updateTitle()
+    }
+
+    func set(username: String?) {
+        usernameLabel.text = username
+    }
+
+    func set(userPhotoURL: URL?) {
+        userImageButton.kf.setImage(with: userPhotoURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
     }
 }

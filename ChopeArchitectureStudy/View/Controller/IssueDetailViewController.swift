@@ -8,7 +8,7 @@ import Kingfisher
 import BonMot
 
 class IssueDetailViewController: UIViewController {
-    var issueModel: IssueDetailModel!
+    var issueModel: GithubIssueDetailModel!
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var bodyTextView: UITextView!
@@ -21,7 +21,7 @@ class IssueDetailViewController: UIViewController {
         bodyTextView.contentInset = UIEdgeInsets()
         bodyTextView.textContainerInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangeIssue), name: IssueDetailModel.ChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangeIssue), name: GithubIssueDetailModel.ChangedNotification, object: nil)
 
         assert(issueModel != nil)
         issueModel.load()

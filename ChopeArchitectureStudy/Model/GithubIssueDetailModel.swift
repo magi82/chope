@@ -7,7 +7,7 @@ import Foundation
 import Alamofire
 import XCGLogger
 
-class IssueDetailModel {
+class GithubIssueDetailModel {
     static let ChangedNotification: Notification.Name = Notification.Name("githubIssueDetailChanged")
 
     private let user: String
