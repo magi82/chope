@@ -14,6 +14,7 @@ class UserThumbnailButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
+        backgroundColor = UIColor.lightGray
         layer.cornerRadius = bounds.midX
         layer.masksToBounds = true
         layer.borderColor = UIColor.lightGray.cgColor

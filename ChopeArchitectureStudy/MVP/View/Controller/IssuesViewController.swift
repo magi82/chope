@@ -44,7 +44,7 @@ class IssuesViewController: UIViewController {
               let issueDetailVC = segue.destination as? IssueDetailViewController
         else { return }
 
-//        issueDetailVC.issueModel = GithubIssueDetailModel(user: model.user, repo: model.repo, number: issue.number)
+        issueDetailVC.presenter = presenter.detailPresenter(index: indexPath.row)
     }
 }
 

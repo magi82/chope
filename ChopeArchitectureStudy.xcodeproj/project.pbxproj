@@ -7,23 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E11B110041A6539DF8557BA /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BF387790638E226AD5DA /* IssueDetailViewController.swift */; };
-		3E11B15447A6DF933917869A /* UserThumbnailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BE27AE6D288688837483 /* UserThumbnailButton.swift */; };
-		3E11B20F950C6DFFAD02E01B /* GithubIssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B330D6AC23B5E6537DE4 /* GithubIssueDetailModel.swift */; };
 		3E11B2BCBA54CEA6D32FD584 /* IssuesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B43A7A48432892B701C2 /* IssuesCellView.swift */; };
+		3E11B36286E609400DCC9996 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BDD60CA25886C708A6F2 /* NotificationNames.swift */; };
 		3E11B3A8B92332C6FDE04EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B7F9CD42F592C57719F1 /* LaunchScreen.storyboard */; };
 		3E11B3C539A814A9B7D72F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */; };
-		3E11B4234C44A54508DDD362 /* GithubIssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9DB56CC802E49A60578 /* GithubIssuesModel.swift */; };
+		3E11B41726314131A1C04AC4 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B6E104D4AA408323F915 /* IssueDetailViewController.swift */; };
+		3E11B42BF8D85F60E8AA5058 /* IssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B269AA5D28E66E21D8BC /* IssuesModel.swift */; };
+		3E11B4FD62D35C2A536344F5 /* IssueDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B7CCCD4759EC9D15A116 /* IssueDetailView.swift */; };
+		3E11B589CD021B3BEC75DBF2 /* IssueDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B8FBE3EEB7C5DCAA839F /* IssueDetailPresenter.swift */; };
 		3E11B62AC2264B293B62AA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B907046A53462B8588BF /* AppDelegate.swift */; };
 		3E11B672B99A906D8E821ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB61E2BC0D26E79241F2 /* User.swift */; };
+		3E11B782F9936EAC79C2AF64 /* UserThumbnailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BD08E87EDC31411C378B /* UserThumbnailButton.swift */; };
 		3E11B88B5FBDC93C9D94301F /* IssuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9EE8D6C08A95428B605 /* IssuesView.swift */; };
-		3E11BAD32BB7E1FC4B8DCAEF /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */; };
-		3E11BB62342DA771487FF112 /* IssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B5BC4823D41403AF310C /* IssuesModel.swift */; };
-		3E11BC20934F02AA8D164E5D /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B244E37A2E807DB097A4 /* NotificationNames.swift */; };
+		3E11BA8709C0466C3A9EFA7E /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BE449E89C4C3D74FAA3B /* IssuesViewController.swift */; };
+		3E11BB4B71F31851DCCD09EC /* IssuesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B2C3175A368EB91D2660 /* IssuesPresenter.swift */; };
+		3E11BBECE3A4CCBDFA3C7349 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B51B09133953A2866738 /* IssueTableViewCell.swift */; };
 		3E11BC5F273B0060FF5AD31D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11BA455E1F2A867C6D4459 /* Main.storyboard */; };
-		3E11BCF24E67F05BF8C90B7B /* IssuesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BDF7CB90C7AC10CC70B8 /* IssuesPresenter.swift */; };
 		3E11BD1AC2C17B0746746F8D /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B10DC824A3904A880ED7 /* Issue.swift */; };
-		3E11BE3C13BEA7C66A1CE006 /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B79B5F26B40F84DCB9C9 /* IssuesViewController.swift */; };
+		3E11BDA44F34AE53ED379B7C /* GithubIssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BF63AB184739911665DA /* GithubIssueDetailModel.swift */; };
+		3E11BE255C2944056D17D365 /* GithubIssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BCDB39808977508AD018 /* GithubIssuesModel.swift */; };
+		3E11BE94D688A9B455E0064D /* IssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */; };
 		D54A087099DE0D3431495B60 /* Pods_ChopeArchitectureStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E5F9090C95D2CB0D0E819A /* Pods_ChopeArchitectureStudy.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,23 +36,26 @@
 		33D3ACE51D34411E28D7BCDE /* Pods-ChopeArchitectureStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChopeArchitectureStudy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChopeArchitectureStudy/Pods-ChopeArchitectureStudy.release.xcconfig"; sourceTree = "<group>"; };
 		3E11B0EBEDB6ABD5A7B75FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		3E11B10DC824A3904A880ED7 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailModel.swift; sourceTree = "<group>"; };
 		3E11B22A1231514EC667941F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3E11B244E37A2E807DB097A4 /* NotificationNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
-		3E11B330D6AC23B5E6537DE4 /* GithubIssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueDetailModel.swift; sourceTree = "<group>"; };
+		3E11B269AA5D28E66E21D8BC /* IssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesModel.swift; sourceTree = "<group>"; };
+		3E11B2C3175A368EB91D2660 /* IssuesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesPresenter.swift; sourceTree = "<group>"; };
 		3E11B33CC4B62CB3B2608C81 /* ChopeArchitectureStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChopeArchitectureStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E11B43A7A48432892B701C2 /* IssuesCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesCellView.swift; sourceTree = "<group>"; };
-		3E11B5BC4823D41403AF310C /* IssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesModel.swift; sourceTree = "<group>"; };
+		3E11B51B09133953A2866738 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3E11B79B5F26B40F84DCB9C9 /* IssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesViewController.swift; sourceTree = "<group>"; };
+		3E11B6E104D4AA408323F915 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		3E11B7CCCD4759EC9D15A116 /* IssueDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailView.swift; sourceTree = "<group>"; };
+		3E11B8FBE3EEB7C5DCAA839F /* IssueDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailPresenter.swift; sourceTree = "<group>"; };
 		3E11B907046A53462B8588BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3E11B9DB56CC802E49A60578 /* GithubIssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssuesModel.swift; sourceTree = "<group>"; };
 		3E11B9EE8D6C08A95428B605 /* IssuesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesView.swift; sourceTree = "<group>"; };
 		3E11BB61E2BC0D26E79241F2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
-		3E11BDF7CB90C7AC10CC70B8 /* IssuesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesPresenter.swift; sourceTree = "<group>"; };
-		3E11BE27AE6D288688837483 /* UserThumbnailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserThumbnailButton.swift; sourceTree = "<group>"; };
+		3E11BCDB39808977508AD018 /* GithubIssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssuesModel.swift; sourceTree = "<group>"; };
+		3E11BD08E87EDC31411C378B /* UserThumbnailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserThumbnailButton.swift; sourceTree = "<group>"; };
+		3E11BDD60CA25886C708A6F2 /* NotificationNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		3E11BE449E89C4C3D74FAA3B /* IssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesViewController.swift; sourceTree = "<group>"; };
 		3E11BEB2ABC1B2BAB50E30A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3E11BF387790638E226AD5DA /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		3E11BF63AB184739911665DA /* GithubIssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,20 +79,22 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		3E11B29B969DB423EA62179F /* Presenter */ = {
+		3E11B0BFE740358254ACC58C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3E11BDF7CB90C7AC10CC70B8 /* IssuesPresenter.swift */,
+				3E11B6E104D4AA408323F915 /* IssueDetailViewController.swift */,
+				3E11BE449E89C4C3D74FAA3B /* IssuesViewController.swift */,
 			);
-			path = Presenter;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		3E11B398B9E0EA033083C196 /* Model */ = {
+		3E11B377624922E1E0D4D239 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3E11B9DB56CC802E49A60578 /* GithubIssuesModel.swift */,
-				3E11B330D6AC23B5E6537DE4 /* GithubIssueDetailModel.swift */,
-				3E11B5BC4823D41403AF310C /* IssuesModel.swift */,
+				3E11BCDB39808977508AD018 /* GithubIssuesModel.swift */,
+				3E11BF63AB184739911665DA /* GithubIssueDetailModel.swift */,
+				3E11B269AA5D28E66E21D8BC /* IssuesModel.swift */,
+				3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -96,8 +104,19 @@
 			children = (
 				3E11B43A7A48432892B701C2 /* IssuesCellView.swift */,
 				3E11B9EE8D6C08A95428B605 /* IssuesView.swift */,
+				3E11B7CCCD4759EC9D15A116 /* IssueDetailView.swift */,
+				3E11B0BFE740358254ACC58C /* Controller */,
+				3E11B9E35CD84C77CF974DB3 /* View */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3E11B634DC6DB879661A9565 /* ETC */ = {
+			isa = PBXGroup;
+			children = (
+				3E11BDD60CA25886C708A6F2 /* NotificationNames.swift */,
+			);
+			path = ETC;
 			sourceTree = "<group>";
 		};
 		3E11B6E833F43BE87F416E96 /* Products */ = {
@@ -106,6 +125,15 @@
 				3E11B33CC4B62CB3B2608C81 /* ChopeArchitectureStudy.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3E11B8064083BBC6F51312A6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3E11B2C3175A368EB91D2660 /* IssuesPresenter.swift */,
+				3E11B8FBE3EEB7C5DCAA839F /* IssueDetailPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		3E11B80E54BAC23E3E8E4EDF /* ChopeArchitectureStudy */ = {
@@ -117,21 +145,19 @@
 				3E11B907046A53462B8588BF /* AppDelegate.swift */,
 				3E11BA455E1F2A867C6D4459 /* Main.storyboard */,
 				3E11B032853FA444FF60A2C2 /* Data */,
-				3E11B398B9E0EA033083C196 /* Model */,
-				3E11BF456E104F5D749CB2DC /* View */,
-				3E11B29B969DB423EA62179F /* Presenter */,
-				3E11B244E37A2E807DB097A4 /* NotificationNames.swift */,
+				3E11BF456E104F5D749CB2DC /* MVP */,
+				3E11B634DC6DB879661A9565 /* ETC */,
 			);
 			path = ChopeArchitectureStudy;
 			sourceTree = "<group>";
 		};
-		3E11BA4C33CFE641982DEEED /* Controller */ = {
+		3E11B9E35CD84C77CF974DB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3E11BF387790638E226AD5DA /* IssueDetailViewController.swift */,
-				3E11B79B5F26B40F84DCB9C9 /* IssuesViewController.swift */,
+				3E11BD08E87EDC31411C378B /* UserThumbnailButton.swift */,
+				3E11B51B09133953A2866738 /* IssueTableViewCell.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		3E11BBFC7C70D6E7B80234A9 = {
@@ -144,15 +170,14 @@
 			);
 			sourceTree = "<group>";
 		};
-		3E11BF456E104F5D749CB2DC /* View */ = {
+		3E11BF456E104F5D749CB2DC /* MVP */ = {
 			isa = PBXGroup;
 			children = (
-				3E11BB8A165976EA4DB79A25 /* IssueTableViewCell.swift */,
-				3E11BE27AE6D288688837483 /* UserThumbnailButton.swift */,
-				3E11BA4C33CFE641982DEEED /* Controller */,
 				3E11B5A06ED0060A6FBB3B3C /* View */,
+				3E11B8064083BBC6F51312A6 /* Presenter */,
+				3E11B377624922E1E0D4D239 /* Model */,
 			);
-			path = View;
+			path = MVP;
 			sourceTree = "<group>";
 		};
 		570B22BBE65A1EB5FDF9FEA4 /* Frameworks */ = {
@@ -290,17 +315,20 @@
 				3E11B62AC2264B293B62AA78 /* AppDelegate.swift in Sources */,
 				3E11BD1AC2C17B0746746F8D /* Issue.swift in Sources */,
 				3E11B672B99A906D8E821ECE /* User.swift in Sources */,
-				3E11B4234C44A54508DDD362 /* GithubIssuesModel.swift in Sources */,
-				3E11BAD32BB7E1FC4B8DCAEF /* IssueTableViewCell.swift in Sources */,
-				3E11B20F950C6DFFAD02E01B /* GithubIssueDetailModel.swift in Sources */,
-				3E11B15447A6DF933917869A /* UserThumbnailButton.swift in Sources */,
-				3E11BCF24E67F05BF8C90B7B /* IssuesPresenter.swift in Sources */,
-				3E11BB62342DA771487FF112 /* IssuesModel.swift in Sources */,
-				3E11B110041A6539DF8557BA /* IssueDetailViewController.swift in Sources */,
-				3E11BE3C13BEA7C66A1CE006 /* IssuesViewController.swift in Sources */,
 				3E11B2BCBA54CEA6D32FD584 /* IssuesCellView.swift in Sources */,
 				3E11B88B5FBDC93C9D94301F /* IssuesView.swift in Sources */,
-				3E11BC20934F02AA8D164E5D /* NotificationNames.swift in Sources */,
+				3E11B4FD62D35C2A536344F5 /* IssueDetailView.swift in Sources */,
+				3E11BB4B71F31851DCCD09EC /* IssuesPresenter.swift in Sources */,
+				3E11B589CD021B3BEC75DBF2 /* IssueDetailPresenter.swift in Sources */,
+				3E11BE255C2944056D17D365 /* GithubIssuesModel.swift in Sources */,
+				3E11BDA44F34AE53ED379B7C /* GithubIssueDetailModel.swift in Sources */,
+				3E11B42BF8D85F60E8AA5058 /* IssuesModel.swift in Sources */,
+				3E11BE94D688A9B455E0064D /* IssueDetailModel.swift in Sources */,
+				3E11B41726314131A1C04AC4 /* IssueDetailViewController.swift in Sources */,
+				3E11BA8709C0466C3A9EFA7E /* IssuesViewController.swift in Sources */,
+				3E11B36286E609400DCC9996 /* NotificationNames.swift in Sources */,
+				3E11B782F9936EAC79C2AF64 /* UserThumbnailButton.swift in Sources */,
+				3E11BBECE3A4CCBDFA3C7349 /* IssueTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

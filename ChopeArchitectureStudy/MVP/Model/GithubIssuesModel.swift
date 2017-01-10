@@ -18,10 +18,6 @@ class GithubIssuesModel: IssuesModel {
         self.repo = repo
     }
 
-    class func notificationNameOfChangedIssues() -> Notification.Name {
-        return Notification.Name("githubIssuesChanged")
-    }
-
     func load() {
         let issueEndpoint = "https://api.github.com/repos/\(user)/\(repo)/issues"
         XCGLogger.default.info(issueEndpoint)
@@ -36,5 +32,10 @@ class GithubIssuesModel: IssuesModel {
                         self.postNotification()
                     }
                 }
+    }
+
+    func detailModel(index: Int) -> IssueDetailModel {
+        let issue = issues[index]
+        return GithubIssueDetailModel(user: user, repo: repo, number: issue.number)
     }
 }

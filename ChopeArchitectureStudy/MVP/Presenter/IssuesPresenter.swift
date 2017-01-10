@@ -41,4 +41,8 @@ class IssuesPresenter {
         cellView.set(username: issue.user?.name)
         cellView.set(userPhotoURL: URL(string: issue.user?.photoUrl ?? ""))
     }
+
+    func detailPresenter(index: Int) -> IssueDetailPresenter {
+        return IssueDetailPresenter(model: model.detailModel(index: index))
+    }
 }

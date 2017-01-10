@@ -11,6 +11,7 @@ protocol IssuesModel {
     var issues: [Issue] { get set }
 
     func load()
+    func detailModel(index: Int) -> IssueDetailModel
 }
 
 extension IssuesModel {

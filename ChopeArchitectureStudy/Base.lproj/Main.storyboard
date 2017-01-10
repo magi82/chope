@@ -45,7 +45,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vxj-lD-kHc" id="qeM-zZ-Eht">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uec-v7-dmb">
@@ -110,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="240.80000000000001" y="123.68815592203899"/>
         </scene>
-        <!--Github Issue Detail View Controller-->
+        <!--Issue Detail View Controller-->
         <scene sceneID="Cdl-4N-Ufb">
             <objects>
                 <viewController id="wmD-XK-esz" customClass="IssueDetailViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,7 +128,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OQ-rM-kGT">
                                         <rect key="frame" x="70" y="28.5" width="35.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWJ-pK-Dgf" customClass="UserThumbnailButton" customModule="ChopeArchitectureStudy" customModuleProvider="target">
@@ -138,14 +137,23 @@
                                             <constraint firstAttribute="width" constant="50" id="KyJ-L7-ImA"/>
                                         </constraints>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2QL-m1-LN6">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="jiO-Gn-xWW"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="2QL-m1-LN6" firstAttribute="top" secondItem="cCh-Bm-hXI" secondAttribute="top" id="0Dh-8f-7bM"/>
                                     <constraint firstItem="7OQ-rM-kGT" firstAttribute="centerY" secondItem="bWJ-pK-Dgf" secondAttribute="centerY" id="36I-KE-6bN"/>
+                                    <constraint firstAttribute="trailing" secondItem="2QL-m1-LN6" secondAttribute="trailing" id="Kav-A5-xOV"/>
                                     <constraint firstAttribute="height" constant="74" id="V7t-Ps-VZD"/>
                                     <constraint firstItem="bWJ-pK-Dgf" firstAttribute="centerY" secondItem="cCh-Bm-hXI" secondAttribute="centerY" id="YKf-sn-eZB"/>
                                     <constraint firstItem="bWJ-pK-Dgf" firstAttribute="leading" secondItem="cCh-Bm-hXI" secondAttribute="leading" constant="12" id="hkK-yR-phl"/>
                                     <constraint firstItem="7OQ-rM-kGT" firstAttribute="leading" secondItem="bWJ-pK-Dgf" secondAttribute="trailing" constant="8" id="vI2-Ru-v0t"/>
+                                    <constraint firstItem="2QL-m1-LN6" firstAttribute="leading" secondItem="cCh-Bm-hXI" secondAttribute="leading" id="yI4-QC-W7W"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxY-w5-3F8">
@@ -178,6 +186,7 @@
                     <connections>
                         <outlet property="bodyTextView" destination="Mwc-GH-hnd" id="qbN-94-KVe"/>
                         <outlet property="titleLabel" destination="qxY-w5-3F8" id="HwR-bS-GNF"/>
+                        <outlet property="topBorderViewHeightConstraint" destination="jiO-Gn-xWW" id="6Gm-fY-Vvm"/>
                         <outlet property="userImageButton" destination="bWJ-pK-Dgf" id="EHB-uc-Ron"/>
                         <outlet property="usernameLabel" destination="7OQ-rM-kGT" id="LeG-yc-EAO"/>
                     </connections>
