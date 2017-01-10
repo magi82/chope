@@ -7,19 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E11B29673B09DE7CDE2C548 /* RepositoryServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BF48D2A13A61D0A784D0 /* RepositoryServicesPresenter.swift */; };
 		3E11B2BCBA54CEA6D32FD584 /* IssuesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B43A7A48432892B701C2 /* IssuesCellView.swift */; };
+		3E11B2FA2ACD6B8B8D7CEB4F /* BitbucketIssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B22576E55439B3D1E52B /* BitbucketIssueDetailModel.swift */; };
 		3E11B36286E609400DCC9996 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BDD60CA25886C708A6F2 /* NotificationNames.swift */; };
+		3E11B369AD99C2A5BB34DCC5 /* BitbucketIssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B2CF93C7F31D24B61C0F /* BitbucketIssuesModel.swift */; };
 		3E11B3A8B92332C6FDE04EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B7F9CD42F592C57719F1 /* LaunchScreen.storyboard */; };
 		3E11B3C539A814A9B7D72F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */; };
 		3E11B41726314131A1C04AC4 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B6E104D4AA408323F915 /* IssueDetailViewController.swift */; };
 		3E11B42BF8D85F60E8AA5058 /* IssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B269AA5D28E66E21D8BC /* IssuesModel.swift */; };
 		3E11B4FD62D35C2A536344F5 /* IssueDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B7CCCD4759EC9D15A116 /* IssueDetailView.swift */; };
 		3E11B589CD021B3BEC75DBF2 /* IssueDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B8FBE3EEB7C5DCAA839F /* IssueDetailPresenter.swift */; };
+		3E11B5EA5623B0E2B4112A20 /* RepositoryServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B306963515FE3BACC1F7 /* RepositoryServicesView.swift */; };
 		3E11B62AC2264B293B62AA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B907046A53462B8588BF /* AppDelegate.swift */; };
 		3E11B672B99A906D8E821ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB61E2BC0D26E79241F2 /* User.swift */; };
 		3E11B782F9936EAC79C2AF64 /* UserThumbnailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BD08E87EDC31411C378B /* UserThumbnailButton.swift */; };
+		3E11B7FF1593C644C52A1BA9 /* RepositoryServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B6D9CACC116DE2645574 /* RepositoryServicesViewController.swift */; };
 		3E11B88B5FBDC93C9D94301F /* IssuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9EE8D6C08A95428B605 /* IssuesView.swift */; };
+		3E11B9CE5E3510EB96337617 /* DataFromJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B170072EE03D2A420AD4 /* DataFromJson.swift */; };
 		3E11BA8709C0466C3A9EFA7E /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BE449E89C4C3D74FAA3B /* IssuesViewController.swift */; };
+		3E11BAF5D6EE405B70FD7003 /* RepositoryServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB2D6ED33286ABC39C32 /* RepositoryServicesModel.swift */; };
 		3E11BB4B71F31851DCCD09EC /* IssuesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B2C3175A368EB91D2660 /* IssuesPresenter.swift */; };
 		3E11BBECE3A4CCBDFA3C7349 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B51B09133953A2866738 /* IssueTableViewCell.swift */; };
 		3E11BC5F273B0060FF5AD31D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11BA455E1F2A867C6D4459 /* Main.storyboard */; };
@@ -36,25 +43,32 @@
 		33D3ACE51D34411E28D7BCDE /* Pods-ChopeArchitectureStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChopeArchitectureStudy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChopeArchitectureStudy/Pods-ChopeArchitectureStudy.release.xcconfig"; sourceTree = "<group>"; };
 		3E11B0EBEDB6ABD5A7B75FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		3E11B10DC824A3904A880ED7 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		3E11B170072EE03D2A420AD4 /* DataFromJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFromJson.swift; sourceTree = "<group>"; };
 		3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailModel.swift; sourceTree = "<group>"; };
+		3E11B22576E55439B3D1E52B /* BitbucketIssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitbucketIssueDetailModel.swift; sourceTree = "<group>"; };
 		3E11B22A1231514EC667941F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E11B269AA5D28E66E21D8BC /* IssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesModel.swift; sourceTree = "<group>"; };
 		3E11B2C3175A368EB91D2660 /* IssuesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesPresenter.swift; sourceTree = "<group>"; };
+		3E11B2CF93C7F31D24B61C0F /* BitbucketIssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitbucketIssuesModel.swift; sourceTree = "<group>"; };
+		3E11B306963515FE3BACC1F7 /* RepositoryServicesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryServicesView.swift; sourceTree = "<group>"; };
 		3E11B33CC4B62CB3B2608C81 /* ChopeArchitectureStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChopeArchitectureStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E11B43A7A48432892B701C2 /* IssuesCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesCellView.swift; sourceTree = "<group>"; };
 		3E11B51B09133953A2866738 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3E11B6D9CACC116DE2645574 /* RepositoryServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryServicesViewController.swift; sourceTree = "<group>"; };
 		3E11B6E104D4AA408323F915 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		3E11B7CCCD4759EC9D15A116 /* IssueDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailView.swift; sourceTree = "<group>"; };
 		3E11B8FBE3EEB7C5DCAA839F /* IssueDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailPresenter.swift; sourceTree = "<group>"; };
 		3E11B907046A53462B8588BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E11B9EE8D6C08A95428B605 /* IssuesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesView.swift; sourceTree = "<group>"; };
+		3E11BB2D6ED33286ABC39C32 /* RepositoryServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryServicesModel.swift; sourceTree = "<group>"; };
 		3E11BB61E2BC0D26E79241F2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3E11BCDB39808977508AD018 /* GithubIssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssuesModel.swift; sourceTree = "<group>"; };
 		3E11BD08E87EDC31411C378B /* UserThumbnailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserThumbnailButton.swift; sourceTree = "<group>"; };
 		3E11BDD60CA25886C708A6F2 /* NotificationNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		3E11BE449E89C4C3D74FAA3B /* IssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesViewController.swift; sourceTree = "<group>"; };
 		3E11BEB2ABC1B2BAB50E30A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3E11BF48D2A13A61D0A784D0 /* RepositoryServicesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryServicesPresenter.swift; sourceTree = "<group>"; };
 		3E11BF63AB184739911665DA /* GithubIssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +89,7 @@
 			children = (
 				3E11B10DC824A3904A880ED7 /* Issue.swift */,
 				3E11BB61E2BC0D26E79241F2 /* User.swift */,
+				3E11B170072EE03D2A420AD4 /* DataFromJson.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -84,6 +99,7 @@
 			children = (
 				3E11B6E104D4AA408323F915 /* IssueDetailViewController.swift */,
 				3E11BE449E89C4C3D74FAA3B /* IssuesViewController.swift */,
+				3E11B6D9CACC116DE2645574 /* RepositoryServicesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +111,9 @@
 				3E11BF63AB184739911665DA /* GithubIssueDetailModel.swift */,
 				3E11B269AA5D28E66E21D8BC /* IssuesModel.swift */,
 				3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */,
+				3E11BB2D6ED33286ABC39C32 /* RepositoryServicesModel.swift */,
+				3E11B2CF93C7F31D24B61C0F /* BitbucketIssuesModel.swift */,
+				3E11B22576E55439B3D1E52B /* BitbucketIssueDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +126,7 @@
 				3E11B7CCCD4759EC9D15A116 /* IssueDetailView.swift */,
 				3E11B0BFE740358254ACC58C /* Controller */,
 				3E11B9E35CD84C77CF974DB3 /* View */,
+				3E11B306963515FE3BACC1F7 /* RepositoryServicesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,6 +152,7 @@
 			children = (
 				3E11B2C3175A368EB91D2660 /* IssuesPresenter.swift */,
 				3E11B8FBE3EEB7C5DCAA839F /* IssueDetailPresenter.swift */,
+				3E11BF48D2A13A61D0A784D0 /* RepositoryServicesPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -329,6 +350,13 @@
 				3E11B36286E609400DCC9996 /* NotificationNames.swift in Sources */,
 				3E11B782F9936EAC79C2AF64 /* UserThumbnailButton.swift in Sources */,
 				3E11BBECE3A4CCBDFA3C7349 /* IssueTableViewCell.swift in Sources */,
+				3E11B29673B09DE7CDE2C548 /* RepositoryServicesPresenter.swift in Sources */,
+				3E11B7FF1593C644C52A1BA9 /* RepositoryServicesViewController.swift in Sources */,
+				3E11B5EA5623B0E2B4112A20 /* RepositoryServicesView.swift in Sources */,
+				3E11BAF5D6EE405B70FD7003 /* RepositoryServicesModel.swift in Sources */,
+				3E11B369AD99C2A5BB34DCC5 /* BitbucketIssuesModel.swift in Sources */,
+				3E11B2FA2ACD6B8B8D7CEB4F /* BitbucketIssueDetailModel.swift in Sources */,
+				3E11B9CE5E3510EB96337617 /* DataFromJson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

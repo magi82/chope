@@ -64,6 +64,6 @@ extension IssueTableViewCell: IssuesCellView {
     }
 
     func set(userPhotoURL: URL?) {
-        userImageButton.kf.setImage(with: userPhotoURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+        userImageButton.kf.setBackgroundImage(with: userPhotoURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
     }
 }

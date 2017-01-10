@@ -6,12 +6,11 @@
 import Foundation
 
 class IssuesPresenter {
-    let model: IssuesModel!
-    let view: IssuesView!
+    let model: IssuesModel
+    var view: IssuesView!
 
-    init(model: IssuesModel, view: IssuesView) {
+    init(model: IssuesModel) {
         self.model = model
-        self.view = view
 
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues), name: .changedIssues, object: nil)
     }
@@ -21,10 +20,10 @@ class IssuesPresenter {
     }
 
     func touchUserPhoto(atIndex index: Int) {
-        guard let urlString = model.issues[index].user?.photoUrl, let url = URL(string: urlString) else {
+        guard let urlString = model.issues[index].user?.profileUrl, let url = URL(string: urlString) else {
             return
         }
-        view.open(url: url)
+        view?.open(url: url)
     }
 
     func issues() {
@@ -32,7 +31,7 @@ class IssuesPresenter {
     }
 
     @objc func onChangedIssues() {
-        view.set(issues: model.issues)
+        view?.set(issues: model.issues)
     }
 
     func display(issue: Issue, inView cellView: IssuesCellView) {

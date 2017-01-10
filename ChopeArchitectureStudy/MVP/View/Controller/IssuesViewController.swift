@@ -23,24 +23,20 @@ class IssuesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if presenter == nil {
-            presenter = IssuesPresenter(model: GithubIssuesModel(user: "Alamofire", repo: "Alamofire"), view: self)
-        }
-        assert(presenter != nil)
-
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
 
+        assert(presenter != nil)
+        presenter.view = self
         presenter.issues()
     }
 
     override func prepare(`for` segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(`for`: segue, sender: sender)
+        super.prepare(for: segue, sender: sender)
 
         guard let identifier = segue.identifier, identifier == "issueDetail",
               let cell = sender as? UITableViewCell,
               let indexPath = tableView.indexPath(for: cell),
-              let issue: Issue = issues[indexPath.row],
               let issueDetailVC = segue.destination as? IssueDetailViewController
         else { return }
 
@@ -54,15 +50,13 @@ extension IssuesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let issueCell = tableView.dequeueReusableCell(withIdentifier: "issue", for: indexPath) as? IssueTableViewCell,
-              let cellView = issueCell as? IssuesCellView
-        else {
+        guard let issueCell = tableView.dequeueReusableCell(withIdentifier: "issue", for: indexPath) as? IssueTableViewCell else {
             assertionFailure()
             return UITableViewCell()
         }
 
         let issue = issues[indexPath.row]
-        presenter.display(issue: issue, inView: cellView)
+        presenter.display(issue: issue, inView: issueCell)
         issueCell.onTouchedUser = { [weak self] in
             self?.presenter.touchUserPhoto(atIndex: indexPath.row)
         }

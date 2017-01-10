@@ -1,13 +1,13 @@
 //
-// Created by Chope on 2017. 1. 8..
+// Created by Chope on 2017. 1. 10..
 // Copyright (c) 2017 Chope. All rights reserved.
 //
 
 import Foundation
-import Alamofire
 import XCGLogger
+import Alamofire
 
-class GithubIssueDetailModel: IssueDetailModel {
+class BitbucketIssueDetailModel: IssueDetailModel {
     var user: String
     var repo: String
     var number: Int
@@ -21,11 +21,11 @@ class GithubIssueDetailModel: IssueDetailModel {
     }
 
     func load() {
-        let issueEndpoint = "https://api.github.com/repos/\(user)/\(repo)/issues/\(number)"
+        let issueEndpoint = "https://api.bitbucket.org/2.0/repositories/\(user)/\(repo)/issues/\(number)"
         XCGLogger.default.info(issueEndpoint)
         Alamofire.request(issueEndpoint).responseJSON { response in
                     if let json = response.result.value as? [String: AnyObject] {
-                        self.issue = Issue(githubJson: json)
+                        self.issue = Issue(bitbucketJson: json)
 
                         self.postNotification()
                     }

@@ -6,7 +6,12 @@
 import Foundation
 
 protocol IssueDetailModel {
+    var user: String { get set }
+    var repo: String { get set }
+    var number: Int { get set }
     var issue: Issue { get set }
+
+    init(user: String, repo: String, number: Int)
 
     func load()
 }

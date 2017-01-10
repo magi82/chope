@@ -1,14 +1,14 @@
 //
-// Created by Chope on 2017. 1. 5..
+// Created by Chope on 2017. 1. 10..
 // Copyright (c) 2017 Chope. All rights reserved.
 //
 
 import Foundation
-import Alamofire
 import XCGLogger
+import Alamofire
 import SwiftyJSON
 
-class GithubIssuesModel: IssuesModel {
+class BitbucketIssuesModel : IssuesModel {
     var user: String
     var repo: String
     var issues: [Issue] = []
@@ -19,14 +19,14 @@ class GithubIssuesModel: IssuesModel {
     }
 
     func load() {
-        let issueEndpoint = "https://api.github.com/repos/\(user)/\(repo)/issues"
+        let issueEndpoint = "https://api.bitbucket.org/2.0/repositories/\(user)/\(repo)/issues"
         XCGLogger.default.info(issueEndpoint)
         Alamofire.request(issueEndpoint).responseJSON { response in
-                    if let json = response.result.value as? [[String: AnyObject]] {
+                    if let json = response.result.value as? [String: AnyObject], let rawIssuesJson = json["values"] as? [[String: AnyObject]] {
                         self.issues = []
 
-                        json.forEach { issueJson in
-                            self.issues.append(Issue(githubJson: issueJson))
+                        rawIssuesJson.forEach { issueJson in
+                            self.issues.append(Issue(bitbucketJson: issueJson))
                         }
 
                         self.postNotification()
@@ -36,6 +36,6 @@ class GithubIssuesModel: IssuesModel {
 
     func detailModel(index: Int) -> IssueDetailModel {
         let issue = issues[index]
-        return GithubIssueDetailModel(user: user, repo: repo, number: issue.number)
+        return BitbucketIssueDetailModel(user: user, repo: repo, number: issue.number)
     }
 }
