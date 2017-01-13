@@ -14,7 +14,7 @@ class BitbucketIssueDetailModel: IssueDetailModel {
 
     var issue: Issue = Issue()
 
-    required init(user: String, repo: String, number: Int) {
+    required init(user: String, repo: String, number: Int = 0) {
         self.user = user
         self.repo = repo
         self.number = number
@@ -23,12 +23,16 @@ class BitbucketIssueDetailModel: IssueDetailModel {
     func load() {
         let issueEndpoint = "https://api.bitbucket.org/2.0/repositories/\(user)/\(repo)/issues/\(number)"
         XCGLogger.default.info(issueEndpoint)
-        Alamofire.request(issueEndpoint).responseJSON { response in
+        Alamofire.request(issueEndpoint).responseJSON { [weak self] response in
                     if let json = response.result.value as? [String: AnyObject] {
-                        self.issue = Issue(bitbucketJson: json)
+                        self?.issue = Issue(bitbucketJson: json)
 
-                        self.postNotification()
+                        self?.postNotificationChanged()
                     }
                 }
+    }
+
+    func create(title: String, body: String, failure: ((Error, String)->Void)? = nil) {
+
     }
 }

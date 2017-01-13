@@ -44,4 +44,8 @@ class IssuesPresenter {
     func detailPresenter(index: Int) -> IssueDetailPresenter {
         return IssueDetailPresenter(model: model.detailModel(index: index))
     }
+
+    func creationPresenter() -> IssueCreationPresenter {
+        return IssueCreationPresenter(model: model.detailModel())
+    }
 }

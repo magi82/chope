@@ -9,4 +9,5 @@ target 'ChopeArchitectureStudy' do
   pod 'Kingfisher'
   pod 'XCGLogger'
   pod 'BonMot'
+  pod 'Toaster'
 end

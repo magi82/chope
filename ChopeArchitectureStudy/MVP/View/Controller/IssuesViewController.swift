@@ -34,13 +34,16 @@ class IssuesViewController: UIViewController {
     override func prepare(`for` segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        guard let identifier = segue.identifier, identifier == "issueDetail",
-              let cell = sender as? UITableViewCell,
-              let indexPath = tableView.indexPath(for: cell),
-              let issueDetailVC = segue.destination as? IssueDetailViewController
-        else { return }
+        guard let identifier = segue.identifier else { return }
 
-        issueDetailVC.presenter = presenter.detailPresenter(index: indexPath.row)
+        if identifier == "issueDetail",
+           let issueDetailVC = segue.destination as? IssueDetailViewController,
+           let cell = sender as? UITableViewCell,
+           let indexPath = tableView.indexPath(for: cell) {
+            issueDetailVC.presenter = presenter.detailPresenter(index: indexPath.row)
+        } else if identifier == "createIssue", let vc = (segue.destination as? UINavigationController)?.viewControllers.first as? IssueCreationViewController {
+            vc.presenter = presenter.creationPresenter()
+        }
     }
 }
 

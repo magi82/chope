@@ -29,7 +29,7 @@ class BitbucketIssuesModel : IssuesModel {
                             self.issues.append(Issue(bitbucketJson: issueJson))
                         }
 
-                        self.postNotification()
+                        self.postNotificationChanged()
                     }
                 }
     }
@@ -37,5 +37,9 @@ class BitbucketIssuesModel : IssuesModel {
     func detailModel(index: Int) -> IssueDetailModel {
         let issue = issues[index]
         return BitbucketIssueDetailModel(user: user, repo: repo, number: issue.number)
+    }
+
+    func detailModel() -> IssueDetailModel {
+        return BitbucketIssueDetailModel(user: user, repo: repo)
     }
 }

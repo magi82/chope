@@ -7,19 +7,18 @@ import Foundation
 import Alamofire
 import XCGLogger
 
-protocol IssuesModel {
-    var user: String { get set }
-    var repo: String { get set }
+protocol IssuesModel: Model {
     var issues: [Issue] { get set }
 
     init(user: String, repo: String)
 
     func load()
     func detailModel(index: Int) -> IssueDetailModel
+    func detailModel() -> IssueDetailModel
 }
 
 extension IssuesModel {
-    func postNotification() {
+    func postNotificationChanged() {
         NotificationCenter.default.post(name: Notification.Name.changedIssues, object: nil)
     }
 }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Br6-DT-RUG">
-                                <rect key="frame" x="12" y="76" width="351" height="194"/>
+                                <rect key="frame" x="12" y="76" width="351" height="346"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UA9-ff-Jrr">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="17"/>
@@ -46,33 +47,57 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Github access token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JhF-Vm-zwo">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ArchitectureStudy" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q39-8S-mnv">
                                         <rect key="frame" x="0.0" y="25" width="351" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnn-ZY-RAQ">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="study" borderStyle="roundedRect" placeholder="Repository" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BGm-in-1cy">
                                         <rect key="frame" x="0.0" y="63" width="351" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Github access token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JhF-Vm-zwo">
+                                        <rect key="frame" x="0.0" y="101" width="351" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnn-ZY-RAQ">
+                                        <rect key="frame" x="0.0" y="139" width="351" height="30"/>
                                         <state key="normal" title="Issues"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="githubIssues" id="nXb-gB-NNW"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitbucket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzo-6l-9Mg">
-                                        <rect key="frame" x="0.0" y="101" width="351" height="17"/>
+                                        <rect key="frame" x="0.0" y="177" width="351" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NaJ-ez-Uof">
+                                        <rect key="frame" x="0.0" y="202" width="351" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repository" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-lE-SMp">
+                                        <rect key="frame" x="0.0" y="240" width="351" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bitbucket API Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mze-gF-2MR">
-                                        <rect key="frame" x="0.0" y="126" width="351" height="30"/>
+                                        <rect key="frame" x="0.0" y="278" width="351" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8R-vV-Wxp">
-                                        <rect key="frame" x="0.0" y="164" width="351" height="30"/>
+                                        <rect key="frame" x="0.0" y="316" width="351" height="30"/>
                                         <state key="normal" title="Issues"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="bitbucketIssues" id="cft-m7-kmg"/>
@@ -92,8 +117,12 @@
                     <connections>
                         <outlet property="bitbucketAPIKeyTextField" destination="mze-gF-2MR" id="QK0-sr-E1P"/>
                         <outlet property="bitbucketIssuesButton" destination="e8R-vV-Wxp" id="xTm-G4-cbM"/>
+                        <outlet property="bitbucketRepoTextField" destination="oc7-lE-SMp" id="yhd-03-GwB"/>
+                        <outlet property="bitbucketUsernameTextField" destination="NaJ-ez-Uof" id="edR-3Q-IUE"/>
                         <outlet property="githubAccessTokenTextField" destination="JhF-Vm-zwo" id="0FC-Hq-spz"/>
                         <outlet property="githubIssuesButton" destination="hnn-ZY-RAQ" id="p4R-ij-Jgb"/>
+                        <outlet property="githubRepoTextField" destination="BGm-in-1cy" id="rvh-SB-4Xk"/>
+                        <outlet property="githubUsernameTextField" destination="Q39-8S-mnv" id="O2D-c3-opL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8DT-TP-HkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -176,7 +205,13 @@
                             <constraint firstItem="hxr-2x-CdK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wF3-mv-GkO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Issues" id="jp0-dB-E1l"/>
+                    <navigationItem key="navigationItem" title="Issues" id="jp0-dB-E1l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JhJ-S8-LRy">
+                            <connections>
+                                <segue destination="xRx-CK-dVV" kind="presentation" identifier="createIssue" id="64p-XF-hNU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hxr-2x-CdK" id="XWD-f2-cn4"/>
                     </connections>
@@ -184,6 +219,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="240.80000000000001" y="123.68815592203899"/>
+        </scene>
+        <!--Add issue-->
+        <scene sceneID="PIP-B3-pGP">
+            <objects>
+                <viewController id="1mH-4b-YsS" customClass="IssueCreationViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LmX-wi-M44"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mff-yo-fye"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pXo-id-NqN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Nf-Pt-0VJ">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mih-dS-TGJ">
+                                <rect key="frame" x="16" y="110" width="343" height="537"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mih-dS-TGJ" firstAttribute="trailing" secondItem="pXo-id-NqN" secondAttribute="trailingMargin" id="0G8-QH-C2M"/>
+                            <constraint firstItem="7Nf-Pt-0VJ" firstAttribute="top" secondItem="LmX-wi-M44" secondAttribute="bottom" constant="8" id="CyB-iD-CaV"/>
+                            <constraint firstItem="Mih-dS-TGJ" firstAttribute="leading" secondItem="pXo-id-NqN" secondAttribute="leadingMargin" id="FTz-gm-pB8"/>
+                            <constraint firstItem="Mff-yo-fye" firstAttribute="top" secondItem="Mih-dS-TGJ" secondAttribute="bottom" constant="20" id="Gdz-1Q-wws"/>
+                            <constraint firstItem="7Nf-Pt-0VJ" firstAttribute="trailing" secondItem="pXo-id-NqN" secondAttribute="trailingMargin" id="HIG-tW-bFj"/>
+                            <constraint firstItem="7Nf-Pt-0VJ" firstAttribute="leading" secondItem="pXo-id-NqN" secondAttribute="leadingMargin" id="iQO-NF-qWx"/>
+                            <constraint firstItem="Mih-dS-TGJ" firstAttribute="top" secondItem="7Nf-Pt-0VJ" secondAttribute="bottom" constant="8" id="vLd-Zs-7LQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add issue" id="fii-Du-5mO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FAh-0Z-hcF">
+                            <connections>
+                                <action selector="onDismiss" destination="1mH-4b-YsS" id="tZP-sn-AeS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="0Ok-SC-6N9">
+                            <connections>
+                                <action selector="onCreate" destination="1mH-4b-YsS" id="KjC-47-PnQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextView" destination="Mih-dS-TGJ" id="YrO-zO-LWp"/>
+                        <outlet property="titleTextField" destination="7Nf-Pt-0VJ" id="gEv-53-9op"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="osf-Dj-EfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2381.5999999999999" y="-585.1574212893554"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vdc-Ni-fU9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnc-fH-9el" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="xRx-CK-dVV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kll-B7-7Pi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1mH-4b-YsS" kind="relationship" relationship="rootViewController" id="1c1-eH-OxJ"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1281" y="-585"/>
         </scene>
         <!--Issue Detail View Controller-->
         <scene sceneID="Cdl-4N-Ufb">
@@ -272,6 +380,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cft-m7-kmg"/>
+        <segue reference="nXb-gB-NNW"/>
     </inferredMetricsTieBreakers>
 </document>

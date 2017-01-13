@@ -6,6 +6,6 @@
 import Foundation
 
 protocol RepositoryServicesView {
-    func setGithubAccessToken() -> String
-    func setBitbucketAPIKey() -> String
+    func setGithubAccessToken(token: String?)
+    func setBitbucketAPIKey(apiKey: String?)
 }
