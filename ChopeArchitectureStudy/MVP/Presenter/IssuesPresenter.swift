@@ -13,6 +13,7 @@ class IssuesPresenter {
         self.model = model
 
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues), name: .changedIssues, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: .addedComment, object: nil)
     }
 
     deinit {
@@ -20,9 +21,7 @@ class IssuesPresenter {
     }
 
     func touchUserPhoto(atIndex index: Int) {
-        guard let urlString = model.issues[index].user?.profileUrl, let url = URL(string: urlString) else {
-            return
-        }
+        guard let url = model.issues[index].user?.profileUrl else { return }
         view?.open(url: url)
     }
 
@@ -34,15 +33,25 @@ class IssuesPresenter {
         view?.set(issues: model.issues)
     }
 
+    @objc func onAddedComment() {
+        issues()
+    }
+
     func display(issue: Issue, inView cellView: IssuesCellView) {
         cellView.set(number: "\(issue.number)")
         cellView.set(title: issue.title)
-        cellView.set(username: issue.user?.name)
-        cellView.set(userPhotoURL: URL(string: issue.user?.photoUrl ?? ""))
+        cellView.set(countOfComments: issue.comments)
+
+        guard let user = issue.user else { return }
+        cellView.setUser(name: user.name, photoURL: user.photoUrl)
     }
 
     func detailPresenter(index: Int) -> IssueDetailPresenter {
         return IssueDetailPresenter(model: model.detailModel(index: index))
+    }
+
+    func commentsPresenter(index: Int) -> CommentsPresenter {
+        return CommentsPresenter(model: model.commentsModel(index: index))
     }
 
     func creationPresenter() -> IssueCreationPresenter {

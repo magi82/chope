@@ -42,4 +42,9 @@ class BitbucketIssuesModel : IssuesModel {
     func detailModel() -> IssueDetailModel {
         return BitbucketIssueDetailModel(user: user, repo: repo)
     }
+
+    func commentsModel(index: Int) -> CommentsModel {
+        let issue = issues[index]
+        return BitbucketCommentsModel(user: user, repo: repo, number: issue.number)
+    }
 }

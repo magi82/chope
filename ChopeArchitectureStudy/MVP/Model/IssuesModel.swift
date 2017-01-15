@@ -15,6 +15,7 @@ protocol IssuesModel: Model {
     func load()
     func detailModel(index: Int) -> IssueDetailModel
     func detailModel() -> IssueDetailModel
+    func commentsModel(index: Int) -> CommentsModel
 }
 
 extension IssuesModel {

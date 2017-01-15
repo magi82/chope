@@ -7,8 +7,5 @@ import Foundation
 
 protocol IssueDetailView {
     func set(number: Int)
-    func set(title: String)
-    func set(body: String)
-    func set(username: String)
-    func set(userPhotoURL: URL)
+    func reload()
 }

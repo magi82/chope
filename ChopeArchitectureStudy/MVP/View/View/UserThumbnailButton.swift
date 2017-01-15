@@ -18,6 +18,6 @@ class UserThumbnailButton: UIButton {
         layer.cornerRadius = bounds.midX
         layer.masksToBounds = true
         layer.borderColor = UIColor.lightGray.cgColor
-        layer.borderWidth = 1.0
+        layer.borderWidth = 1.0 / UIScreen.main.scale
     }
 }

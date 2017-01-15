@@ -1,12 +1,7 @@
 PODS:
   - Alamofire (4.2.0)
-  - BonMot (4.0.1)
+  - BonMot (4.0.2)
   - Kingfisher (3.2.4)
-  - Realm (2.2.0):
-    - Realm/Headers (= 2.2.0)
-  - Realm/Headers (2.2.0)
-  - RealmSwift (2.2.0):
-    - Realm (= 2.2.0)
   - SwiftyJSON (3.1.4)
   - Toaster (2.0.1)
   - XCGLogger (4.0.0):
@@ -17,21 +12,18 @@ DEPENDENCIES:
   - Alamofire
   - BonMot
   - Kingfisher
-  - RealmSwift
   - SwiftyJSON
   - Toaster
   - XCGLogger
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
-  BonMot: d8c3548412fcbb3b5f877f2097a5ca23f9adf5b4
+  BonMot: eddf223b4054e7be8d632588188bdf70dfa3250d
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
-  Realm: d95b8fb34c83f1e764b66d319277a62c2b6e4bf5
-  RealmSwift: a4fa52d06e946a32ec746b3388374f742e6b8731
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toaster: be65cd48e93a525b2a9cc4bd25a2bfc900e02d9f
   XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: aa8cded4f03728c72bd5b7415d48913880b1644c
+PODFILE CHECKSUM: cfb2daa11a992214afbe439da7b488e6f62ce6dd
 
 COCOAPODS: 1.2.0.beta.1

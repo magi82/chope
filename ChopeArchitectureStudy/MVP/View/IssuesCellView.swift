@@ -8,6 +8,6 @@ import Foundation
 protocol IssuesCellView {
     func set(title: String)
     func set(number: String)
-    func set(username: String?)
-    func set(userPhotoURL: URL?)
+    func set(countOfComments: Int?)
+    func setUser(name: String, photoURL: URL?)
 }

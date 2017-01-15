@@ -48,4 +48,8 @@ class GithubIssuesModel: IssuesModel {
     func detailModel() -> IssueDetailModel {
         return GithubIssueDetailModel(user: user, repo: repo)
     }
+
+    func commentsModel(index: Int) -> CommentsModel {
+        return GithubCommentsModel(user: user, repo: repo, number: issues[index].number)
+    }
 }

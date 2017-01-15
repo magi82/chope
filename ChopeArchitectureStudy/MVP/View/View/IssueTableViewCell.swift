@@ -13,6 +13,7 @@ class IssueTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet fileprivate weak var userImageButton: UserThumbnailButton!
     @IBOutlet fileprivate weak var usernameLabel: UILabel!
+    @IBOutlet fileprivate weak var commentsLabel: UILabel!
 
     fileprivate var title: String?
     fileprivate var number: String = ""
@@ -59,11 +60,31 @@ extension IssueTableViewCell: IssuesCellView {
         updateTitle()
     }
 
-    func set(username: String?) {
-        usernameLabel.text = username
+    func set(countOfComments: Int?) {
+        guard let countOfComments = countOfComments else {
+            commentsLabel.attributedText = nil
+            return
+        }
+
+        let title: String = "comments : "
+        let comments: String = "\(countOfComments)"
+
+        let styleOfTitle = StringStyle(
+                .font(UIFont.boldSystemFont(ofSize: 10)),
+                .color(UIColor.lightGray)
+        )
+        let styleOfComments = StringStyle(
+                .font(UIFont.systemFont(ofSize: 14))
+        )
+
+        commentsLabel.attributedText = NSAttributedString.composed(of: [
+                title.styled(with: styleOfTitle),
+                comments.styled(with: styleOfComments)
+        ])
     }
 
-    func set(userPhotoURL: URL?) {
-        userImageButton.kf.setBackgroundImage(with: userPhotoURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+    func setUser(name: String, photoURL: URL?) {
+        usernameLabel.text = name
+        userImageButton.kf.setBackgroundImage(with: photoURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
     }
 }

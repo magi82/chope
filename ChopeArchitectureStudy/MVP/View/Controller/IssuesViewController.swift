@@ -41,6 +41,7 @@ class IssuesViewController: UIViewController {
            let cell = sender as? UITableViewCell,
            let indexPath = tableView.indexPath(for: cell) {
             issueDetailVC.presenter = presenter.detailPresenter(index: indexPath.row)
+            issueDetailVC.commentsPresenter = presenter.commentsPresenter(index: indexPath.row)
         } else if identifier == "createIssue", let vc = (segue.destination as? UINavigationController)?.viewControllers.first as? IssueCreationViewController {
             vc.presenter = presenter.creationPresenter()
         }

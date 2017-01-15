@@ -25,20 +25,20 @@ class IssueDetailPresenter {
 
     @objc func onChangedIssueDetail() {
         display()
+        view.reload()
     }
 
     func display() {
         let issue = model.issue
         view?.set(number: issue.number)
-        view?.set(title: issue.title)
-        view?.set(body: issue.body)
+    }
 
-        if let user = issue.user {
-            view?.set(username: user.name)
+    func display(view: IssueDetailCellView) {
+        let issue = model.issue
+        view.set(title: issue.title)
+        view.set(body: issue.body)
 
-            if let photoUrl = URL(string: user.photoUrl) {
-                view?.set(userPhotoURL: photoUrl)
-            }
-        }
+        guard let user = issue.user else { return }
+        view.setUser(name: user.name, userPhotoURL: user.photoUrl)
     }
 }

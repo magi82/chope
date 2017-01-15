@@ -3,17 +3,14 @@
 // Copyright (c) 2017 Chope. All rights reserved.
 //
 
-import RealmSwift
 import SwiftyJSON
 
-class Issue: Object {
-    dynamic var id = ""
-    dynamic var number = 0
-    dynamic var title = ""
-    dynamic var body = ""
-    dynamic var user: User?
+class Issue {
+    var id: String = ""
+    var number: Int = 0
+    var title: String = ""
+    var body: String = ""
+    var comments: Int?
 
-    override class func primaryKey() -> String? {
-        return "id"
-    }
+    var user: User?
 }
