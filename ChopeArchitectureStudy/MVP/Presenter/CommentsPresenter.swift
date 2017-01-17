@@ -41,7 +41,7 @@ class CommentsPresenter {
         cell.set(body: comment.body)
 
         guard let user = comment.user else { return }
-        cell.setUser(name: user.name, photoURL: user.photoUrl)
+        cell.setUser(name: user.login, photoURL: user.avatarURL)
     }
 
     func create(body: String) {

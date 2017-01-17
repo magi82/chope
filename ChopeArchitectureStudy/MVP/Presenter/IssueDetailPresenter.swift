@@ -39,6 +39,6 @@ class IssueDetailPresenter {
         view.set(body: issue.body)
 
         guard let user = issue.user else { return }
-        view.setUser(name: user.name, userPhotoURL: user.photoUrl)
+        view.setUser(name: user.login, userPhotoURL: user.avatarURL)
     }
 }

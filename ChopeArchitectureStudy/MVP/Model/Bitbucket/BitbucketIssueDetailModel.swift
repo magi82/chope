@@ -12,7 +12,7 @@ class BitbucketIssueDetailModel: IssueDetailModel {
     var repo: String
     var number: Int
 
-    var issue: Issue = Issue()
+    var issue: Issue = Issue(rawJson: [:])
 
     required init(user: String, repo: String, number: Int = 0) {
         self.user = user
@@ -25,7 +25,7 @@ class BitbucketIssueDetailModel: IssueDetailModel {
         XCGLogger.default.info(issueEndpoint)
         Alamofire.request(issueEndpoint).responseJSON { [weak self] response in
                     if let json = response.result.value as? [String: AnyObject] {
-                        self?.issue = Issue(bitbucketJson: json)
+                        self?.issue = Issue(rawJson: json)
 
                         self?.postNotificationChanged()
                     }

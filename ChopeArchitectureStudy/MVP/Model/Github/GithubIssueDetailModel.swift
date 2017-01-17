@@ -12,7 +12,7 @@ class GithubIssueDetailModel: IssueDetailModel {
     var repo: String
     var number: Int
 
-    var issue: Issue = Issue()
+    var issue: Issue = Issue(rawJson: [:])
 
     required init(user: String, repo: String, number: Int = 0) {
         self.user = user
@@ -25,7 +25,7 @@ class GithubIssueDetailModel: IssueDetailModel {
         XCGLogger.default.info(endpoint)
         Alamofire.request(endpoint).responseJSON { [weak self] response in
                     if let json = response.result.value as? [String: AnyObject] {
-                        self?.issue = Issue(githubJson: json)
+                        self?.issue = Issue(rawJson: json)
                         self?.postNotificationChanged()
                     }
                 }
@@ -55,7 +55,7 @@ class GithubIssueDetailModel: IssueDetailModel {
 
                     XCGLogger.default.info(response)
                     if let json = response.result.value as? [String: AnyObject] {
-                        self?.issue = Issue(githubJson: json)
+                        self?.issue = Issue(rawJson: json)
                         self?.postNotificationAdded()
                     }
                 }

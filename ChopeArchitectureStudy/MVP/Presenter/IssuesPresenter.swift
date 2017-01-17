@@ -21,7 +21,7 @@ class IssuesPresenter {
     }
 
     func touchUserPhoto(atIndex index: Int) {
-        guard let url = model.issues[index].user?.profileUrl else { return }
+        guard let url = model.issues[index].user?.htmlURL else { return }
         view?.open(url: url)
     }
 
@@ -43,7 +43,7 @@ class IssuesPresenter {
         cellView.set(countOfComments: issue.comments)
 
         guard let user = issue.user else { return }
-        cellView.setUser(name: user.name, photoURL: user.photoUrl)
+        cellView.setUser(name: user.login, photoURL: user.avatarURL)
     }
 
     func detailPresenter(index: Int) -> IssueDetailPresenter {

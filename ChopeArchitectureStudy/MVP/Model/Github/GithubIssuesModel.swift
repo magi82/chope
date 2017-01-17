@@ -13,9 +13,12 @@ class GithubIssuesModel: IssuesModel {
     var repo: String
     var issues: [Issue] = []
 
+    private let api: IssueAPI!
+
     required init(user: String, repo: String) {
         self.user = user
         self.repo = repo
+        api = IssueAPI(user: user, repo: repo)
 
         NotificationCenter.default.addObserver(forName: Notification.Name.addedIssues, object: nil, queue: nil) { [weak self] notification in
             guard let issue = notification.userInfo?["issue"] as? Issue else { return }
@@ -25,19 +28,12 @@ class GithubIssuesModel: IssuesModel {
     }
 
     func load() {
-        let issueEndpoint = "https://api.github.com/repos/\(user)/\(repo)/issues"
-        XCGLogger.default.info(issueEndpoint)
-        Alamofire.request(issueEndpoint).responseJSON { [weak self] response in
-                    if let json = response.result.value as? [[String: AnyObject]] {
-                        self?.issues = []
-
-                        json.forEach { issueJson in
-                            self?.issues.append(Issue(githubJson: issueJson))
-                        }
-
-                        self?.postNotificationChanged()
-                    }
-                }
+        api.issues(success: { [weak self] issues in
+            self?.issues = issues
+            self?.postNotificationChanged()
+        }, failure: { error in
+            XCGLogger.error("\(error)")
+        })
     }
 
     func detailModel(index: Int) -> IssueDetailModel {

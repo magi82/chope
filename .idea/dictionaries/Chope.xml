@@ -2,7 +2,10 @@
   <dictionary name="Chope">
     <words>
       <w>bitbucket</w>
+      <w>gists</w>
       <w>github</w>
+      <w>gravatar</w>
+      <w>repos</w>
       <w>swifty</w>
     </words>
   </dictionary>

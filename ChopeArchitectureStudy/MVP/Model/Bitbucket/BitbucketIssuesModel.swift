@@ -26,7 +26,7 @@ class BitbucketIssuesModel : IssuesModel {
                         self.issues = []
 
                         rawIssuesJson.forEach { issueJson in
-                            self.issues.append(Issue(bitbucketJson: issueJson))
+                            self.issues.append(Issue(rawJson: issueJson))
                         }
 
                         self.postNotificationChanged()

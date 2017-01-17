@@ -13,27 +13,23 @@ class GithubCommentsModel: CommentsModel {
     var number: Int
     var items: [Comment]
 
+    private let api: CommentAPI!
+
     required init(user: String, repo: String, number: Int) {
         self.user = user
         self.repo = repo
         self.number = number
         self.items = []
+        api = CommentAPI(user: user, repo: repo)
     }
 
     func load() {
-        let endpoint = "https://api.github.com/repos/\(user)/\(repo)/issues/\(number)/comments"
-        XCGLogger.default.info(endpoint)
-        Alamofire.request(endpoint).responseJSON { [weak self] response in
-                    if let json = response.result.value as? [[String: AnyObject]] {
-                        self?.items = []
-
-                        json.forEach { issueJson in
-                            self?.items.append(Comment(githubJson: issueJson))
-                        }
-
-                        self?.postNotificationChanged()
-                    }
-                }
+        api.comments(issueNumber: number, success: { [weak self] comments in
+            self?.items = comments
+            self?.postNotificationChanged()
+        }, failure: { error in
+            XCGLogger.error("\(error)")
+        })
     }
 
     func create(body: String, failure: ((Error, String)->Void)? = nil) {
