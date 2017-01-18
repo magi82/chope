@@ -12,7 +12,7 @@ class CommentAPI: GithubAPI {
     }
 
     @discardableResult
-    func comments(issueNumber: Int, success: (([Comment])->Void)?, failure: ((Error)->Void)?) -> DataRequest {
+    func comments(issueNumber: Int, success: (([Comment], String?)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
         return items(router: .comments(user: user, repo: repo, number: issueNumber), success: success, failure: failure)
     }
 }

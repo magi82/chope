@@ -22,7 +22,7 @@ class GithubAPI {
         self.repo = repo
     }
 
-    func items<T: GithubData>(router: GithubRouter, success: (([T])->Void)?, failure: ((Error)->Void)?) -> DataRequest {
+    func items<T: GithubData>(router: GithubRouter, success: (([T], String?)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
         return Alamofire.request(router).validate().responseJSON { response in
             switch response.result {
             case .success:
@@ -31,17 +31,17 @@ class GithubAPI {
                     return
                 }
 
-                if let linkInHeader: String = response.response?.allHeaderFields["Link"] as? String {
-                    if let link = linkInHeader.components(separatedBy: ",").filter({ $0.contains("rel=\"next\"") }).first {
-                        var result = Array(link.characters)
-                                .map { String($0) }
-                                .split { $0 == ">" || $0 == "<" }
-//                        result = result.flatMap { (value: ArraySlice<String>) -> String in  String(Array(value)) }
-//                        result = result.flatMap { String($0) }
-                        dump(result)
+                let items: [T] = json.map { T(rawJson: $0) }
+                if let linkValue: String = response.response?.allHeaderFields["Link"] as? String {
+                    let pattern = "<(.+)>; rel=\"next\""
+                    if let regex = try? NSRegularExpression(pattern: pattern, options: []), let match: NSTextCheckingResult = regex.matches(in: linkValue, options: [], range: NSRange(location: 0, length: linkValue.characters.count)).first {
+                        let range = match.rangeAt(1)
+                        let nextPageUrl = (linkValue as NSString).substring(with: range)
+                        success?(items, nextPageUrl)
+                        return
                     }
                 }
-                success?(json.map { T(rawJson: $0) })
+                success?(items, nil)
             case .failure(let error):
                 failure?(error)
             }

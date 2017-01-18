@@ -12,7 +12,7 @@ class IssueAPI: GithubAPI {
     }
 
     @discardableResult
-    func issues(success: (([Issue])->Void)?, failure: ((Error)->Void)?) -> DataRequest {
+    func issues(success: (([Issue], String?)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
         return items(router: .issues(user: user, repo: repo), success: success, failure: failure)
     }
 }

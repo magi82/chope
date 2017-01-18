@@ -24,7 +24,7 @@ class GithubCommentsModel: CommentsModel {
     }
 
     func load() {
-        api.comments(issueNumber: number, success: { [weak self] comments in
+        api.comments(issueNumber: number, success: { [weak self] comments, nextPageUrl in
             self?.items = comments
             self?.postNotificationChanged()
         }, failure: { error in
