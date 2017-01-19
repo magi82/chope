@@ -69,7 +69,14 @@ extension IssuesViewController: UITableViewDataSource {
 }
 
 extension IssuesViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
 
+        if offsetY >= (contentHeight - scrollView.frame.size.height) {
+            presenter.nexPageIssues()
+        }
+    }
 }
 
 extension IssuesViewController: IssuesView {

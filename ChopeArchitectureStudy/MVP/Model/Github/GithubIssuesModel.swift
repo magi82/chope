@@ -14,6 +14,7 @@ class GithubIssuesModel: IssuesModel {
     var issues: [Issue] = []
 
     private let api: IssueAPI!
+    private var issuesRequest: DataRequest?
 
     required init(user: String, repo: String) {
         self.user = user
@@ -28,11 +29,26 @@ class GithubIssuesModel: IssuesModel {
     }
 
     func load() {
-        api.issues(success: { [weak self] issues in
+        guard issuesRequest == nil else { return }
+
+        issuesRequest = api.issues(success: { [weak self] issues in
             self?.issues = issues
             self?.postNotificationChanged()
-        }, failure: { error in
-            XCGLogger.error("\(error)")
+            self?.issuesRequest = nil
+        }, failure: { [weak self] error in
+            self?.issuesRequest = nil
+        })
+    }
+
+    func loadNext() {
+        guard issuesRequest == nil else { return }
+
+        issuesRequest = api.loadNextPage(success: { [weak self] (issues: [Issue]) in
+            self?.issues.append(contentsOf: issues)
+            self?.postNotificationChanged()
+            self?.issuesRequest = nil
+        }, failure: { [weak self] error in
+            self?.issuesRequest = nil
         })
     }
 

@@ -34,6 +34,9 @@ class BitbucketIssuesModel : IssuesModel {
                 }
     }
 
+    func loadNext() {
+    }
+
     func detailModel(index: Int) -> IssueDetailModel {
         let issue = issues[index]
         return BitbucketIssueDetailModel(user: user, repo: repo, number: issue.number)

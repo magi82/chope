@@ -29,6 +29,10 @@ class IssuesPresenter {
         model.load()
     }
 
+    func nexPageIssues() {
+        model.loadNext()
+    }
+
     @objc func onChangedIssues() {
         view?.set(issues: model.issues)
     }

@@ -4,9 +4,9 @@ use_frameworks!
 target 'ChopeArchitectureStudy' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'XCGLogger'
 
   pod 'Kingfisher'
-  pod 'XCGLogger'
   pod 'BonMot'
   pod 'Toaster'
 end

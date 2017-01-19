@@ -11,7 +11,7 @@ enum PaginationAPIError: Error {
 }
 
 class PaginationAPI: GithubAPI {
-    var nextPageUrl: String?
+    private var nextPageUrl: String?
 
     @discardableResult
     func load<T: GithubData>(router: GithubRouter, success: (([T])->Void)?, failure: ((Error)->Void)?) -> DataRequest {
