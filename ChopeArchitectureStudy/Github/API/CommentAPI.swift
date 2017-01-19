@@ -19,4 +19,11 @@ class CommentAPI: PaginationAPI {
     func comments(issueNumber: Int, success: (([Comment])->Void)?, failure: ((Error)->Void)?) -> DataRequest {
         return load(router: .comments(user: user, repo: repo, number: issueNumber), success: success, failure: failure)
     }
+
+    @discardableResult
+    func create(issueNumber: Int, body: String, success: ((Issue)->Void)?, failure: ((Error)->Void)?) -> DataRequest? {
+        return createItem(router: .createComment(user: user, repo: repo, number: issueNumber, parameters: [
+                "body": body
+        ]), success: success, failure: failure)
+    }
 }

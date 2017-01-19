@@ -33,8 +33,6 @@ class CommentsPresenter {
     }
 
     func create(body: String) {
-        model.create(body: body) { [weak self] (error, s) in
-            self?.view.showMessage(title: "\(error)", message: s)
-        }
+        model.create(body: body, failure: nil)
     }
 }

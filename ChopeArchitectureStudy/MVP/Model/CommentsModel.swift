@@ -10,7 +10,7 @@ protocol CommentsModel: Model {
     var items: [Comment] { get set }
 
     func load()
-    func create(body: String, failure: ((Error, String)->Void)?)
+    func create(body: String, failure: ((Error)->Void)?)
 }
 
 extension CommentsModel {

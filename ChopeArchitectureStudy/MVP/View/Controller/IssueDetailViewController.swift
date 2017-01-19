@@ -102,9 +102,4 @@ extension IssueDetailViewController: CommentsView {
         self.comments = comments
         tableView.reloadData()
     }
-
-    func showMessage(title: String?, message: String?) {
-        Toast(text: "\(title)\n\n\n\(message)", duration: Delay.long).show()
-    }
-
 }

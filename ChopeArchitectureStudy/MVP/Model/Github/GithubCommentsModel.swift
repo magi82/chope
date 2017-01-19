@@ -32,31 +32,9 @@ class GithubCommentsModel: CommentsModel {
         })
     }
 
-    func create(body: String, failure: ((Error, String)->Void)? = nil) {
-        guard let token = RepositoryServicesModel().githubAccessToken else {
-            assertionFailure()
-            return
-        }
-
-        let endpoint = "https://api.github.com/repos/\(user)/\(repo)/issues/\(number)/comments"
-        XCGLogger.default.info(endpoint)
-
-        Alamofire.request(endpoint, method: .post, parameters: [
-                        "body": body
-                ], encoding: JSONEncoding.default, headers: [
-                        "Authorization": "token \(token)"
-                ])
-                .validate()
-                .responseJSON { [weak self] response in
-                    if case .failure(let error) = response.result {
-                        failure?(error, "\(response)")
-                        return
-                    }
-
-                    XCGLogger.default.info(response)
-                    if let _ = response.result.value as? [String: AnyObject] {
-                        self?.postNotificationAdded()
-                    }
-                }
+    func create(body: String, failure: ((Error)->Void)? = nil) {
+        api.create(issueNumber: number, body: body, success: { [weak self] issue in
+            self?.postNotificationAdded()
+        }, failure: failure)
     }
 }

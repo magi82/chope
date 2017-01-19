@@ -7,5 +7,4 @@ import Foundation
 
 protocol CommentsView {
     func set(comments: [Comment])
-    func showMessage(title: String?, message: String?)
 }
