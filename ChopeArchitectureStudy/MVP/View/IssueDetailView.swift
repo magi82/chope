@@ -6,6 +6,5 @@
 import Foundation
 
 protocol IssueDetailView {
-    func set(number: Int)
-    func reload()
+    func set(issue: Issue)
 }

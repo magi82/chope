@@ -18,19 +18,14 @@ class IssueDetailTableViewCell: UITableViewCell {
         titleLabel.backgroundColor = UIColor.clear
         bodyTextView.backgroundColor = UIColor.clear
     }
-}
 
-extension IssueDetailTableViewCell: IssueDetailCellView {
-    func set(title: String) {
-        titleLabel.text = title
-    }
+    func set(issue: Issue) {
+        titleLabel.text = issue.title
+        bodyTextView.text = issue.body
 
-    func set(body: String) {
-        bodyTextView.text = body
-    }
-
-    func setUser(name: String, userPhotoURL: URL?) {
-        usernameLabel.text = name
-        userPhotoButton.kf.setBackgroundImage(with: userPhotoURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+        if let user = issue.user {
+            usernameLabel.text = user.login
+            userPhotoButton.kf.setBackgroundImage(with: user.avatarURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+        }
     }
 }

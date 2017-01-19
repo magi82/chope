@@ -21,7 +21,7 @@ class CommentsPresenter {
     }
 
     @objc func onChangedComments() {
-        view?.reloadComments()
+        view?.set(comments: model.items)
     }
 
     @objc func onAddedComment() {
@@ -30,18 +30,6 @@ class CommentsPresenter {
 
     func comments() {
         model.load()
-    }
-
-    func count() -> Int {
-        return model.items.count
-    }
-
-    func display(cell: CommentCellView, atIndex index: Int) {
-        let comment = model.items[index]
-        cell.set(body: comment.body)
-
-        guard let user = comment.user else { return }
-        cell.setUser(name: user.login, photoURL: user.avatarURL)
     }
 
     func create(body: String) {

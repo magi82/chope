@@ -24,21 +24,7 @@ class IssueDetailPresenter {
     }
 
     @objc func onChangedIssueDetail() {
-        display()
-        view.reload()
-    }
-
-    func display() {
         let issue = model.issue
-        view?.set(number: issue.number)
-    }
-
-    func display(view: IssueDetailCellView) {
-        let issue = model.issue
-        view.set(title: issue.title)
-        view.set(body: issue.body)
-
-        guard let user = issue.user else { return }
-        view.setUser(name: user.login, userPhotoURL: user.avatarURL)
+        view?.set(issue: issue)
     }
 }

@@ -17,6 +17,8 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet fileprivate weak var sendButton: UIButton!
     @IBOutlet fileprivate weak var bodyTextField: UITextField!
 
+    fileprivate var issue: Issue!
+    fileprivate var comments: [Comment] = []
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -63,17 +65,22 @@ class IssueDetailViewController: UIViewController {
 
 extension IssueDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentsPresenter.count() + 1
+        guard issue != nil else {
+            return comments.count
+        }
+        return comments.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if issue != nil && indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "issueDetail", for: indexPath) as? IssueDetailTableViewCell else { return UITableViewCell() }
-            presenter.display(view: cell)
+            cell.set(issue: issue)
             return cell
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "comment", for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
-        commentsPresenter.display(cell: cell, atIndex: indexPath.row-1)
+        let index = issue != nil ? indexPath.row - 1 : indexPath.row
+        let comment: Comment = comments[index]
+        cell.set(comment: comment)
         return cell
     }
 }
@@ -83,17 +90,16 @@ extension IssueDetailViewController: UITableViewDelegate {
 }
 
 extension IssueDetailViewController: IssueDetailView {
-    func set(number: Int) {
-        navigationItem.title = "#\(number)"
-    }
-
-    func reload() {
+    func set(issue: Issue) {
+        navigationItem.title = "#\(issue.number)"
+        self.issue = issue
         tableView.reloadData()
     }
 }
 
 extension IssueDetailViewController: CommentsView {
-    func reloadComments() {
+    func set(comments: [Comment]) {
+        self.comments = comments
         tableView.reloadData()
     }
 

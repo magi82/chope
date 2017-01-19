@@ -6,6 +6,6 @@
 import Foundation
 
 protocol CommentsView {
-    func reloadComments()
+    func set(comments: [Comment])
     func showMessage(title: String?, message: String?)
 }

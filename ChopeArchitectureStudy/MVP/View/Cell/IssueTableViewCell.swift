@@ -47,20 +47,32 @@ class IssueTableViewCell: UITableViewCell {
     func onTouchedUserPhoto() {
         onTouchedUser?()
     }
-}
 
-extension IssueTableViewCell: IssuesCellView {
-    func set(title: String) {
-        self.title = title
-        updateTitle()
+    func set(issue: Issue) {
+        set(number: issue.number, title: issue.title)
+        set(countOfComments: issue.comments)
+
+        if let user = issue.user {
+            set(user: user)
+        }
     }
 
-    func set(number: String) {
-        self.number = number
-        updateTitle()
+    private func set(number: Int, title: String) {
+        let styleOfId = StringStyle(
+                .font(UIFont.boldSystemFont(ofSize: 20))
+        )
+        let styleOfTitle = StringStyle(
+                .font(UIFont.systemFont(ofSize: 16))
+        )
+
+        titleLabel.attributedText = NSAttributedString.composed(of: [
+                "#\(number)".styled(with: styleOfId),
+                Tab.headIndent(10),
+                title.styled(with: styleOfTitle)
+        ])
     }
 
-    func set(countOfComments: Int?) {
+    private func set(countOfComments: Int?) {
         guard let countOfComments = countOfComments else {
             commentsLabel.attributedText = nil
             return
@@ -83,8 +95,8 @@ extension IssueTableViewCell: IssuesCellView {
         ])
     }
 
-    func setUser(name: String, photoURL: URL?) {
-        usernameLabel.text = name
-        userImageButton.kf.setBackgroundImage(with: photoURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+    private func set(user: User) {
+        usernameLabel.text = user.login
+        userImageButton.kf.setBackgroundImage(with: user.avatarURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
     }
 }

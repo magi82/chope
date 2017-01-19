@@ -41,15 +41,6 @@ class IssuesPresenter {
         issues()
     }
 
-    func display(issue: Issue, inView cellView: IssuesCellView) {
-        cellView.set(number: "\(issue.number)")
-        cellView.set(title: issue.title)
-        cellView.set(countOfComments: issue.comments)
-
-        guard let user = issue.user else { return }
-        cellView.setUser(name: user.login, photoURL: user.avatarURL)
-    }
-
     func detailPresenter(index: Int) -> IssueDetailPresenter {
         return IssueDetailPresenter(model: model.detailModel(index: index))
     }

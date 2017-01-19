@@ -54,17 +54,17 @@ extension IssuesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let issueCell = tableView.dequeueReusableCell(withIdentifier: "issue", for: indexPath) as? IssueTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "issue", for: indexPath) as? IssueTableViewCell else {
             assertionFailure()
             return UITableViewCell()
         }
 
         let issue = issues[indexPath.row]
-        presenter.display(issue: issue, inView: issueCell)
-        issueCell.onTouchedUser = { [weak self] in
+        cell.set(issue: issue)
+        cell.onTouchedUser = { [weak self] in
             self?.presenter.touchUserPhoto(atIndex: indexPath.row)
         }
-        return issueCell
+        return cell
     }
 }
 

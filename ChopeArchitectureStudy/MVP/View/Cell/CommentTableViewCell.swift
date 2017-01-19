@@ -15,15 +15,13 @@ class CommentTableViewCell: UITableViewCell {
 
         bodyTextView.backgroundColor = UIColor.clear
     }
-}
 
-extension CommentTableViewCell: CommentCellView {
-    func set(body: String) {
-        bodyTextView.text = body
-    }
+    func set(comment: Comment) {
+        bodyTextView.text = comment.body
 
-    func setUser(name: String, photoURL: URL?) {
-        usernameLabel.text = name
-        userPhotoButton.kf.setBackgroundImage(with: photoURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+        if let user = comment.user {
+            usernameLabel.text = user.login
+            userPhotoButton.kf.setBackgroundImage(with: user.avatarURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+        }
     }
 }
