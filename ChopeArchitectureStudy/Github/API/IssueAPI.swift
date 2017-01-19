@@ -6,13 +6,22 @@
 import Foundation
 import Alamofire
 
-class IssueAPI: GithubAPI {
-    override init(user: String, repo: String) {
-        super.init(user: user, repo: repo)
+class IssueAPI: PaginationAPI {
+    private let user: String
+    private let repo: String
+
+    init(user: String, repo: String) {
+        self.user = user
+        self.repo = repo
     }
 
     @discardableResult
-    func issues(success: (([Issue], String?)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
-        return items(router: .issues(user: user, repo: repo), success: success, failure: failure)
+    func issues(success: (([Issue])->Void)?, failure: ((Error)->Void)?) -> DataRequest {
+        return load(router: .issues(user: user, repo: repo), success: success, failure: failure)
+    }
+
+    @discardableResult
+    func issue(number: Int, success: ((Issue)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
+        return item(router: .issue(user: user, repo: repo, number: number), success: success, failure: failure)
     }
 }

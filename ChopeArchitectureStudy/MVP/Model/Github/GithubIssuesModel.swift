@@ -28,7 +28,7 @@ class GithubIssuesModel: IssuesModel {
     }
 
     func load() {
-        api.issues(success: { [weak self] issues, nextPageUrl in
+        api.issues(success: { [weak self] issues in
             self?.issues = issues
             self?.postNotificationChanged()
         }, failure: { error in

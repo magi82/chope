@@ -6,13 +6,17 @@
 import Foundation
 import Alamofire
 
-class CommentAPI: GithubAPI {
-    override init(user: String, repo: String) {
-        super.init(user: user, repo: repo)
+class CommentAPI: PaginationAPI {
+    private let user: String
+    private let repo: String
+
+    init(user: String, repo: String) {
+        self.user = user
+        self.repo = repo
     }
 
     @discardableResult
-    func comments(issueNumber: Int, success: (([Comment], String?)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
-        return items(router: .comments(user: user, repo: repo, number: issueNumber), success: success, failure: failure)
+    func comments(issueNumber: Int, success: (([Comment])->Void)?, failure: ((Error)->Void)?) -> DataRequest {
+        return load(router: .comments(user: user, repo: repo, number: issueNumber), success: success, failure: failure)
     }
 }

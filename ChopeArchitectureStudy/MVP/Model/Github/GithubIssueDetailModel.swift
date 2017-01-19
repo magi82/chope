@@ -13,22 +13,22 @@ class GithubIssueDetailModel: IssueDetailModel {
     var number: Int
 
     var issue: Issue = Issue(rawJson: [:])
+    private let api: IssueAPI!
 
     required init(user: String, repo: String, number: Int = 0) {
         self.user = user
         self.repo = repo
         self.number = number
+
+        api = IssueAPI(user: user, repo: repo)
     }
 
     func load() {
-        let endpoint = "https://api.github.com/repos/\(user)/\(repo)/issues/\(number)"
-        XCGLogger.default.info(endpoint)
-        Alamofire.request(endpoint).responseJSON { [weak self] response in
-                    if let json = response.result.value as? [String: AnyObject] {
-                        self?.issue = Issue(rawJson: json)
-                        self?.postNotificationChanged()
-                    }
-                }
+        api.issue(number: number, success: { [weak self] issue in
+            self?.issue = issue
+            self?.postNotificationChanged()
+        }, failure: { error in
+        })
     }
 
     func create(title: String, body: String, failure: ((Error, String)->Void)? = nil) {

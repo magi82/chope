@@ -52,6 +52,7 @@
 		3E11BBECE3A4CCBDFA3C7349 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B51B09133953A2866738 /* IssueTableViewCell.swift */; };
 		3E11BC03E899CD92144E368D /* GithubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BFB52B763B2D92D5501F /* GithubData.swift */; };
 		3E11BC5F273B0060FF5AD31D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11BA455E1F2A867C6D4459 /* Main.storyboard */; };
+		3E11BE0EC1356A68CE556B0D /* PaginationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B256C07C659EC6095E9F /* PaginationAPI.swift */; };
 		3E11BE6F31C50D1E4004C705 /* CommentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BE9968D03FFC6ABC360E /* CommentAPI.swift */; };
 		3E11BE93F5065178D746FD22 /* IssueDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B3BB4181F50973CD8F21 /* IssueDetailCellView.swift */; };
 		3E11BE94D688A9B455E0064D /* IssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */; };
@@ -73,6 +74,7 @@
 		3E11B22125837EB134AA6BC4 /* IssueCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCreationViewController.swift; sourceTree = "<group>"; };
 		3E11B22A1231514EC667941F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E11B2493AE091CDF4F78617 /* GithubCommentsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCommentsModel.swift; sourceTree = "<group>"; };
+		3E11B256C07C659EC6095E9F /* PaginationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationAPI.swift; sourceTree = "<group>"; };
 		3E11B269AA5D28E66E21D8BC /* IssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesModel.swift; sourceTree = "<group>"; };
 		3E11B2C3175A368EB91D2660 /* IssuesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesPresenter.swift; sourceTree = "<group>"; };
 		3E11B306963515FE3BACC1F7 /* RepositoryServicesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryServicesView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				3E11B996D6CEBD5D3513AA37 /* GithubRouter.swift */,
 				3E11BABEC54B50D410C302C1 /* IssueAPI.swift */,
 				3E11BE9968D03FFC6ABC360E /* CommentAPI.swift */,
+				3E11B256C07C659EC6095E9F /* PaginationAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				3E11B31370C41267C6EC470C /* GithubRouter.swift in Sources */,
 				3E11BAFEC8C05309F1F6A837 /* IssueAPI.swift in Sources */,
 				3E11BE6F31C50D1E4004C705 /* CommentAPI.swift in Sources */,
+				3E11BE0EC1356A68CE556B0D /* PaginationAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

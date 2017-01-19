@@ -14,52 +14,41 @@ enum GithubAPIError: Error {
 
 
 class GithubAPI {
-    let user: String
-    let repo: String
+    func item<T: GithubData>(router: GithubRouter, success: ((T)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
+        logRequest(router: router)
 
-    init(user: String, repo: String) {
-        self.user = user
-        self.repo = repo
-    }
-
-    func items<T: GithubData>(router: GithubRouter, success: (([T], String?)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
-        return Alamofire.request(router).validate().responseJSON { response in
+        return Alamofire.request(router).validate().responseJSON {[weak self] response in
             switch response.result {
             case .success:
-                guard let json = response.result.value as? [[String: Any]] else {
+                guard let json = response.result.value as? [String: Any] else {
+                    self?.logFailure(router: router, error: GithubAPIError.invalidJson)
                     failure?(GithubAPIError.invalidJson)
                     return
                 }
-
-                let items: [T] = json.map { T(rawJson: $0) }
-                if let linkValue: String = response.response?.allHeaderFields["Link"] as? String {
-                    let pattern = "<(.+)>; rel=\"next\""
-                    if let regex = try? NSRegularExpression(pattern: pattern, options: []), let match: NSTextCheckingResult = regex.matches(in: linkValue, options: [], range: NSRange(location: 0, length: linkValue.characters.count)).first {
-                        let range = match.rangeAt(1)
-                        let nextPageUrl = (linkValue as NSString).substring(with: range)
-                        success?(items, nextPageUrl)
-                        return
-                    }
-                }
-                success?(items, nil)
+                self?.logSuccess(router: router, response: response)
+                success?(T(rawJson: json))
             case .failure(let error):
+                self?.logFailure(router: router, error: error)
                 failure?(error)
             }
         }
     }
 
-    func item<T: GithubData>(router: GithubRouter, success: ((T)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
-        return Alamofire.request(router).validate().responseJSON { response in
-            switch response.result {
-            case .success:
-                guard let json = response.result.value as? [String: Any] else {
-                    failure?(GithubAPIError.invalidJson)
-                    return
-                }
-                success?(T(rawJson: json))
-            case .failure(let error):
-                failure?(error)
-            }
+    func logRequest(router: GithubRouter) {
+        if let urlRequest = try? router.asURLRequest(), let httpMethod = urlRequest.httpMethod, let urlString = urlRequest.url?.absoluteString {
+            XCGLogger.default.info("[\(httpMethod)][Request] \(urlString)")
+        }
+    }
+
+    func logSuccess(router: GithubRouter, response: DataResponse<Any>) {
+        if let urlRequest = try? router.asURLRequest(), let httpMethod = urlRequest.httpMethod, let urlString = urlRequest.url?.absoluteString, let httpURLResponse = response.response {
+            XCGLogger.default.info("[\(httpMethod)][Response] \(urlString) : \(httpURLResponse.statusCode)")
+        }
+    }
+
+    func logFailure(router: GithubRouter, error: Error) {
+        if let urlRequest = try? router.asURLRequest(), let httpMethod = urlRequest.httpMethod, let urlString = urlRequest.url?.absoluteString {
+            XCGLogger.default.info("[\(httpMethod)][Error] \(urlString) : \(error)")
         }
     }
 }

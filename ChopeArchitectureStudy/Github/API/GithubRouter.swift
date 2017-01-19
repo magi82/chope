@@ -4,6 +4,7 @@
 //
 
 import Alamofire
+import XCGLogger
 
 enum GithubRouter: URLRequestConvertible {
     case issue(user: String, repo: String, number: Int)
@@ -11,6 +12,7 @@ enum GithubRouter: URLRequestConvertible {
     case createIssue(user: String, repo: String, parameters: Parameters)
     case comments(user: String, repo: String, number: Int)
     case createComment(user: String, repo: String, number: Int, parameters: Parameters)
+    case nextPage(url: URL)
 
     static let baseURLString = "https://api.github.com"
 
@@ -26,6 +28,8 @@ enum GithubRouter: URLRequestConvertible {
             return .get
         case .createComment:
             return .post
+        case .nextPage:
+            return .get
         }
     }
 
@@ -39,6 +43,8 @@ enum GithubRouter: URLRequestConvertible {
         case .comments(let user, let repo, let number),
              .createComment(let user, let repo, let number, _):
             return "/repos/\(user)/\(repo)/issues/\(number)/comments"
+        case .nextPage(let url):
+            return url.relativePath
         }
     }
 
@@ -50,6 +56,9 @@ enum GithubRouter: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
 
         switch self {
+        case .nextPage(let url):
+            urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = method.rawValue
         case .issue,
              .issues,
              .comments:
