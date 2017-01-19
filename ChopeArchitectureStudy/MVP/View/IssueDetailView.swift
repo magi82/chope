@@ -5,6 +5,6 @@
 
 import Foundation
 
-protocol IssueDetailView {
+protocol IssueDetailView: class {
     func set(issue: Issue)
 }

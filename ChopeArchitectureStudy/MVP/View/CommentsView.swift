@@ -5,6 +5,6 @@
 
 import Foundation
 
-protocol CommentsView {
+protocol CommentsView: class {
     func set(comments: [Comment])
 }

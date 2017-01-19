@@ -5,6 +5,6 @@
 
 import Foundation
 
-protocol IssueCreationView {
+protocol IssueCreationView: class {
     func completeCreation()
 }

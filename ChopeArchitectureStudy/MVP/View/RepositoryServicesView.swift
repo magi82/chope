@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol RepositoryServicesView {
+protocol RepositoryServicesView: class {
     func setGithubAccessToken(token: String?)
     func setBitbucketAPIKey(apiKey: String?)
 }

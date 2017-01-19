@@ -7,7 +7,7 @@ import Foundation
 
 class CommentsPresenter {
     let model: CommentsModel
-    var view: CommentsView!
+    weak var view: CommentsView!
 
     init(model: CommentsModel) {
         self.model = model

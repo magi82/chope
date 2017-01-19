@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol IssuesView {
+protocol IssuesView: class {
     func set(issues: [Issue])
     func open(url: URL)
 }

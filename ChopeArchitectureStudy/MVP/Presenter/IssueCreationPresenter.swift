@@ -7,7 +7,7 @@ import Foundation
 
 class IssueCreationPresenter {
     let model: IssueDetailModel!
-    var view: IssueCreationView!
+    weak var view: IssueCreationView!
 
     init(model: IssueDetailModel) {
         self.model = model

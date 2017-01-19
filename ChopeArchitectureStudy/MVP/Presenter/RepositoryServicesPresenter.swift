@@ -7,7 +7,7 @@ import Foundation
 
 class RepositoryServicesPresenter {
     let model = RepositoryServicesModel()
-    let view: RepositoryServicesView
+    weak var view: RepositoryServicesView!
 
     init(view: RepositoryServicesView) {
         self.view = view
