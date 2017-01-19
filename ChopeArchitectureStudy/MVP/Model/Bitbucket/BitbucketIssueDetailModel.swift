@@ -32,7 +32,7 @@ class BitbucketIssueDetailModel: IssueDetailModel {
                 }
     }
 
-    func create(title: String, body: String, failure: ((Error, String)->Void)? = nil) {
+    func create(title: String, body: String, failure: ((Error)->Void)? = nil) {
 
     }
 }

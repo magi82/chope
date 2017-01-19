@@ -7,5 +7,4 @@ import Foundation
 
 protocol IssueCreationView {
     func completeCreation()
-    func showMessage(title: String?, message: String?)
 }

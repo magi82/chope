@@ -59,17 +59,19 @@ enum GithubRouter: URLRequestConvertible {
         case .nextPage(let url):
             urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = method.rawValue
+        case .createIssue(_, _, let parameters),
+             .createComment(_, _, _, let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         case .issue,
              .issues,
              .comments:
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: nil)
             break
-        case .createIssue(_, _, let params):
-            parameters = params
-        case .createComment(_, _, _, let params):
-            parameters = params
         }
 
-        urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+        if let accessToken = GithubAuthentication.sharedInstance.accessToken {
+            urlRequest.setValue("token \(accessToken)", forHTTPHeaderField: "Authorization")
+        }
         return urlRequest
     }
 }

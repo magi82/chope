@@ -6,4 +6,13 @@
 import Foundation
 
 class GithubAuthentication {
+    static let sharedInstance = GithubAuthentication()
+
+    var accessToken: String? {
+        didSet {
+
+        }
+    }
+
+    private init() { }
 }

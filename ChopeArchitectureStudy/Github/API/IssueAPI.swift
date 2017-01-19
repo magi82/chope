@@ -24,4 +24,12 @@ class IssueAPI: PaginationAPI {
     func issue(number: Int, success: ((Issue)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
         return item(router: .issue(user: user, repo: repo, number: number), success: success, failure: failure)
     }
+
+    @discardableResult
+    func create(title: String, body: String, success: ((Issue)->Void)?, failure: ((Error)->Void)?) -> DataRequest? {
+        return createItem(router: .createIssue(user: user, repo: repo, parameters: [
+                "title": title,
+                "body": body
+        ]), success: success, failure: failure)
+    }
 }

@@ -20,9 +20,7 @@ class IssueCreationPresenter {
     }
 
     func create(title: String, body: String) {
-        model.create(title: title, body: body) { [weak self] (error, message) in
-            self?.view.showMessage(title: "\(error)", message: message)
-        }
+        model.create(title: title, body: body, failure: nil)
     }
 
     @objc func onAddedIssue(_ notification: Notification) {

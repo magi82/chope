@@ -31,33 +31,12 @@ class GithubIssueDetailModel: IssueDetailModel {
         })
     }
 
-    func create(title: String, body: String, failure: ((Error, String)->Void)? = nil) {
-        guard let token = RepositoryServicesModel().githubAccessToken else {
-            assertionFailure()
-            return
-        }
-
-        let endpoint = "https://api.github.com/repos/\(user)/\(repo)/issues"
-        XCGLogger.default.info(endpoint)
-
-        Alamofire.request(endpoint, method: .post, parameters: [
-                        "title": title,
-                        "body": body
-                ], encoding: JSONEncoding.default, headers: [
-                    "Authorization": "token \(token)"
-                ])
-                .validate()
-                .responseJSON { [weak self] response in
-                    if case .failure(let error) = response.result {
-                        failure?(error, "\(response)")
-                        return
-                    }
-
-                    XCGLogger.default.info(response)
-                    if let json = response.result.value as? [String: AnyObject] {
-                        self?.issue = Issue(rawJson: json)
-                        self?.postNotificationAdded()
-                    }
-                }
+    func create(title: String, body: String, failure: ((Error)->Void)? = nil) {
+        api.create(title: title, body: body, success: { [weak self] issue in
+            self?.issue = issue
+            self?.postNotificationAdded()
+        }, failure: { error in
+            failure?(error)
+        })
     }
 }

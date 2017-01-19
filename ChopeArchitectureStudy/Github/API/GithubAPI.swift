@@ -27,11 +27,19 @@ class GithubAPI {
                 }
                 self?.logSuccess(router: router, response: response)
                 success?(T(rawJson: json))
-            case .failure(let error):
+            case .failure(let error ):
                 self?.logFailure(router: router, error: error)
                 failure?(error)
             }
         }
+    }
+
+    func createItem<T: GithubData>(router: GithubRouter, success: ((T)->Void)?, failure: ((Error)->Void)?) -> DataRequest? {
+        guard GithubAuthentication.sharedInstance.accessToken != nil else {
+            assertionFailure()
+            return nil
+        }
+        return item(router: router, success: success, failure: failure)
     }
 
     func logRequest(router: GithubRouter) {

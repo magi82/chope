@@ -33,8 +33,4 @@ extension IssueCreationViewController: IssueCreationView {
     func completeCreation() {
         self.dismiss(animated: true)
     }
-
-    func showMessage(title: String?, message: String?) {
-        Toast(text: "\(title)\n\n\n\(message)", duration: Delay.long).show()
-    }
 }

@@ -35,6 +35,8 @@ class RepositoryServicesViewController: UIViewController {
             let model = BitbucketIssuesModel(user: "birkenfeld", repo: "pygments-main")
             viewController.presenter = IssuesPresenter(model: model)
         } else if segue.identifier == "githubIssues" {
+            GithubAuthentication.sharedInstance.accessToken = githubAccessTokenTextField.text
+
             guard let username = githubUsernameTextField.text, let repo = githubRepoTextField.text else { return }
             let model = GithubIssuesModel(user: username, repo: repo)
             viewController.presenter = IssuesPresenter(model: model)

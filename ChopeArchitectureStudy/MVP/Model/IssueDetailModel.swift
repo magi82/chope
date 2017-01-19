@@ -12,7 +12,7 @@ protocol IssueDetailModel: Model {
     init(user: String, repo: String, number: Int)
 
     func load()
-    func create(title: String, body: String, failure: ((Error, String)->Void)?)
+    func create(title: String, body: String, failure: ((Error)->Void)?)
 }
 
 extension IssueDetailModel {
