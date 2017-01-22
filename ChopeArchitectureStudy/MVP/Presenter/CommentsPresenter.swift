@@ -26,6 +26,7 @@ class CommentsPresenter {
 
     @objc func onAddedComment() {
         comments()
+        view.clearInputText()
     }
 
     func comments() {

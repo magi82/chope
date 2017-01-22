@@ -14,6 +14,10 @@ enum GithubAPIError: Error {
 
 
 class GithubAPI {
+    class func initialize() {
+        URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+    }
+
     func item<T: GithubData>(router: GithubRouter, success: ((T)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
         logRequest(router: router)
 

@@ -26,6 +26,7 @@ class GithubCommentsModel: CommentsModel {
     func load() {
         api.comments(issueNumber: number, success: { [weak self] comments in
             self?.items = comments
+            XCGLogger.debug("\(self?.items.count) : \(comments.count)")
             self?.postNotificationChanged()
         }, failure: { error in
             XCGLogger.error("\(error)")

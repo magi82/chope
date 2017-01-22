@@ -33,7 +33,6 @@ class PaginationAPI: GithubAPI {
     @discardableResult
     func items<T: GithubData>(router: GithubRouter, success: (([T], String?)->Void)?, failure: ((Error)->Void)?) -> DataRequest {
         logRequest(router: router)
-
         return Alamofire.request(router).validate().responseJSON { [weak self] response in
             switch response.result {
             case .success:

@@ -54,7 +54,7 @@ class IssueDetailViewController: UIViewController {
 
     @objc func onChangedText(_ notification: Notification) {
         guard let message = bodyTextField.text else { return }
-        sendButton.isEnabled = message.characters.count > 5
+        sendButton.isEnabled = message.characters.count > 0
     }
 
     @IBAction func onSend() {
@@ -101,5 +101,14 @@ extension IssueDetailViewController: CommentsView {
     func set(comments: [Comment]) {
         self.comments = comments
         tableView.reloadData()
+
+        let row = comments.count + (issue != nil ? 0 : -1)
+        tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .bottom, animated: true)
+    }
+
+    func clearInputText() {
+        bodyTextField.text = nil
+        sendButton.isEnabled = false
+        bodyTextField.resignFirstResponder()
     }
 }

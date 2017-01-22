@@ -7,4 +7,5 @@ import Foundation
 
 protocol CommentsView: class {
     func set(comments: [Comment])
+    func clearInputText()
 }
