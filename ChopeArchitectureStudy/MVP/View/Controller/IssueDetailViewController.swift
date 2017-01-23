@@ -86,7 +86,14 @@ extension IssueDetailViewController: UITableViewDataSource {
 }
 
 extension IssueDetailViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
 
+        if offsetY >= (contentHeight - scrollView.frame.size.height) {
+            commentsPresenter.nextComments()
+        }
+    }
 }
 
 extension IssueDetailViewController: IssueDetailView {
@@ -101,9 +108,6 @@ extension IssueDetailViewController: CommentsView {
     func set(comments: [Comment]) {
         self.comments = comments
         tableView.reloadData()
-
-        let row = comments.count + (issue != nil ? 0 : -1)
-        tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .bottom, animated: true)
     }
 
     func clearInputText() {

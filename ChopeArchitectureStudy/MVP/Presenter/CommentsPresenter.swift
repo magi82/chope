@@ -33,6 +33,10 @@ class CommentsPresenter {
         model.load()
     }
 
+    func nextComments() {
+        model.loadNext()
+    }
+
     func create(body: String) {
         model.create(body: body, failure: nil)
     }

@@ -10,6 +10,7 @@ protocol CommentsModel: Model {
     var items: [Comment] { get set }
 
     func load()
+    func loadNext()
     func create(body: String, failure: ((Error)->Void)?)
 }
 

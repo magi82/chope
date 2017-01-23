@@ -22,6 +22,10 @@ class BitbucketCommentsModel: CommentsModel {
         //TODO:
     }
 
+    func loadNext() {
+        //TODO:
+    }
+
     func create(body: String, failure: ((Error)->Void)? = nil) {
         //TODO:
     }
