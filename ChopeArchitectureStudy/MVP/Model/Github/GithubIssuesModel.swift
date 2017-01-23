@@ -19,7 +19,7 @@ class GithubIssuesModel: IssuesModel {
     required init(user: String, repo: String) {
         self.user = user
         self.repo = repo
-        api = IssueAPI(user: user, repo: repo)
+        api = IssueAPI(repositories: .repository(owner: user, repo: repo))
 
         NotificationCenter.default.addObserver(forName: Notification.Name.addedIssues, object: nil, queue: nil) { [weak self] notification in
             guard let issue = notification.userInfo?["issue"] as? Issue else { return }

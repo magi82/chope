@@ -6,12 +6,21 @@
 import Alamofire
 import XCGLogger
 
+
+enum GithubRepositories {
+    case all
+    case ownedAndMember
+    case organization(name: String)
+    case repository(owner: String, repo: String)
+}
+
+
 enum GithubRouter: URLRequestConvertible {
-    case issue(user: String, repo: String, number: Int)
-    case issues(user: String, repo: String)
-    case createIssue(user: String, repo: String, parameters: Parameters)
-    case comments(user: String, repo: String, number: Int)
-    case createComment(user: String, repo: String, number: Int, parameters: Parameters)
+    case issue(repositories: GithubRepositories, number: Int)
+    case issues(repositories: GithubRepositories)
+    case createIssue(repositories: GithubRepositories, parameters: Parameters)
+    case comments(repositories: GithubRepositories, number: Int)
+    case createComment(repositories: GithubRepositories, number: Int, parameters: Parameters)
     case nextPage(url: URL)
 
     static let baseURLString = "https://api.github.com"
@@ -35,23 +44,34 @@ enum GithubRouter: URLRequestConvertible {
 
     var path: String {
         switch self {
-        case .issue(let user, let repo, let number):
-            return "/repos/\(user)/\(repo)/issues/\(number)"
-        case .issues(let user, let repo),
-             .createIssue(let user, let repo, _):
-            return "/repos/\(user)/\(repo)/issues"
-        case .comments(let user, let repo, let number),
-             .createComment(let user, let repo, let number, _):
-            return "/repos/\(user)/\(repo)/issues/\(number)/comments"
+        case .issue(let repositories, let number):
+            return "\(path(repositories: repositories))/issues/\(number)"
+        case .issues(let repositories),
+             .createIssue(let repositories, _):
+            return "\(path(repositories: repositories))/issues"
+        case .comments(let repositories, let number),
+             .createComment(let repositories, let number, _):
+            return "\(path(repositories: repositories))/issues/\(number)/comments"
         case .nextPage(let url):
             return url.relativePath
         }
     }
 
+    private func path(repositories: GithubRepositories) -> String {
+        switch repositories {
+        case .all:
+            return ""
+        case .ownedAndMember:
+            return "/user"
+        case .organization(let name):
+            return "/orgs/\(name)"
+        case .repository(let owner, let repo):
+            return "/repos/\(owner)/\(repo)"
+        }
+    }
+
     func asURLRequest() throws -> URLRequest {
         let url = try GithubRouter.baseURLString.asURL()
-
-        var parameters: [String: Any]?
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
 
@@ -59,8 +79,8 @@ enum GithubRouter: URLRequestConvertible {
         case .nextPage(let url):
             urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = method.rawValue
-        case .createIssue(_, _, let parameters),
-             .createComment(_, _, _, let parameters):
+        case .createIssue(_, let parameters),
+             .createComment(_, _, let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         case .issue,
              .issues,

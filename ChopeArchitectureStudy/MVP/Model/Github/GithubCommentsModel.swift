@@ -21,7 +21,7 @@ class GithubCommentsModel: CommentsModel {
         self.repo = repo
         self.number = number
         self.items = []
-        api = CommentAPI(user: user, repo: repo)
+        api = CommentAPI(repositories: .repository(owner: user, repo: repo))
     }
 
     func load() {

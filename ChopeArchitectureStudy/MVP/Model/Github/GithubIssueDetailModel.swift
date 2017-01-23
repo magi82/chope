@@ -20,7 +20,7 @@ class GithubIssueDetailModel: IssueDetailModel {
         self.repo = repo
         self.number = number
 
-        api = IssueAPI(user: user, repo: repo)
+        api = IssueAPI(repositories: .repository(owner: user, repo: repo))
     }
 
     func load() {
