@@ -7,7 +7,7 @@ import UIKit
 import Kingfisher
 import BonMot
 
-class IssueTableViewCell: UITableViewCell {
+class IssueTableViewCell: UITableViewCell, ItemCell {
     var onTouchedUser: (()->Void)?
 
     @IBOutlet fileprivate weak var titleLabel: UILabel!
@@ -98,5 +98,15 @@ class IssueTableViewCell: UITableViewCell {
     private func set(user: User) {
         usernameLabel.text = user.login
         userImageButton.kf.setBackgroundImage(with: user.avatarURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+    }
+
+    func set(item: Any) {
+        guard let item = item as? Issue else { return }
+        set(number: item.number, title: item.title)
+        set(countOfComments: item.comments)
+
+        if let user = item.user {
+            set(user: user)
+        }
     }
 }

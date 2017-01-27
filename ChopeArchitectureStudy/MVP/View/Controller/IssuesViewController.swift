@@ -8,83 +8,59 @@
 
 import UIKit
 
-
-class IssuesViewController: UIViewController {
-    var presenter: IssuesPresenter!
-
-    @IBOutlet private weak var tableView: UITableView!
-
-    fileprivate var issues: [Issue] = [] {
+class IssuesViewController: ItemsViewController<Issue>, IssuesView, ItemCellConfiguration {
+    var model: IssuesModel! {
         didSet {
-            tableView.reloadData()
+            guard let model = model else { return }
+            presenter = IssuesPresenter(model: model)
         }
+    }
+
+    private var createIssueBarButtonItem: UIBarButtonItem!
+
+    override func loadView() {
+        super.loadView()
+
+        cellNib = UINib(nibName: "IssueTableViewCell", bundle: nil)
+        cellConfiguration = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 80
-
-        assert(presenter != nil)
-        presenter.view = self
-        presenter.issues()
-    }
-
-    override func prepare(`for` segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-
-        guard let identifier = segue.identifier else { return }
-
-        if identifier == "issueDetail",
-           let issueDetailVC = segue.destination as? IssueDetailViewController,
-           let cell = sender as? UITableViewCell,
-           let indexPath = tableView.indexPath(for: cell) {
-            issueDetailVC.presenter = presenter.detailPresenter(index: indexPath.row)
-            issueDetailVC.commentsPresenter = presenter.commentsPresenter(index: indexPath.row)
-        } else if identifier == "createIssue", let vc = (segue.destination as? UINavigationController)?.viewControllers.first as? IssueCreationViewController {
-            vc.presenter = presenter.creationPresenter()
-        }
-    }
-}
-
-extension IssuesViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return issues.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "issue", for: indexPath) as? IssueTableViewCell else {
-            assertionFailure()
-            return UITableViewCell()
-        }
-
-        let issue = issues[indexPath.row]
-        cell.set(issue: issue)
-        cell.onTouchedUser = { [weak self] in
-            self?.presenter.touchUserPhoto(atIndex: indexPath.row)
-        }
-        return cell
-    }
-}
-
-extension IssuesViewController: UITableViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-
-        if offsetY >= (contentHeight - scrollView.frame.size.height) {
-            presenter.nexPageIssues()
-        }
-    }
-}
-
-extension IssuesViewController: IssuesView {
-    func set(issues: [Issue]) {
-        self.issues = issues
+        createIssueBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd(_:)))
+        navigationItem.rightBarButtonItem = createIssueBarButtonItem
     }
 
     func open(url: URL) {
         UIApplication.shared.open(url)
+    }
+
+    func custom(cell: UITableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
+        guard let issueCell = cell as? IssueTableViewCell, let presenter = self.presenter as? IssuesPresenter else { return cell }
+        issueCell.onTouchedUser = {
+            presenter.touchUserPhoto(atIndex: indexPath.row)
+        }
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+
+        guard let viewController: IssueDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "issueDetail") as? IssueDetailViewController,
+              let presenter: IssuesPresenter = self.presenter as? IssuesPresenter
+        else { return }
+        viewController.presenter = presenter.detailPresenter(index: indexPath.row)
+        viewController.commentsPresenter = presenter.commentsPresenter(index: indexPath.row)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    @objc func onAdd(_ barButtonItem: UIBarButtonItem) {
+        guard let navigationController: UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "createIssue") as? UINavigationController,
+              let viewController: IssueCreationViewController = navigationController.viewControllers.first as? IssueCreationViewController,
+              let presenter: IssuesPresenter = self.presenter as? IssuesPresenter
+        else { return }
+        viewController.presenter = presenter.creationPresenter()
+        present(navigationController, animated: true)
     }
 }

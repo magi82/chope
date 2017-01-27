@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.2.0)
+  - Alamofire (4.3.0)
   - BonMot (4.0.2)
-  - Kingfisher (3.2.4)
+  - Kingfisher (3.3.2)
   - SwiftyJSON (3.1.4)
   - Toaster (2.0.1)
   - XCGLogger (4.0.0):
@@ -17,9 +17,9 @@ DEPENDENCIES:
   - XCGLogger
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   BonMot: eddf223b4054e7be8d632588188bdf70dfa3250d
-  Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
+  Kingfisher: 8e60094454aeb4746eb588eb57f794d891c6ea88
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toaster: be65cd48e93a525b2a9cc4bd25a2bfc900e02d9f
   XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4

@@ -69,7 +69,7 @@
                                         <rect key="frame" x="0.0" y="139" width="351" height="30"/>
                                         <state key="normal" title="Issues"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="githubIssues" id="nXb-gB-NNW"/>
+                                            <action selector="touchGithubIssues" destination="efO-fz-XII" eventType="touchUpInside" id="XtJ-oG-RKb"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitbucket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzo-6l-9Mg">
@@ -99,9 +99,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8R-vV-Wxp">
                                         <rect key="frame" x="0.0" y="316" width="351" height="30"/>
                                         <state key="normal" title="Issues"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="bitbucketIssues" id="cft-m7-kmg"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -142,14 +139,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hxr-2x-CdK">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="issue" id="vxj-lD-kHc" customClass="IssueTableViewCell" customModule="ChopeArchitectureStudy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vxj-lD-kHc" id="qeM-zZ-Eht">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uec-v7-dmb">
@@ -289,7 +286,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Vdc-Ni-fU9">
             <objects>
-                <navigationController id="xRx-CK-dVV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="createIssue" id="xRx-CK-dVV" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kll-B7-7Pi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -305,7 +302,7 @@
         <!--Issue Detail View Controller-->
         <scene sceneID="Cdl-4N-Ufb">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="wmD-XK-esz" customClass="IssueDetailViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="issueDetail" automaticallyAdjustsScrollViewInsets="NO" id="wmD-XK-esz" customClass="IssueDetailViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fLr-7r-A8A"/>
                         <viewControllerLayoutGuide type="bottom" id="R4D-wa-vcM"/>
@@ -315,7 +312,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pgf-JJ-CnD">
-                                <rect key="frame" x="0.0" y="64" width="375" height="557"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="601"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="issueDetail" rowHeight="200" id="MtR-Si-WaK" customClass="IssueDetailTableViewCell" customModule="ChopeArchitectureStudy" customModuleProvider="target">
@@ -514,7 +511,4 @@
             <point key="canvasLocation" x="1280.8" y="123.68815592203899"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="nXb-gB-NNW"/>
-    </inferredMetricsTieBreakers>
 </document>

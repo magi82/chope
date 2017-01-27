@@ -32,14 +32,14 @@ class RepositoryServicesViewController: UIViewController {
         guard let viewController = segue.destination as? IssuesViewController else { return }
 
         if segue.identifier == "bitbucketIssues" {
-            let model = BitbucketIssuesModel(user: "birkenfeld", repo: "pygments-main")
-            viewController.presenter = IssuesPresenter(model: model)
+//            let model = BitbucketIssuesModel(user: "birkenfeld", repo: "pygments-main")
+//            viewController.presenter = IssuesPresenter(model: model)
         } else if segue.identifier == "githubIssues" {
-            GithubAuthentication.sharedInstance.accessToken = githubAccessTokenTextField.text
-
-            guard let username = githubUsernameTextField.text, let repo = githubRepoTextField.text else { return }
-            let model = GithubIssuesModel(user: username, repo: repo)
-            viewController.presenter = IssuesPresenter(model: model)
+//            GithubAuthentication.sharedInstance.accessToken = githubAccessTokenTextField.text
+//
+//            guard let username = githubUsernameTextField.text, let repo = githubRepoTextField.text else { return }
+//            let model = GithubIssuesModel(user: username, repo: repo)
+//            viewController.presenter = IssuesPresenter(model: model)
         }
     }
 
@@ -51,6 +51,16 @@ class RepositoryServicesViewController: UIViewController {
     @IBAction func changedBitbucketAPIKey(_ textField: UITextField) {
         guard let value = textField.text else { return }
         presenter.setBitbucketAPIKey(key: value)
+    }
+
+    @IBAction func touchGithubIssues() {
+        guard let username = githubUsernameTextField.text, let repo = githubRepoTextField.text else { return }
+        GithubAuthentication.sharedInstance.accessToken = githubAccessTokenTextField.text
+
+        let model = GithubIssuesModel(user: username, repo: repo)
+        let viewController: IssuesViewController = IssuesViewController()
+        viewController.model = model
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

@@ -5,12 +5,14 @@
 
 import Foundation
 
-class IssuesPresenter {
+class IssuesPresenter: ItemsPresenter<Issue> {
     let model: IssuesModel
     weak var view: IssuesView!
 
     init(model: IssuesModel) {
         self.model = model
+
+        super.init()
 
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues), name: .changedIssues, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: .addedComment, object: nil)
@@ -25,20 +27,29 @@ class IssuesPresenter {
         view?.open(url: url)
     }
 
-    func issues() {
+    override func set(view: ItemsView) {
+        guard let issuesView = view as? IssuesView else { return }
+        self.view = issuesView
+    }
+
+    override func loadFirst() {
         model.load()
     }
 
-    func nexPageIssues() {
+    override func loadNext() {
         model.loadNext()
     }
 
+    override func items() -> [Issue] {
+        return model.issues
+    }
+
     @objc func onChangedIssues() {
-        view?.set(issues: model.issues)
+        view?.set(items: model.issues)
     }
 
     @objc func onAddedComment() {
-        issues()
+        loadFirst()
     }
 
     func detailPresenter(index: Int) -> IssueDetailPresenter {
