@@ -21,6 +21,7 @@ enum GithubRouter: URLRequestConvertible {
     case createIssue(repositories: GithubRepositories, parameters: Parameters)
     case comments(repositories: GithubRepositories, number: Int)
     case createComment(repositories: GithubRepositories, number: Int, parameters: Parameters)
+    case user(username: String)
     case nextPage(url: URL)
 
     static let baseURLString = "https://api.github.com"
@@ -37,6 +38,8 @@ enum GithubRouter: URLRequestConvertible {
             return .get
         case .createComment:
             return .post
+        case .user:
+            return .get
         case .nextPage:
             return .get
         }
@@ -52,6 +55,8 @@ enum GithubRouter: URLRequestConvertible {
         case .comments(let repositories, let number),
              .createComment(let repositories, let number, _):
             return "\(path(repositories: repositories))/issues/\(number)/comments"
+        case .user(let username):
+            return "/users/\(username)"
         case .nextPage(let url):
             return url.relativePath
         }
@@ -84,7 +89,8 @@ enum GithubRouter: URLRequestConvertible {
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         case .issue,
              .issues,
-             .comments:
+             .comments,
+             .user:
             urlRequest = try URLEncoding.default.encode(urlRequest, with: nil)
             break
         }

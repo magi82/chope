@@ -22,6 +22,7 @@
 		3E11B3A8B92332C6FDE04EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B7F9CD42F592C57719F1 /* LaunchScreen.storyboard */; };
 		3E11B3C539A814A9B7D72F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */; };
 		3E11B41726314131A1C04AC4 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B6E104D4AA408323F915 /* IssueDetailViewController.swift */; };
+		3E11B41EA493BCAC1F481BEB /* JSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B070EC90723B2F824FF2 /* JSONExtension.swift */; };
 		3E11B42BF8D85F60E8AA5058 /* IssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B269AA5D28E66E21D8BC /* IssuesModel.swift */; };
 		3E11B4F871A0AAEA9DCA7362 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BC0843DA3332D3CCFB28 /* Model.swift */; };
 		3E11B4FD62D35C2A536344F5 /* IssueDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B7CCCD4759EC9D15A116 /* IssueDetailView.swift */; };
@@ -30,6 +31,7 @@
 		3E11B6201A83F932BA027EAD /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9AA282AF503EDD4743E /* IssueTableViewCell.swift */; };
 		3E11B62AC2264B293B62AA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B907046A53462B8588BF /* AppDelegate.swift */; };
 		3E11B73CFF396A34FDADEBDE /* IssueCreationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB4CE809B4DA91258787 /* IssueCreationPresenter.swift */; };
+		3E11B79114B6B8AE360DC1C8 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B1A3EDA0976864525C8F /* Repo.swift */; };
 		3E11B7A370B2A6DCB65133EA /* BitbucketCommentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B19E313524C1DB953B54 /* BitbucketCommentsModel.swift */; };
 		3E11B7BF58342EF14B5E16C7 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BBE5871F620C3F1FA761 /* CommentsView.swift */; };
 		3E11B7F53E95C2CAD2DC62E1 /* IssueCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BFBAAFC05A1CA38B0D95 /* IssueCreationView.swift */; };
@@ -68,10 +70,12 @@
 		21E5F9090C95D2CB0D0E819A /* Pods_ChopeArchitectureStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChopeArchitectureStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D3ACE51D34411E28D7BCDE /* Pods-ChopeArchitectureStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChopeArchitectureStudy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChopeArchitectureStudy/Pods-ChopeArchitectureStudy.release.xcconfig"; sourceTree = "<group>"; };
 		3E11B000441AD633ABF07576 /* GithubAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAuthentication.swift; sourceTree = "<group>"; };
+		3E11B070EC90723B2F824FF2 /* JSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtension.swift; sourceTree = "<group>"; };
 		3E11B0C7730F0ACEC442538F /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewCell.swift; sourceTree = "<group>"; };
 		3E11B0EBEDB6ABD5A7B75FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailModel.swift; sourceTree = "<group>"; };
 		3E11B19E313524C1DB953B54 /* BitbucketCommentsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitbucketCommentsModel.swift; sourceTree = "<group>"; };
+		3E11B1A3EDA0976864525C8F /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		3E11B22125837EB134AA6BC4 /* IssueCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCreationViewController.swift; sourceTree = "<group>"; };
 		3E11B22A1231514EC667941F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E11B2493AE091CDF4F78617 /* GithubCommentsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCommentsModel.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 				3E11B70653A6786E87B679D9 /* Milestone.swift */,
 				3E11BBD84AC446C9FDB8506E /* PullRequest.swift */,
 				3E11BFB52B763B2D92D5501F /* GithubData.swift */,
+				3E11B1A3EDA0976864525C8F /* Repo.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				3E11B000441AD633ABF07576 /* GithubAuthentication.swift */,
 				3E11BE7B4216800C2A36FE56 /* Data */,
 				3E11B93B47C2EF556844FB1B /* API */,
+				3E11B070EC90723B2F824FF2 /* JSONExtension.swift */,
 			);
 			path = Github;
 			sourceTree = "<group>";
@@ -490,6 +496,8 @@
 				3E11B6201A83F932BA027EAD /* IssueTableViewCell.swift in Sources */,
 				3E11B2D6741CA6E93451328A /* IssueDetailTableViewCell.swift in Sources */,
 				3E11BBE57295F77EF36EE60D /* ItemsViewController.swift in Sources */,
+				3E11B41EA493BCAC1F481BEB /* JSONExtension.swift in Sources */,
+				3E11B79114B6B8AE360DC1C8 /* Repo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

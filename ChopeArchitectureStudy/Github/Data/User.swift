@@ -12,6 +12,16 @@ struct User: GithubData {
     let gravatarId: String
     let type: String
     let siteAdmin: Bool
+    let name: String
+    let company: String
+    let location: String
+    let email: String
+    let hireable: Bool
+    let bio: String
+    let publicRepos: Int
+    let publicGists: Int
+    let followers: Int
+    let following: Int
 
     let avatarURL: URL?
     let htmlURL: URL?
@@ -25,6 +35,10 @@ struct User: GithubData {
     let reposURL: URL?
     let eventsURL: URL?
     let receivedEventsURL: URL?
+    let blog: URL?
+
+    let createAt: Date?
+    let updateAt: Date?
 
     init(rawJson: Any) {
         let json = JSON(rawJson)
@@ -33,6 +47,16 @@ struct User: GithubData {
         gravatarId = json["gravatar_id"].stringValue
         type = json["type"].stringValue
         siteAdmin = json["site_admin"].boolValue
+        name = json["name"].stringValue
+        company = json["company"].stringValue
+        location = json["location"].stringValue
+        email = json["email"].stringValue
+        hireable = json["hireable"].boolValue
+        bio = json["bio"].stringValue
+        publicRepos = json["public_repos"].intValue
+        publicGists = json["public_gists"].intValue
+        followers = json["followers"].intValue
+        following = json["following"].intValue
 
         avatarURL = json["avatar_url"].url
         htmlURL = json["html_url"].url
@@ -46,5 +70,9 @@ struct User: GithubData {
         reposURL = json["repos_url"].url
         eventsURL = json["events_url"].url
         receivedEventsURL = json["received_events_url"].url
+        blog = json["blog"].url
+
+        createAt = json["created_at"].date
+        updateAt = json["updated_at"].date
     }
 }
