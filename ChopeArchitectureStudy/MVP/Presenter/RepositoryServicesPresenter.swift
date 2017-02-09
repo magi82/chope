@@ -15,14 +15,9 @@ class RepositoryServicesPresenter {
 
     func load() {
         view.setGithubAccessToken(token: model.githubAccessToken)
-        view.setBitbucketAPIKey(apiKey: model.bitbucketAPIKey)
     }
 
     func setGithubAccessToken(token: String) {
         model.githubAccessToken = token
-    }
-
-    func setBitbucketAPIKey(key: String) {
-        model.bitbucketAPIKey = key
     }
 }

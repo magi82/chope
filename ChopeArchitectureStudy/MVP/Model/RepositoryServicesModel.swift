@@ -15,15 +15,5 @@ class RepositoryServicesModel {
         }
     }
 
-    var bitbucketAPIKey: String? {
-        get {
-            return UserDefaults.standard.string(forKey: keyBitbucketAPIKey)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: keyBitbucketAPIKey)
-        }
-    }
-
     private let keyGithubAccessToken = "githubAccessToken"
-    private let keyBitbucketAPIKey = "bitbucketAPIKey"
 }

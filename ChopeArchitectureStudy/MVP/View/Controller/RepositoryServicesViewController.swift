@@ -12,10 +12,6 @@ class RepositoryServicesViewController: UIViewController {
     @IBOutlet private weak var githubUsernameTextField: UITextField!
     @IBOutlet private weak var githubRepoTextField: UITextField!
     @IBOutlet private weak var githubIssuesButton: UIButton!
-    @IBOutlet fileprivate weak var bitbucketAPIKeyTextField: UITextField!
-    @IBOutlet private weak var bitbucketUsernameTextField: UITextField!
-    @IBOutlet private weak var bitbucketRepoTextField: UITextField!
-    @IBOutlet private weak var bitbucketIssuesButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +27,7 @@ class RepositoryServicesViewController: UIViewController {
 
         guard let viewController = segue.destination as? IssuesViewController else { return }
 
-        if segue.identifier == "bitbucketIssues" {
-//            let model = BitbucketIssuesModel(user: "birkenfeld", repo: "pygments-main")
-//            viewController.presenter = IssuesPresenter(model: model)
-        } else if segue.identifier == "githubIssues" {
+        if segue.identifier == "githubIssues" {
 //            GithubAuthentication.sharedInstance.accessToken = githubAccessTokenTextField.text
 //
 //            guard let username = githubUsernameTextField.text, let repo = githubRepoTextField.text else { return }
@@ -46,11 +39,6 @@ class RepositoryServicesViewController: UIViewController {
     @IBAction func changedGithubAccessToken(_ textField: UITextField) {
         guard let value = textField.text else { return }
         presenter.setGithubAccessToken(token: value)
-    }
-
-    @IBAction func changedBitbucketAPIKey(_ textField: UITextField) {
-        guard let value = textField.text else { return }
-        presenter.setBitbucketAPIKey(key: value)
     }
 
     @IBAction func touchGithubIssues() {
@@ -68,9 +56,5 @@ class RepositoryServicesViewController: UIViewController {
 extension RepositoryServicesViewController: RepositoryServicesView {
     func setGithubAccessToken(token: String?) {
         githubAccessTokenTextField.text = token
-    }
-
-    func setBitbucketAPIKey(apiKey: String?) {
-        bitbucketAPIKeyTextField.text = apiKey
     }
 }

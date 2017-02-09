@@ -18,7 +18,6 @@
 		3E11B31370C41267C6EC470C /* GithubRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B996D6CEBD5D3513AA37 /* GithubRouter.swift */; };
 		3E11B320644744FB1BC93858 /* CommentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BF2F10DC9F40F82D75CE /* CommentsModel.swift */; };
 		3E11B36286E609400DCC9996 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BDD60CA25886C708A6F2 /* NotificationNames.swift */; };
-		3E11B36BDD5A1D233148C6B8 /* BitbucketIssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BFB90EA51C85754EF272 /* BitbucketIssueDetailModel.swift */; };
 		3E11B3A8B92332C6FDE04EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B7F9CD42F592C57719F1 /* LaunchScreen.storyboard */; };
 		3E11B3C539A814A9B7D72F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E11B5CAAB74ABC4A9D10545 /* Assets.xcassets */; };
 		3E11B41726314131A1C04AC4 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B6E104D4AA408323F915 /* IssueDetailViewController.swift */; };
@@ -32,7 +31,6 @@
 		3E11B62AC2264B293B62AA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B907046A53462B8588BF /* AppDelegate.swift */; };
 		3E11B73CFF396A34FDADEBDE /* IssueCreationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB4CE809B4DA91258787 /* IssueCreationPresenter.swift */; };
 		3E11B79114B6B8AE360DC1C8 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B1A3EDA0976864525C8F /* Repo.swift */; };
-		3E11B7A370B2A6DCB65133EA /* BitbucketCommentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B19E313524C1DB953B54 /* BitbucketCommentsModel.swift */; };
 		3E11B7BF58342EF14B5E16C7 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BBE5871F620C3F1FA761 /* CommentsView.swift */; };
 		3E11B7F53E95C2CAD2DC62E1 /* IssueCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BFBAAFC05A1CA38B0D95 /* IssueCreationView.swift */; };
 		3E11B7FF1593C644C52A1BA9 /* RepositoryServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B6D9CACC116DE2645574 /* RepositoryServicesViewController.swift */; };
@@ -41,7 +39,6 @@
 		3E11B88B5FBDC93C9D94301F /* IssuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9EE8D6C08A95428B605 /* IssuesView.swift */; };
 		3E11B8DD58C849ABF8995AC8 /* FoundationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B9F660BF36025797EAD8 /* FoundationExtension.swift */; };
 		3E11B95E7CD6118E2FF58F30 /* CommentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B6A4CD050BF9F9D57E3B /* CommentsPresenter.swift */; };
-		3E11B99F205DC22E46A9CC9E /* BitbucketIssuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BBBFA8E8C755FE7877A7 /* BitbucketIssuesModel.swift */; };
 		3E11BA51A7EADCB09F61E082 /* IssueCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B22125837EB134AA6BC4 /* IssueCreationViewController.swift */; };
 		3E11BA8709C0466C3A9EFA7E /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BE449E89C4C3D74FAA3B /* IssuesViewController.swift */; };
 		3E11BA8EFB7190378FF96AF9 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BB5BC9D2DAB2D20F7AE2 /* GithubAPI.swift */; };
@@ -74,7 +71,6 @@
 		3E11B0C7730F0ACEC442538F /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewCell.swift; sourceTree = "<group>"; };
 		3E11B0EBEDB6ABD5A7B75FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailModel.swift; sourceTree = "<group>"; };
-		3E11B19E313524C1DB953B54 /* BitbucketCommentsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitbucketCommentsModel.swift; sourceTree = "<group>"; };
 		3E11B1A3EDA0976864525C8F /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		3E11B22125837EB134AA6BC4 /* IssueCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCreationViewController.swift; sourceTree = "<group>"; };
 		3E11B22A1231514EC667941F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,7 +104,6 @@
 		3E11BB4CE809B4DA91258787 /* IssueCreationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCreationPresenter.swift; sourceTree = "<group>"; };
 		3E11BB5BC9D2DAB2D20F7AE2 /* GithubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		3E11BB9089C1AD5D8199D37A /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
-		3E11BBBFA8E8C755FE7877A7 /* BitbucketIssuesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitbucketIssuesModel.swift; sourceTree = "<group>"; };
 		3E11BBD84AC446C9FDB8506E /* PullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 		3E11BBE5871F620C3F1FA761 /* CommentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		3E11BC0843DA3332D3CCFB28 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -120,7 +115,6 @@
 		3E11BF2F10DC9F40F82D75CE /* CommentsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsModel.swift; sourceTree = "<group>"; };
 		3E11BF48D2A13A61D0A784D0 /* RepositoryServicesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryServicesPresenter.swift; sourceTree = "<group>"; };
 		3E11BFB52B763B2D92D5501F /* GithubData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubData.swift; sourceTree = "<group>"; };
-		3E11BFB90EA51C85754EF272 /* BitbucketIssueDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitbucketIssueDetailModel.swift; sourceTree = "<group>"; };
 		3E11BFBAAFC05A1CA38B0D95 /* IssueCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCreationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,21 +159,10 @@
 				3E11B178CA51E87DA6B0232B /* IssueDetailModel.swift */,
 				3E11BB2D6ED33286ABC39C32 /* RepositoryServicesModel.swift */,
 				3E11B2034099ECC346EBCF41 /* Github */,
-				3E11B595145F5F52CF94F79E /* Bitbucket */,
 				3E11BC0843DA3332D3CCFB28 /* Model.swift */,
 				3E11BF2F10DC9F40F82D75CE /* CommentsModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		3E11B595145F5F52CF94F79E /* Bitbucket */ = {
-			isa = PBXGroup;
-			children = (
-				3E11BFB90EA51C85754EF272 /* BitbucketIssueDetailModel.swift */,
-				3E11BBBFA8E8C755FE7877A7 /* BitbucketIssuesModel.swift */,
-				3E11B19E313524C1DB953B54 /* BitbucketCommentsModel.swift */,
-			);
-			path = Bitbucket;
 			sourceTree = "<group>";
 		};
 		3E11B5A06ED0060A6FBB3B3C /* View */ = {
@@ -468,14 +451,11 @@
 				3E11B73CFF396A34FDADEBDE /* IssueCreationPresenter.swift in Sources */,
 				3E11B2A2ECE9294CBA697205 /* GithubIssuesModel.swift in Sources */,
 				3E11B8633D82FDCCCDE29353 /* GithubIssueDetailModel.swift in Sources */,
-				3E11B36BDD5A1D233148C6B8 /* BitbucketIssueDetailModel.swift in Sources */,
-				3E11B99F205DC22E46A9CC9E /* BitbucketIssuesModel.swift in Sources */,
 				3E11B4F871A0AAEA9DCA7362 /* Model.swift in Sources */,
 				3E11B7F53E95C2CAD2DC62E1 /* IssueCreationView.swift in Sources */,
 				3E11BAB1A3FDD7888CE4DE26 /* GithubCommentsModel.swift in Sources */,
 				3E11B320644744FB1BC93858 /* CommentsModel.swift in Sources */,
 				3E11B95E7CD6118E2FF58F30 /* CommentsPresenter.swift in Sources */,
-				3E11B7A370B2A6DCB65133EA /* BitbucketCommentsModel.swift in Sources */,
 				3E11B7BF58342EF14B5E16C7 /* CommentsView.swift in Sources */,
 				3E11B8DD58C849ABF8995AC8 /* FoundationExtension.swift in Sources */,
 				3E11BB8B362F189D36D70BB9 /* UserThumbnailButton.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhq-A3-CnX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhq-A3-CnX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,7 +14,7 @@
         <scene sceneID="8Hf-Tn-hQO">
             <objects>
                 <navigationController id="Hhq-A3-CnX" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="G71-Ql-Usg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G71-Ql-Usg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Br6-DT-RUG">
-                                <rect key="frame" x="12" y="76" width="351" height="346"/>
+                                <rect key="frame" x="12" y="76" width="351" height="169"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UA9-ff-Jrr">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="17"/>
@@ -72,34 +72,6 @@
                                             <action selector="touchGithubIssues" destination="efO-fz-XII" eventType="touchUpInside" id="XtJ-oG-RKb"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitbucket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzo-6l-9Mg">
-                                        <rect key="frame" x="0.0" y="177" width="351" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NaJ-ez-Uof">
-                                        <rect key="frame" x="0.0" y="202" width="351" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repository" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-lE-SMp">
-                                        <rect key="frame" x="0.0" y="240" width="351" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bitbucket API Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mze-gF-2MR">
-                                        <rect key="frame" x="0.0" y="278" width="351" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8R-vV-Wxp">
-                                        <rect key="frame" x="0.0" y="316" width="351" height="30"/>
-                                        <state key="normal" title="Issues"/>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -112,10 +84,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Issues Browser" id="caZ-Sw-vuX"/>
                     <connections>
-                        <outlet property="bitbucketAPIKeyTextField" destination="mze-gF-2MR" id="QK0-sr-E1P"/>
-                        <outlet property="bitbucketIssuesButton" destination="e8R-vV-Wxp" id="xTm-G4-cbM"/>
-                        <outlet property="bitbucketRepoTextField" destination="oc7-lE-SMp" id="yhd-03-GwB"/>
-                        <outlet property="bitbucketUsernameTextField" destination="NaJ-ez-Uof" id="edR-3Q-IUE"/>
                         <outlet property="githubAccessTokenTextField" destination="JhF-Vm-zwo" id="0FC-Hq-spz"/>
                         <outlet property="githubIssuesButton" destination="hnn-ZY-RAQ" id="p4R-ij-Jgb"/>
                         <outlet property="githubRepoTextField" destination="BGm-in-1cy" id="rvh-SB-4Xk"/>
@@ -146,7 +114,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vxj-lD-kHc" id="qeM-zZ-Eht">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uec-v7-dmb">
@@ -287,7 +255,7 @@
         <scene sceneID="Vdc-Ni-fU9">
             <objects>
                 <navigationController storyboardIdentifier="createIssue" id="xRx-CK-dVV" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kll-B7-7Pi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kll-B7-7Pi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
