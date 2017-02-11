@@ -7,16 +7,19 @@ import UIKit
 import Kingfisher
 import BonMot
 
-class IssueTableViewCell: UITableViewCell, ItemCell {
+class IssueTableViewCell: UITableViewCell {
     var onTouchedUser: (()->Void)?
+
+    weak var viewModel: IssueCellViewModel! {
+        didSet {
+            display()
+        }
+    }
 
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet fileprivate weak var userImageButton: UserThumbnailButton!
     @IBOutlet fileprivate weak var usernameLabel: UILabel!
     @IBOutlet fileprivate weak var commentsLabel: UILabel!
-
-    fileprivate var title: String?
-    fileprivate var number: String = ""
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,37 +27,10 @@ class IssueTableViewCell: UITableViewCell, ItemCell {
         userImageButton.addTarget(self, action: #selector(onTouchedUserPhoto), for: .touchUpInside)
     }
 
-    fileprivate func updateTitle() {
-        guard let title = title else {
-            titleLabel.text = nil
-            return
-        }
-
-        let styleOfId = StringStyle(
-                .font(UIFont.boldSystemFont(ofSize: 20))
-        )
-        let styleOfTitle = StringStyle(
-                .font(UIFont.systemFont(ofSize: 16))
-        )
-
-        titleLabel.attributedText = NSAttributedString.composed(of: [
-                "#\(number)".styled(with: styleOfId),
-                Tab.headIndent(10),
-                title.styled(with: styleOfTitle)
-        ])
-    }
-
-    func onTouchedUserPhoto() {
-        onTouchedUser?()
-    }
-
-    func set(issue: Issue) {
-        set(number: issue.number, title: issue.title)
-        set(countOfComments: issue.comments)
-
-        if let user = issue.user {
-            set(user: user)
-        }
+    private func display() {
+        set(number: viewModel.number, title: viewModel.title)
+        set(numberOfComments: viewModel.numberOfComments)
+        set(username: viewModel.username, imageURL: viewModel.userImageURL)
     }
 
     private func set(number: Int, title: String) {
@@ -72,14 +48,14 @@ class IssueTableViewCell: UITableViewCell, ItemCell {
         ])
     }
 
-    private func set(countOfComments: Int?) {
-        guard let countOfComments = countOfComments else {
+    private func set(numberOfComments: Int?) {
+        guard let numberOfComments = numberOfComments else {
             commentsLabel.attributedText = nil
             return
         }
 
         let title: String = "comments : "
-        let comments: String = "\(countOfComments)"
+        let comments: String = "\(numberOfComments)"
 
         let styleOfTitle = StringStyle(
                 .font(UIFont.boldSystemFont(ofSize: 10)),
@@ -95,18 +71,12 @@ class IssueTableViewCell: UITableViewCell, ItemCell {
         ])
     }
 
-    private func set(user: User) {
-        usernameLabel.text = user.login
-        userImageButton.kf.setBackgroundImage(with: user.avatarURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
+    private func set(username: String?, imageURL: URL?) {
+        usernameLabel.text = username
+        userImageButton.kf.setBackgroundImage(with: imageURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
     }
 
-    func set(item: Any) {
-        guard let item = item as? Issue else { return }
-        set(number: item.number, title: item.title)
-        set(countOfComments: item.comments)
-
-        if let user = item.user {
-            set(user: user)
-        }
+    func onTouchedUserPhoto() {
+        onTouchedUser?()
     }
 }

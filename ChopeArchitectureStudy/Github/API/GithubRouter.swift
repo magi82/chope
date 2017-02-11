@@ -95,7 +95,7 @@ enum GithubRouter: URLRequestConvertible {
             break
         }
 
-        if let accessToken = GithubAuthentication.sharedInstance.accessToken {
+        if let accessToken = GithubAuthentication.sharedInstance.accessToken, accessToken.isEmpty == false {
             urlRequest.setValue("token \(accessToken)", forHTTPHeaderField: "Authorization")
         }
         return urlRequest

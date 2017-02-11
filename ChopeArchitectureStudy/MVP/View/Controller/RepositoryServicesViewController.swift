@@ -47,7 +47,7 @@ class RepositoryServicesViewController: UIViewController {
 
         let model = GithubIssuesModel(user: username, repo: repo)
         let viewController: IssuesViewController = IssuesViewController()
-        viewController.model = model
+        viewController.viewModel = IssuesViewModel(model: model)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
