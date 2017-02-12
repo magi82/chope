@@ -12,6 +12,7 @@ enum GithubRepositories {
     case ownedAndMember
     case organization(name: String)
     case repository(owner: String, repo: String)
+    case users(name: String)
 }
 
 
@@ -22,26 +23,22 @@ enum GithubRouter: URLRequestConvertible {
     case comments(repositories: GithubRepositories, number: Int)
     case createComment(repositories: GithubRepositories, number: Int, parameters: Parameters)
     case user(username: String)
+    case repositories(repositories: GithubRepositories)
     case nextPage(url: URL)
 
     static let baseURLString = "https://api.github.com"
 
     var method: HTTPMethod {
         switch self {
-        case .issues:
+        case .issues, .issue,
+             .comments,
+             .user,
+             .repositories,
+             .nextPage:
             return .get
-        case .issue:
-            return .get
-        case .createIssue:
+        case .createIssue,
+             .createComment:
             return .post
-        case .comments:
-            return .get
-        case .createComment:
-            return .post
-        case .user:
-            return .get
-        case .nextPage:
-            return .get
         }
     }
 
@@ -57,6 +54,8 @@ enum GithubRouter: URLRequestConvertible {
             return "\(path(repositories: repositories))/issues/\(number)/comments"
         case .user(let username):
             return "/users/\(username)"
+        case .repositories(let repositories):
+            return "\(path(repositories: repositories))/repos"
         case .nextPage(let url):
             return url.relativePath
         }
@@ -72,6 +71,8 @@ enum GithubRouter: URLRequestConvertible {
             return "/orgs/\(name)"
         case .repository(let owner, let repo):
             return "/repos/\(owner)/\(repo)"
+        case .users(let name):
+            return "/users/\(name)"
         }
     }
 
@@ -90,6 +91,7 @@ enum GithubRouter: URLRequestConvertible {
         case .issue,
              .issues,
              .comments,
+             .repositories,
              .user:
             urlRequest = try URLEncoding.default.encode(urlRequest, with: nil)
             break
