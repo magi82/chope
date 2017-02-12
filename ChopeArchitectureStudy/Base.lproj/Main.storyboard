@@ -348,6 +348,7 @@
                         <outlet property="bodyTextField" destination="1z7-Oq-MXI" id="NqM-WG-Shh"/>
                         <outlet property="bottomLayoutConstraint" destination="H6l-d9-uX7" id="GjG-iE-Wra"/>
                         <outlet property="bottomSeparatorLayoutConstraint" destination="7Tm-wz-NUc" id="0a8-lV-dhZ"/>
+                        <outlet property="bottomSeparatorView" destination="AZN-m0-MYf" id="GPd-Ep-kx2"/>
                         <outlet property="containerView" destination="rNf-x7-Bhu" id="dSf-V2-Q8f"/>
                         <outlet property="sendButton" destination="3Lu-VY-f1Z" id="zuc-lU-Lb9"/>
                     </connections>

@@ -17,7 +17,7 @@ extension UIView {
     }
 
     func adjustDefaultBorderStyle() {
-        adjustBorder(width: CGFloat(1).px, color: UIColor(white: 0.8, alpha: 1.0))
+        adjustBorder(width: CGFloat(1).px, color: UIColor.defaultBorderColor)
         adjustRound(radius: 5)
     }
 }
@@ -41,8 +41,8 @@ extension UIViewController {
     }
 }
 
-extension CGFloat {
-    var px: CGFloat {
-        return self / UIScreen.main.scale
+extension UIColor {
+    static var defaultBorderColor: UIColor {
+        return UIColor(white: 0.8, alpha: 1.0)
     }
 }

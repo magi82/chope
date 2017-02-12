@@ -14,6 +14,7 @@
 		3E11B16A49215D37CD53452D /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B243E1390864B3736118 /* CommentsViewController.swift */; };
 		3E11B17009F83942B6EC0ACF /* JSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BA8B80A422173F7B8F52 /* JSONExtension.swift */; };
 		3E11B17A35751231B1E9B8C5 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11B98B3C3410998035C202 /* PullRequest.swift */; };
+		3E11B1D69EA515792CC6A1B1 /* CoreGraphicsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BAE6A156BF5C3F7E2C7C /* CoreGraphicsExtension.swift */; };
 		3E11B1DBFA30E588DF0FEA3E /* CommentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BC245DDDF5C1647A7FC5 /* CommentCellViewModel.swift */; };
 		3E11B1E07229912475951460 /* GithubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11BD6A5EE995175703C1A5 /* GithubData.swift */; };
 		3E11B29B72A4397F9F5331B2 /* IssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E11BDA1F4B59107C77B6593 /* IssueTableViewCell.xib */; };
@@ -104,6 +105,7 @@
 		3E11BA76D54162AF71BFA2E7 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		3E11BA8B80A422173F7B8F52 /* JSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtension.swift; sourceTree = "<group>"; };
 		3E11BAC55167F722E57EAE2D /* GithubAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAuthentication.swift; sourceTree = "<group>"; };
+		3E11BAE6A156BF5C3F7E2C7C /* CoreGraphicsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsExtension.swift; sourceTree = "<group>"; };
 		3E11BC245DDDF5C1647A7FC5 /* CommentCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCellViewModel.swift; sourceTree = "<group>"; };
 		3E11BC4684C098028D24BD50 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		3E11BC520400624CB8A94796 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				3E11BDD60CA25886C708A6F2 /* NotificationNames.swift */,
 				3E11B9F660BF36025797EAD8 /* FoundationExtension.swift */,
 				3E11B9AF1CB0169261E5914B /* UIKitExtension.swift */,
+				3E11BAE6A156BF5C3F7E2C7C /* CoreGraphicsExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				3E11BE742A75CF1489811D5C /* RepositoryServicesViewModel.swift in Sources */,
 				3E11BFFAB771D3630EC8F33A /* RepositoryServicesViewController.swift in Sources */,
 				3E11B6BDE8ED3E5B1A59C5AB /* UIKitExtension.swift in Sources */,
+				3E11B1D69EA515792CC6A1B1 /* CoreGraphicsExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

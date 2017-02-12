@@ -17,6 +17,7 @@ class IssueDetailViewController: UIViewController {
 
     @IBOutlet fileprivate weak var containerView: UIView!
     @IBOutlet fileprivate weak var bottomLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var bottomSeparatorView: UIView!
     @IBOutlet fileprivate weak var bottomSeparatorLayoutConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var sendButton: UIButton!
     @IBOutlet fileprivate weak var bodyTextField: UITextField!
@@ -33,6 +34,8 @@ class IssueDetailViewController: UIViewController {
         addChild(viewController: commentsViewController, containerView: containerView)
 
         bottomSeparatorLayoutConstraint.constant = CGFloat(1).px
+        bottomSeparatorView.backgroundColor = UIColor.defaultBorderColor
+
         bodyTextField.adjustDefaultBorderStyle()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedKeyboard(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
