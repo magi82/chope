@@ -8,24 +8,22 @@ import Alamofire
 import XCGLogger
 
 class GithubCommentsModel: CommentsModel {
-    var user: String
-    var repo: String
-    var number: Int
+    var data: ModelData
     var items: [Comment]
 
     private let api: CommentAPI!
     private var commentsRequest: DataRequest?
 
-    required init(user: String, repo: String, number: Int) {
-        self.user = user
-        self.repo = repo
-        self.number = number
+    required init(data: ModelData) {
+        self.data = data
         self.items = []
-        api = CommentAPI(repositories: .repository(owner: user, repo: repo))
+
+        api = CommentAPI(repositories: data.githubRepositories)
     }
 
     func load() {
         guard commentsRequest == nil else { return }
+        guard case .userAndRepoWithNumber(_, _, let number) = data else { return }
 
         commentsRequest = api.comments(issueNumber: number, success: { [weak self] comments in
             self?.items = comments
@@ -51,6 +49,8 @@ class GithubCommentsModel: CommentsModel {
     }
 
     func create(body: String, failure: ((Error)->Void)? = nil) {
+        guard case .userAndRepoWithNumber(_, _, let number) = data else { return }
+        
         api.create(issueNumber: number, body: body, success: { [weak self] issue in
             self?.postNotificationAdded()
         }, failure: failure)

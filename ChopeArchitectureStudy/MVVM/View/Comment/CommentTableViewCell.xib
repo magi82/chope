@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentTableViewCell" customModule="ChopeArchitectureStudy" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="130" id="uoY-2a-jwx" customClass="CommentTableViewCell" customModule="ChopeArchitectureStudy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uoY-2a-jwx" id="SiL-Pj-qdL">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reK-PL-x7e">
+                        <rect key="frame" x="40" y="99" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7Q-yz-AuM" customClass="UserThumbnailButton" customModule="ChopeArchitectureStudy" customModuleProvider="target">
+                        <rect key="frame" x="12" y="97" width="20" height="20"/>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.35294117650000001" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="IoD-OP-0EZ"/>
+                            <constraint firstAttribute="width" constant="20" id="Pbc-Ed-bpQ"/>
+                        </constraints>
+                    </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yif-eB-cru">
+                        <rect key="frame" x="12" y="12" width="351" height="77"/>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.35294117650000001" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMk-Ox-JNL">
+                        <rect key="frame" x="0.0" y="128" width="375" height="1"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="dyq-Jc-QK4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yif-eB-cru" firstAttribute="leading" secondItem="SiL-Pj-qdL" secondAttribute="leading" constant="12" id="3n3-LH-O1i"/>
+                    <constraint firstItem="reK-PL-x7e" firstAttribute="centerY" secondItem="u7Q-yz-AuM" secondAttribute="centerY" id="48O-7d-wf7"/>
+                    <constraint firstAttribute="trailing" secondItem="DMk-Ox-JNL" secondAttribute="trailing" id="51F-80-ggL"/>
+                    <constraint firstAttribute="bottom" secondItem="u7Q-yz-AuM" secondAttribute="bottom" constant="12" id="7MB-uw-OfF"/>
+                    <constraint firstItem="reK-PL-x7e" firstAttribute="leading" secondItem="u7Q-yz-AuM" secondAttribute="trailing" constant="8" id="9AN-83-lou"/>
+                    <constraint firstItem="DMk-Ox-JNL" firstAttribute="leading" secondItem="SiL-Pj-qdL" secondAttribute="leading" id="A7E-IK-dS3"/>
+                    <constraint firstItem="u7Q-yz-AuM" firstAttribute="top" secondItem="yif-eB-cru" secondAttribute="bottom" constant="8" id="Lo7-Qw-Ngo"/>
+                    <constraint firstItem="yif-eB-cru" firstAttribute="top" secondItem="SiL-Pj-qdL" secondAttribute="top" constant="12" id="M28-aB-4Xp"/>
+                    <constraint firstAttribute="trailing" secondItem="yif-eB-cru" secondAttribute="trailing" constant="12" id="SJM-ug-yqz"/>
+                    <constraint firstItem="u7Q-yz-AuM" firstAttribute="leading" secondItem="SiL-Pj-qdL" secondAttribute="leading" constant="12" id="eiz-3m-RrR"/>
+                    <constraint firstAttribute="bottom" secondItem="DMk-Ox-JNL" secondAttribute="bottom" id="tO6-M2-R6W"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bodyTextView" destination="yif-eB-cru" id="zha-wn-zFw"/>
+                <outlet property="userImageButton" destination="u7Q-yz-AuM" id="4Lg-3c-QH6"/>
+                <outlet property="usernameLabel" destination="reK-PL-x7e" id="xYh-PF-JbG"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

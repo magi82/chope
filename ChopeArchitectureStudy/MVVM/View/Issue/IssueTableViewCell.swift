@@ -10,7 +10,7 @@ import BonMot
 class IssueTableViewCell: UITableViewCell {
     var onTouchedUser: (()->Void)?
 
-    weak var viewModel: IssueCellViewModel! {
+    var viewModel: IssueCellViewModel! {
         didSet {
             display()
         }

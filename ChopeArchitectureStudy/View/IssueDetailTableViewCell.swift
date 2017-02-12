@@ -7,7 +7,13 @@ import UIKit
 import Kingfisher
 
 class IssueDetailTableViewCell: UITableViewCell {
-    @IBOutlet fileprivate weak var userPhotoButton: UserThumbnailButton!
+    weak var viewModel: IssueCellViewModel! {
+        didSet {
+            display()
+        }
+    }
+
+    @IBOutlet fileprivate weak var userImageButton: UserThumbnailButton!
     @IBOutlet fileprivate weak var usernameLabel: UILabel!
     @IBOutlet fileprivate weak var bodyTextView: UITextView!
     @IBOutlet fileprivate weak var titleLabel: UILabel!
@@ -19,13 +25,22 @@ class IssueDetailTableViewCell: UITableViewCell {
         bodyTextView.backgroundColor = UIColor.clear
     }
 
-    func set(issue: Issue) {
-        titleLabel.text = issue.title
-        bodyTextView.text = issue.body
+    func display() {
+        set(title: viewModel.title)
+        set(body: viewModel.body)
+        set(username: viewModel.username, imageURL: viewModel.userImageURL)
+    }
 
-        if let user = issue.user {
-            usernameLabel.text = user.login
-            userPhotoButton.kf.setBackgroundImage(with: user.avatarURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
-        }
+    private func set(title: String) {
+        titleLabel.text = title
+    }
+
+    private func set(body: String) {
+        bodyTextView.text = body
+    }
+
+    private func set(username: String?, imageURL: URL?) {
+        usernameLabel.text = username
+        userImageButton.kf.setBackgroundImage(with: imageURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
     }
 }

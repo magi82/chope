@@ -8,22 +8,21 @@ import Alamofire
 import XCGLogger
 
 class GithubIssueDetailModel: IssueDetailModel {
-    var user: String
-    var repo: String
-    var number: Int
-
+    var data: ModelData
     var issue: Issue = Issue(rawJson: [:])
     private let api: IssueAPI!
 
-    required init(user: String, repo: String, number: Int = 0) {
-        self.user = user
-        self.repo = repo
-        self.number = number
+    required init(data: ModelData) {
+        self.data = data
 
-        api = IssueAPI(repositories: .repository(owner: user, repo: repo))
+        api = IssueAPI(repositories: data.githubRepositories)
     }
 
     func load() {
+        guard case ModelData.userAndRepoWithNumber(_, _, let number) = data else {
+            return
+        }
+
         api.issue(number: number, success: { [weak self] issue in
             self?.issue = issue
             self?.postNotificationChanged()

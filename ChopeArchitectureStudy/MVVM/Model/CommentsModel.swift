@@ -6,7 +6,6 @@
 import Foundation
 
 protocol CommentsModel: Model {
-    var number: Int { get set }
     var items: [Comment] { get set }
 
     func load()
@@ -19,6 +18,8 @@ extension CommentsModel {
         NotificationCenter.default.post(name: Notification.Name.changedComments, object: nil)
     }
     func postNotificationAdded() {
+        guard case .userAndRepoWithNumber(let user, let repo, let number) = data else { return }
+
         NotificationCenter.default.post(name: Notification.Name.addedComment, object: nil, userInfo: [
                 "user": user,
                 "repo": repo,

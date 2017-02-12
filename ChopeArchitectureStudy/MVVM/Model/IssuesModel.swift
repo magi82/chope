@@ -10,13 +10,8 @@ import XCGLogger
 protocol IssuesModel: Model {
     var issues: [Issue] { get set }
 
-    init(user: String, repo: String)
-
     func load()
     func loadNext()
-    func detailModel(index: Int) -> IssueDetailModel
-    func detailModel() -> IssueDetailModel
-    func commentsModel(index: Int) -> CommentsModel
 }
 
 extension IssuesModel {

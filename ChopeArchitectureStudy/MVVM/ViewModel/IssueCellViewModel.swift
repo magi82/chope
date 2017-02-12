@@ -16,6 +16,10 @@ class IssueCellViewModel: ItemCellViewModel {
         return issue.title
     }
 
+    var body: String {
+        return issue.body
+    }
+
     var number: Int {
         return issue.number
     }

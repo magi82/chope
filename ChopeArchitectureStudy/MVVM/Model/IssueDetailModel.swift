@@ -6,10 +6,7 @@
 import Foundation
 
 protocol IssueDetailModel: Model {
-    var number: Int { get set }
     var issue: Issue { get set }
-
-    init(user: String, repo: String, number: Int)
 
     func load()
     func create(title: String, body: String, failure: ((Error)->Void)?)

@@ -9,17 +9,16 @@ import XCGLogger
 import SwiftyJSON
 
 class GithubIssuesModel: IssuesModel {
-    var user: String
-    var repo: String
+    var data: ModelData
     var issues: [Issue] = []
 
     private let api: IssueAPI!
     private var issuesRequest: DataRequest?
 
-    required init(user: String, repo: String) {
-        self.user = user
-        self.repo = repo
-        api = IssueAPI(repositories: .repository(owner: user, repo: repo))
+    init(data: ModelData) {
+        self.data = data
+
+        api = IssueAPI(repositories: data.githubRepositories)
 
         NotificationCenter.default.addObserver(forName: Notification.Name.addedIssues, object: nil, queue: nil) { [weak self] notification in
             guard let issue = notification.userInfo?["issue"] as? Issue else { return }
@@ -50,18 +49,5 @@ class GithubIssuesModel: IssuesModel {
         }, failure: { [weak self] error in
             self?.issuesRequest = nil
         })
-    }
-
-    func detailModel(index: Int) -> IssueDetailModel {
-        let issue = issues[index]
-        return GithubIssueDetailModel(user: user, repo: repo, number: issue.number)
-    }
-
-    func detailModel() -> IssueDetailModel {
-        return GithubIssueDetailModel(user: user, repo: repo)
-    }
-
-    func commentsModel(index: Int) -> CommentsModel {
-        return GithubCommentsModel(user: user, repo: repo, number: issues[index].number)
     }
 }
