@@ -15,8 +15,9 @@ class IssuesViewModel: ItemsViewModel {
 
     init(data: ModelData) {
         self.data = data
-        self.model = GithubIssuesModel(data: data)
+        self.model = IssuesModel(data: data)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(onAddedIssue), name: Notification.Name.Model.addedIssue, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues), name: Notification.Name.Model.changedIssues, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: Notification.Name.Model.addedComment, object: nil)
     }
@@ -57,6 +58,10 @@ class IssuesViewModel: ItemsViewModel {
 
     func loadNext() {
         model.loadNext()
+    }
+
+    @objc func onAddedIssue() {
+        loadFirst()
     }
 
     @objc func onChangedIssues() {

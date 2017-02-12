@@ -297,8 +297,10 @@
                                             <constraint firstAttribute="height" constant="30" id="ZjX-zV-ATW"/>
                                             <constraint firstAttribute="width" constant="46" id="uYj-Ue-gg9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Send"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="0.46274509800000002" green="0.58823529409999997" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <state key="disabled">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>

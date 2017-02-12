@@ -23,12 +23,12 @@ class CommentsWithIssueViewModel: ItemsViewModel {
 
     init(data: ModelData, issueNumber: Int) {
         self.data = data.withNumber(number: issueNumber)
-        self.issueModel = GithubIssueDetailModel(data: self.data)
-        self.commentsModel = GithubCommentsModel(data: self.data)
+        self.issueModel = IssueDetailModel(data: self.data)
+        self.commentsModel = CommentsModel(data: self.data)
 
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedComments), name: Notification.Name.Model.changedComments, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: Notification.Name.Model.addedComment, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssueDetail), name: Notification.Name.Model.changedIssueDetail, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssueDetail), name: Notification.Name.Model.changedIssue, object: nil)
     }
 
     deinit {

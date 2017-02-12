@@ -1,21 +1,53 @@
 //
-// Created by Chope on 2017. 1. 10..
+// Created by Chope on 2017. 1. 5..
 // Copyright (c) 2017 Chope. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 import XCGLogger
+import SwiftyJSON
 
-protocol IssuesModel: Model {
-    var issues: [Issue] { get set }
+class IssuesModel: Model {
+    var data: ModelData
+    var issues: [Issue] = []
 
-    func load()
-    func loadNext()
-}
+    private let api: IssueAPI!
+    private var issuesRequest: DataRequest?
 
-extension IssuesModel {
-    func postNotificationChanged() {
-        NotificationCenter.default.post(name: Notification.Name.Model.changedIssues, object: nil)
+    init(data: ModelData) {
+        self.data = data
+
+        api = IssueAPI(repositories: data.githubRepositories)
+
+        NotificationCenter.default.addObserver(forName: Notification.Name.Model.addedIssue, object: nil, queue: nil) { [weak self] notification in
+            guard let issue = notification.userInfo?["issue"] as? Issue else { return }
+            self?.issues.insert(issue, at: 0)
+            NotificationCenter.default.post(name: Notification.Name.Model.changedIssues, object: nil)
+        }
+    }
+
+    func load() {
+        guard issuesRequest == nil else { return }
+
+        issuesRequest = api.issues(success: { [weak self] issues in
+            self?.issues = issues
+            NotificationCenter.default.post(name: Notification.Name.Model.changedIssues, object: nil)
+            self?.issuesRequest = nil
+        }, failure: { [weak self] error in
+            self?.issuesRequest = nil
+        })
+    }
+
+    func loadNext() {
+        guard issuesRequest == nil else { return }
+
+        issuesRequest = api.loadNextPage(success: { [weak self] (issues: [Issue]) in
+            self?.issues.append(contentsOf: issues)
+            NotificationCenter.default.post(name: Notification.Name.Model.changedIssues, object: nil)
+            self?.issuesRequest = nil
+        }, failure: { [weak self] error in
+            self?.issuesRequest = nil
+        })
     }
 }
