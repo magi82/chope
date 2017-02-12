@@ -30,16 +30,10 @@ class IssueDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addChildViewController(commentsViewController)
-        containerView.addSubview(commentsViewController.view)
-        commentsViewController.view.frame = containerView.bounds
-        commentsViewController.didMove(toParentViewController: self)
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[view]-|", metrics: nil, views: ["view": commentsViewController.view]))
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[view]-|", metrics: nil, views: ["view": commentsViewController.view]))
-        containerView.setNeedsLayout()
-        containerView.layoutIfNeeded()
+        addChild(viewController: commentsViewController, containerView: containerView)
 
-        bottomSeparatorLayoutConstraint.constant = 1 / UIScreen.main.scale
+        bottomSeparatorLayoutConstraint.constant = CGFloat(1).px
+        bodyTextField.adjustDefaultBorderStyle()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedKeyboard(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedText(_:)), name: Notification.Name.UITextFieldTextDidChange, object: nil)

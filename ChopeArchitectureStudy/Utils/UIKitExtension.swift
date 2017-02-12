@@ -15,12 +15,29 @@ extension UIView {
         layer.cornerRadius = radius
         clipsToBounds = true
     }
+
+    func adjustDefaultBorderStyle() {
+        adjustBorder(width: CGFloat(1).px, color: UIColor(white: 0.8, alpha: 1.0))
+        adjustRound(radius: 5)
+    }
 }
 
 extension UITextView {
     func removeAllPadding() {
         textContainerInset = UIEdgeInsets()
         textContainer.lineFragmentPadding = 0
+    }
+}
+
+extension UIViewController {
+    func addChild(viewController: UIViewController, containerView: UIView?) {
+        guard let containerView = containerView ?? self.view else { return }
+        addChildViewController(viewController)
+        viewController.view.frame = containerView.bounds
+        containerView.addSubview(viewController.view)
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", metrics: nil, views: ["view": viewController.view]))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", metrics: nil, views: ["view": viewController.view]))
+        viewController.didMove(toParentViewController: self)
     }
 }
 

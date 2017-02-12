@@ -23,8 +23,7 @@ class IssueCreationViewController: UIViewController {
 
         assert(viewModel != nil)
 
-        bodyTextView.adjustBorder(width: CGFloat(1).px, color: UIColor(white: 0.8, alpha: 1.0))
-        bodyTextView.adjustRound(radius: 5)
+        bodyTextView.adjustDefaultBorderStyle()
 
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedKeyboard(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(addedIssue), name: Notification.Name.ViewModel.addedIssues, object: nil)
