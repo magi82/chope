@@ -15,12 +15,12 @@ protocol CommentsModel: Model {
 
 extension CommentsModel {
     func postNotificationChanged() {
-        NotificationCenter.default.post(name: Notification.Name.changedComments, object: nil)
+        NotificationCenter.default.post(name: Notification.Name.Model.changedComments, object: nil)
     }
     func postNotificationAdded() {
         guard case .userAndRepoWithNumber(let user, let repo, let number) = data else { return }
 
-        NotificationCenter.default.post(name: Notification.Name.addedComment, object: nil, userInfo: [
+        NotificationCenter.default.post(name: Notification.Name.Model.addedComment, object: nil, userInfo: [
                 "user": user,
                 "repo": repo,
                 "number": number

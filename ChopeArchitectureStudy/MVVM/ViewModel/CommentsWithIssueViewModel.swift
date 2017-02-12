@@ -17,13 +17,18 @@ class CommentsWithIssueViewModel: ItemsViewModel {
     private let issueModel: IssueDetailModel
     private let commentsModel: CommentsModel
 
+    var title: String {
+        return issueModel.issue.title
+    }
+
     init(data: ModelData, issueNumber: Int) {
         self.data = data.withNumber(number: issueNumber)
         self.issueModel = GithubIssueDetailModel(data: self.data)
         self.commentsModel = GithubCommentsModel(data: self.data)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangedComments), name: Notification.Name.changedComments, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: Notification.Name.addedComment, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedComments), name: Notification.Name.Model.changedComments, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: Notification.Name.Model.addedComment, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssueDetail), name: Notification.Name.Model.changedIssueDetail, object: nil)
     }
 
     deinit {
@@ -61,11 +66,17 @@ class CommentsWithIssueViewModel: ItemsViewModel {
     }
 
     @objc func onChangedComments() {
-        loadFirst()
+        NotificationCenter.default.post(name: Notification.Name.ViewModel.changedComments, object: nil)
     }
 
     @objc func onAddedComment() {
         loadFirst()
+
+        NotificationCenter.default.post(name: Notification.Name.ViewModel.addedComment, object: nil)
+    }
+
+    @objc func onChangedIssueDetail() {
+        NotificationCenter.default.post(name: Notification.Name.ViewModel.changedIssueDetail, object: nil)
     }
 
     func postComment(body: String) {

@@ -17,12 +17,21 @@ class IssuesViewModel: ItemsViewModel {
         self.data = data
         self.model = GithubIssuesModel(data: data)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues), name: .changedIssues, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: .addedComment, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssues), name: Notification.Name.Model.changedIssues, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: Notification.Name.Model.addedComment, object: nil)
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+
+    var title: String {
+        switch data {
+        case .userAndRepo(_, let repo):
+            return repo
+        default:
+            return ""
+        }
     }
 
     var numberOfItems: Int {
@@ -51,7 +60,7 @@ class IssuesViewModel: ItemsViewModel {
     }
 
     @objc func onChangedIssues() {
-        
+        NotificationCenter.default.post(name: Notification.Name.ViewModel.changedIssues, object: nil)
     }
 
     @objc func onAddedComment() {

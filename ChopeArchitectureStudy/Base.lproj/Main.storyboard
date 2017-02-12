@@ -213,8 +213,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mih-dS-TGJ">
-                                <rect key="frame" x="16" y="110" width="343" height="537"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="110" width="343" height="549"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -224,7 +224,7 @@
                             <constraint firstItem="Mih-dS-TGJ" firstAttribute="trailing" secondItem="pXo-id-NqN" secondAttribute="trailingMargin" id="0G8-QH-C2M"/>
                             <constraint firstItem="7Nf-Pt-0VJ" firstAttribute="top" secondItem="LmX-wi-M44" secondAttribute="bottom" constant="8" id="CyB-iD-CaV"/>
                             <constraint firstItem="Mih-dS-TGJ" firstAttribute="leading" secondItem="pXo-id-NqN" secondAttribute="leadingMargin" id="FTz-gm-pB8"/>
-                            <constraint firstItem="Mff-yo-fye" firstAttribute="top" secondItem="Mih-dS-TGJ" secondAttribute="bottom" constant="20" id="Gdz-1Q-wws"/>
+                            <constraint firstItem="Mff-yo-fye" firstAttribute="top" secondItem="Mih-dS-TGJ" secondAttribute="bottom" constant="8" id="Gdz-1Q-wws"/>
                             <constraint firstItem="7Nf-Pt-0VJ" firstAttribute="trailing" secondItem="pXo-id-NqN" secondAttribute="trailingMargin" id="HIG-tW-bFj"/>
                             <constraint firstItem="7Nf-Pt-0VJ" firstAttribute="leading" secondItem="pXo-id-NqN" secondAttribute="leadingMargin" id="iQO-NF-qWx"/>
                             <constraint firstItem="Mih-dS-TGJ" firstAttribute="top" secondItem="7Nf-Pt-0VJ" secondAttribute="bottom" constant="8" id="vLd-Zs-7LQ"/>
@@ -244,6 +244,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bodyTextView" destination="Mih-dS-TGJ" id="YrO-zO-LWp"/>
+                        <outlet property="bottomLayoutConstraint" destination="Gdz-1Q-wws" id="5Ou-w5-ItF"/>
                         <outlet property="titleTextField" destination="7Nf-Pt-0VJ" id="gEv-53-9op"/>
                     </connections>
                 </viewController>
@@ -346,6 +347,7 @@
                     <connections>
                         <outlet property="bodyTextField" destination="1z7-Oq-MXI" id="NqM-WG-Shh"/>
                         <outlet property="bottomLayoutConstraint" destination="H6l-d9-uX7" id="GjG-iE-Wra"/>
+                        <outlet property="bottomSeparatorLayoutConstraint" destination="7Tm-wz-NUc" id="0a8-lV-dhZ"/>
                         <outlet property="containerView" destination="rNf-x7-Bhu" id="dSf-V2-Q8f"/>
                         <outlet property="sendButton" destination="3Lu-VY-f1Z" id="zuc-lU-Lb9"/>
                     </connections>

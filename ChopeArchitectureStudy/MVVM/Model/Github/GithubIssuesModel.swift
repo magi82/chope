@@ -20,7 +20,7 @@ class GithubIssuesModel: IssuesModel {
 
         api = IssueAPI(repositories: data.githubRepositories)
 
-        NotificationCenter.default.addObserver(forName: Notification.Name.addedIssues, object: nil, queue: nil) { [weak self] notification in
+        NotificationCenter.default.addObserver(forName: Notification.Name.Model.addedIssues, object: nil, queue: nil) { [weak self] notification in
             guard let issue = notification.userInfo?["issue"] as? Issue else { return }
             self?.issues.insert(issue, at: 0)
             self?.postNotificationChanged()

@@ -7,6 +7,7 @@ import UIKit
 import Kingfisher
 
 class CommentTableViewCell: UITableViewCell {
+    var onTouchedUser: (()->Void)?
     var viewModel: CommentCellViewModel! {
         didSet {
             display()
@@ -20,7 +21,9 @@ class CommentTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        bodyTextView.backgroundColor = UIColor.clear
+        bodyTextView.removeAllPadding()
+
+        userImageButton.addTarget(self, action: #selector(onTouchedUserImage), for: .touchUpInside)
     }
 
     private func display() {
@@ -35,5 +38,9 @@ class CommentTableViewCell: UITableViewCell {
 
     private func set(body: String) {
         bodyTextView.text = body
+    }
+
+    func onTouchedUserImage() {
+
     }
 }

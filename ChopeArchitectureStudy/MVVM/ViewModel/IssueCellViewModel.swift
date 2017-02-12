@@ -35,4 +35,8 @@ class IssueCellViewModel: ItemCellViewModel {
     var userImageURL: URL? {
         return issue.user?.avatarURL
     }
+
+    var userGithubURL: URL? {
+        return issue.user?.htmlURL
+    }
 }

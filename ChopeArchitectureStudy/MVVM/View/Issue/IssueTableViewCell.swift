@@ -24,7 +24,7 @@ class IssueTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        userImageButton.addTarget(self, action: #selector(onTouchedUserPhoto), for: .touchUpInside)
+        userImageButton.addTarget(self, action: #selector(onTouchedUserImage), for: .touchUpInside)
     }
 
     private func display() {
@@ -76,7 +76,7 @@ class IssueTableViewCell: UITableViewCell {
         userImageButton.kf.setBackgroundImage(with: imageURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
     }
 
-    func onTouchedUserPhoto() {
+    func onTouchedUserImage() {
         onTouchedUser?()
     }
 }

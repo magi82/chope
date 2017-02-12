@@ -26,8 +26,8 @@ class CommentsViewController: ItemsViewController {
 
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name.changedComments, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name.changedIssueDetail, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name.ViewModel.changedComments, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name.ViewModel.changedIssueDetail, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {

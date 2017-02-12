@@ -23,22 +23,15 @@ class IssuesViewController: ItemsViewController {
         createIssueBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd(_:)))
         navigationItem.rightBarButtonItem = createIssueBarButtonItem
 
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name.changedIssues, object: nil)
+        if let viewModel = viewModel as? IssuesViewModel {
+            navigationItem.title = viewModel.title
+        }
+
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name.ViewModel.changedIssues, object: nil)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-
-        guard segue.identifier == "createIssue",
-              let navigationController = segue.destination as? UINavigationController,
-              let viewController = navigationController.viewControllers.first as? IssueCreationViewController,
-              let viewModel = sender as? IssueCreationViewModel
-        else { return }
-
-        viewController.viewModel = viewModel
-    }
-
-    func open(url: URL) {
+    func open(url: URL?) {
+        guard let url = url else { return }
         UIApplication.shared.open(url)
     }
 
@@ -61,7 +54,8 @@ extension IssuesViewController: ItemsViewControllerDelegate {
               let cellViewModel = viewModel.itemCellViewModel(atIndex: indexPath.row) as? IssueCellViewModel
         else { return cell }
         issueCell.viewModel = cellViewModel
-        issueCell.onTouchedUser = {
+        issueCell.onTouchedUser = { [weak self] in
+            self?.open(url: cellViewModel.userGithubURL)
         }
         return cell
     }

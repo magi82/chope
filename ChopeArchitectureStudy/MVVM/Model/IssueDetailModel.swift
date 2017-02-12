@@ -14,10 +14,10 @@ protocol IssueDetailModel: Model {
 
 extension IssueDetailModel {
     func postNotificationChanged() {
-        NotificationCenter.default.post(name: Notification.Name.changedIssueDetail, object: nil)
+        NotificationCenter.default.post(name: Notification.Name.Model.changedIssueDetail, object: nil)
     }
     func postNotificationAdded() {
-        NotificationCenter.default.post(name: .addedIssues, object: nil, userInfo: [
+        NotificationCenter.default.post(name: Notification.Name.Model.addedIssues, object: nil, userInfo: [
             "issue": issue
         ])
     }

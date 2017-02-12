@@ -21,8 +21,7 @@ class IssueDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        titleLabel.backgroundColor = UIColor.clear
-        bodyTextView.backgroundColor = UIColor.clear
+        bodyTextView.removeAllPadding()
     }
 
     func display() {

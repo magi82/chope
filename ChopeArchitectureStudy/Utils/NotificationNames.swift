@@ -6,9 +6,19 @@
 import Foundation
 
 extension Notification.Name {
-    static let changedIssues: Notification.Name = Notification.Name("changedIssues")
-    static let addedIssues: Notification.Name = Notification.Name("addedIssues")
-    static let changedIssueDetail: Notification.Name = Notification.Name("changedIssueDetail")
-    static let changedComments: Notification.Name = Notification.Name("changedComments")
-    static let addedComment: Notification.Name = Notification.Name("addedComment")
+    struct Model {
+        static let changedIssues: Notification.Name = Notification.Name("changedIssuesInModel")
+        static let addedIssues: Notification.Name = Notification.Name("addedIssuesInModel")
+        static let changedIssueDetail: Notification.Name = Notification.Name("changedIssueDetailInModel")
+        static let changedComments: Notification.Name = Notification.Name("changedCommentsInModel")
+        static let addedComment: Notification.Name = Notification.Name("addedCommentInModel")
+    }
+
+    struct ViewModel {
+        static let changedIssues: Notification.Name = Notification.Name("changedIssuesInViewModel")
+        static let addedIssues: Notification.Name = Notification.Name("addedIssuesInViewModel")
+        static let changedIssueDetail: Notification.Name = Notification.Name("changedIssueDetailInViewModel")
+        static let changedComments: Notification.Name = Notification.Name("changedCommentsInViewModel")
+        static let addedComment: Notification.Name = Notification.Name("addedCommentInViewModel")
+    }
 }

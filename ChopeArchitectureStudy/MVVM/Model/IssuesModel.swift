@@ -16,6 +16,6 @@ protocol IssuesModel: Model {
 
 extension IssuesModel {
     func postNotificationChanged() {
-        NotificationCenter.default.post(name: Notification.Name.changedIssues, object: nil)
+        NotificationCenter.default.post(name: Notification.Name.Model.changedIssues, object: nil)
     }
 }
