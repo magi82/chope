@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import CPGithub
 
 class RepositoryServicesViewController: UIViewController {
     let viewModel = RepositoryServicesViewModel()

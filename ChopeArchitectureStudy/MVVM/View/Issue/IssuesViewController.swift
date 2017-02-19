@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CPGithub
 
 class IssuesViewController: ItemsViewController {
     private var createIssueBarButtonItem: UIBarButtonItem!

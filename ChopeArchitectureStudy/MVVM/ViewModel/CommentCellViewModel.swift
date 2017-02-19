@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CPGithub
 
 class CommentCellViewModel: ItemCellViewModel {
     private var comment: Comment

@@ -1,9 +1,12 @@
 PODS:
   - Alamofire (4.3.0)
-  - BonMot (4.0.2)
-  - Kingfisher (3.3.2)
+  - BonMot (4.2)
+  - CPGithub (0.1.0):
+    - Alamofire
+    - SwiftyJSON
+  - Kingfisher (3.4.0)
   - SwiftyJSON (3.1.4)
-  - Toaster (2.0.1)
+  - Toaster (2.0.3)
   - XCGLogger (4.0.0):
     - XCGLogger/Core (= 4.0.0)
   - XCGLogger/Core (4.0.0)
@@ -11,19 +14,29 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - BonMot
+  - CPGithub (from `https://github.com/yoonhg84/CPGithub.git`)
   - Kingfisher
-  - SwiftyJSON
   - Toaster
   - XCGLogger
 
+EXTERNAL SOURCES:
+  CPGithub:
+    :git: https://github.com/yoonhg84/CPGithub.git
+
+CHECKOUT OPTIONS:
+  CPGithub:
+    :commit: 6e7df98f2e9dac346ba5523ab5c25bdcd68567b5
+    :git: https://github.com/yoonhg84/CPGithub.git
+
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
-  BonMot: eddf223b4054e7be8d632588188bdf70dfa3250d
-  Kingfisher: 8e60094454aeb4746eb588eb57f794d891c6ea88
+  BonMot: 9dbd59135974d2fa591a2084b3489bdc0e15e8f8
+  CPGithub: 5802102f4e805fd856e797af75b40372ffcf3e3b
+  Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Toaster: be65cd48e93a525b2a9cc4bd25a2bfc900e02d9f
+  Toaster: 77c0b03d78e680bbbab0071c9c7ee392b0034010
   XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: 0e34c62b158679879b92b010917770b84ce7dc88
+PODFILE CHECKSUM: 6802f3e0831ec965ddf7b1ef6866013a84400fd2
 
 COCOAPODS: 1.2.0.beta.1

@@ -3,10 +3,11 @@ use_frameworks!
 
 target 'ChopeArchitectureStudy' do
   pod 'Alamofire'
-  pod 'SwiftyJSON'
   pod 'XCGLogger'
 
   pod 'Kingfisher'
   pod 'BonMot'
   pod 'Toaster'
+
+  pod 'CPGithub', :git => 'https://github.com/yoonhg84/CPGithub.git'
 end

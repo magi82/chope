@@ -4,8 +4,9 @@
 //
 
 import Foundation
-import Alamofire
 import XCGLogger
+import Alamofire
+import CPGithub
 
 class CommentsModel: Model {
     var data: ModelData

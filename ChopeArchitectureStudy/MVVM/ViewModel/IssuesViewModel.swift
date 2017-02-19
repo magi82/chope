@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CPGithub
 
 extension Issue: Item {
     

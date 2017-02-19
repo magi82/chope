@@ -4,8 +4,7 @@
 //
 
 import Foundation
-import Alamofire
-import XCGLogger
+import CPGithub
 
 class IssueDetailModel: Model {
     var data: ModelData

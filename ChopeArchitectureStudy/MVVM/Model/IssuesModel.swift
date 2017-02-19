@@ -4,9 +4,9 @@
 //
 
 import Foundation
-import Alamofire
 import XCGLogger
-import SwiftyJSON
+import Alamofire
+import CPGithub
 
 class IssuesModel: Model {
     var data: ModelData
