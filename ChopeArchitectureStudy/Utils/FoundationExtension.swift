@@ -6,8 +6,15 @@
 import Foundation
 import UIKit
 
+struct KeyboardEvent {
+    let beginFrame: CGRect
+    let endFrame: CGRect
+    let duration: Double
+    let animationOptions: UIViewAnimationOptions
+}
+
 extension Dictionary {
-    func keyboardInfo() -> (beginFrame: CGRect, endFrame: CGRect, duration: Double, animationOptions: UIViewAnimationOptions) {
+    func keyboardInfo() -> KeyboardEvent {
         guard let beginFrameKey = UIKeyboardFrameBeginUserInfoKey as? Key,
               let endFrameKey = UIKeyboardFrameEndUserInfoKey as? Key,
               let durationKey = UIKeyboardAnimationDurationUserInfoKey as? Key,
@@ -16,12 +23,12 @@ extension Dictionary {
               let endFrameValue = self[endFrameKey] as? NSValue,
               let durationValue = self[durationKey] as? NSNumber,
               let animationOptionsValue = self[animationOptionsKey] as? NSNumber else {
-            return (CGRect.zero, CGRect.zero, 0.0, UIViewAnimationOptions())
+            return KeyboardEvent(beginFrame: .zero, endFrame: .zero, duration: 0, animationOptions: UIViewAnimationOptions())
         }
         let beginFrame = beginFrameValue.cgRectValue
         let endFrame = endFrameValue.cgRectValue
         let duration = durationValue.doubleValue
         let animationOptions = UIViewAnimationOptions(rawValue: animationOptionsValue.uintValue << 16)
-        return (beginFrame, endFrame, duration, animationOptions)
+        return KeyboardEvent(beginFrame: beginFrame, endFrame: endFrame, duration: duration, animationOptions: animationOptions)
     }
 }
