@@ -8,6 +8,7 @@
 
 import UIKit
 import CPGithub
+import ChopeLibrary
 
 class IssuesViewController: ItemsViewController {
     private var createIssueBarButtonItem: UIBarButtonItem!
@@ -38,7 +39,8 @@ class IssuesViewController: ItemsViewController {
 
     @objc func onAdd(_ barButtonItem: UIBarButtonItem) {
         guard let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "createIssue") as? UINavigationController,
-              let viewController = navigationController.viewControllers.first as? IssueCreationViewController
+              let viewController = navigationController.viewControllers.first as? IssueCreationViewController,
+              let viewModel = viewModel as? GithubItemsViewModel
         else { return }
         viewController.viewModel = IssueCreationViewModel(data: viewModel.data)
         present(navigationController, animated: true)
@@ -63,7 +65,8 @@ extension IssuesViewController: ItemsViewControllerDelegate {
 
     func itemsViewController(_ itemsViewController: ItemsViewController, didSelectItem item: Item, cellType: ItemCellType, atIndexPath indexPath: IndexPath) {
         guard let viewController: IssueDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "issueDetail") as? IssueDetailViewController,
-              let issue = item as? Issue
+              let issue = item as? Issue,
+              let viewModel = viewModel as? GithubItemsViewModel
         else { return }
         viewController.viewModel = CommentsWithIssueViewModel(data: viewModel.data, issueNumber: issue.number)
         navigationController?.pushViewController(viewController, animated: true)

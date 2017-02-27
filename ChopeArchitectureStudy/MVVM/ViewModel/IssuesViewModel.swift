@@ -5,12 +5,13 @@
 
 import Foundation
 import CPGithub
+import ChopeLibrary
 
 extension Issue: Item {
     
 }
 
-class IssuesViewModel: ItemsViewModel {
+class IssuesViewModel: GithubItemsViewModel {
     var data: ModelData
     let model: IssuesModel
 
@@ -34,6 +35,10 @@ class IssuesViewModel: ItemsViewModel {
         default:
             return ""
         }
+    }
+
+    func modelData() -> ModelData {
+        return self.data
     }
 
     var numberOfItems: Int {

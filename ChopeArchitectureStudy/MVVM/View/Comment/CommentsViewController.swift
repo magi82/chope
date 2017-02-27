@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import ChopeLibrary
 
 class CommentsViewController: ItemsViewController {
     var data: ModelData = .none {

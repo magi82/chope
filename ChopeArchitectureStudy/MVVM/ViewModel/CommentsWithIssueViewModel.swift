@@ -5,6 +5,7 @@
 
 import Foundation
 import CPGithub
+import ChopeLibrary
 
 
 extension Comment: Item {
@@ -12,7 +13,7 @@ extension Comment: Item {
 }
 
 
-class CommentsWithIssueViewModel: ItemsViewModel {
+class CommentsWithIssueViewModel: GithubItemsViewModel {
     var data: ModelData
 
     private let issueModel: IssueDetailModel
@@ -34,6 +35,10 @@ class CommentsWithIssueViewModel: ItemsViewModel {
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+
+    func modelData() -> ModelData {
+        return self.data
     }
 
     var numberOfItems: Int {

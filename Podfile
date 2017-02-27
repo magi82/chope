@@ -10,4 +10,5 @@ target 'ChopeArchitectureStudy' do
   pod 'Toaster'
 
   pod 'CPGithub', :git => 'https://github.com/yoonhg84/CPGithub.git'
+  pod 'ChopeLibrary', :git => 'https://github.com/yoonhg84/ChopeLibrary.git'
 end

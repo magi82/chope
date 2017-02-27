@@ -5,6 +5,7 @@
 
 import Foundation
 import CPGithub
+import ChopeLibrary
 
 class IssueCellViewModel: ItemCellViewModel {
     private var issue: Issue

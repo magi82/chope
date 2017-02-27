@@ -5,6 +5,7 @@
 
 import Foundation
 import CPGithub
+import ChopeLibrary
 
 class CommentCellViewModel: ItemCellViewModel {
     private var comment: Comment
