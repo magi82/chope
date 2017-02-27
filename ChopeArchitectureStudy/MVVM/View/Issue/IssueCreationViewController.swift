@@ -6,6 +6,7 @@
 import UIKit
 import Toaster
 import XCGLogger
+import ChopeLibrary
 
 class IssueCreationViewController: UIViewController {
     var viewModel: IssueCreationViewModel!
@@ -23,7 +24,7 @@ class IssueCreationViewController: UIViewController {
 
         assert(viewModel != nil)
 
-        bodyTextView.adjustDefaultBorderStyle()
+        bodyTextView.adjustTextFieldBorderStyle()
 
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedKeyboard(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(addedIssue), name: Notification.Name.ViewModel.addedIssue, object: nil)

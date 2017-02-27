@@ -7,6 +7,8 @@ import UIKit
 import Kingfisher
 import BonMot
 import Toaster
+import ChopeLibrary
+
 
 class IssueDetailViewController: UIViewController {
     var viewModel: CommentsWithIssueViewModel! {
@@ -31,12 +33,12 @@ class IssueDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addChild(viewController: commentsViewController, containerView: containerView)
+        addChild(viewController: commentsViewController, in: containerView)
 
         bottomSeparatorLayoutConstraint.constant = CGFloat(1).px
-        bottomSeparatorView.backgroundColor = UIColor.defaultBorderColor
+        bottomSeparatorView.backgroundColor = UIColor.textFieldBorderColor
 
-        bodyTextField.adjustDefaultBorderStyle()
+        bodyTextField.adjustTextFieldBorderStyle()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedKeyboard(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedText(_:)), name: Notification.Name.UITextFieldTextDidChange, object: nil)
