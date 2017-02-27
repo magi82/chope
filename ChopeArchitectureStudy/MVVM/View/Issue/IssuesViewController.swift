@@ -38,12 +38,9 @@ class IssuesViewController: ItemsViewController {
     }
 
     @objc func onAdd(_ barButtonItem: UIBarButtonItem) {
-        guard let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "createIssue") as? UINavigationController,
-              let viewController = navigationController.viewControllers.first as? IssueCreationViewController,
-              let viewModel = viewModel as? GithubItemsViewModel
-        else { return }
-        viewController.viewModel = IssueCreationViewModel(data: viewModel.data)
-        present(navigationController, animated: true)
+        guard let viewModel = viewModel as? GithubItemsViewModel else { return }
+        let router = IssueRouter(navigationController: self.navigationController, viewController: self)
+        router.routeCreation(data: viewModel.data)
     }
 }
 
@@ -64,11 +61,10 @@ extension IssuesViewController: ItemsViewControllerDelegate {
     }
 
     func itemsViewController(_ itemsViewController: ItemsViewController, didSelectItem item: Item, cellType: ItemCellType, atIndexPath indexPath: IndexPath) {
-        guard let viewController: IssueDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "issueDetail") as? IssueDetailViewController,
-              let issue = item as? Issue,
+        guard let issue = item as? Issue,
               let viewModel = viewModel as? GithubItemsViewModel
         else { return }
-        viewController.viewModel = CommentsWithIssueViewModel(data: viewModel.data, issueNumber: issue.number)
-        navigationController?.pushViewController(viewController, animated: true)
+        let router = IssueRouter(navigationController: self.navigationController, viewController: self)
+        router.routeDetail(data: viewModel.data, issueNumber: issue.number)
     }
 }

@@ -29,9 +29,9 @@ class RepositoryServicesViewController: UIViewController {
     @IBAction func touchGithubIssues() {
         guard let username = githubUsernameTextField.text, let repo = githubRepoTextField.text else { return }
         GithubAuthentication.sharedInstance.accessToken = githubAccessTokenTextField.text
-
-        let viewController: IssuesViewController = IssuesViewController()
-        viewController.viewModel = IssuesViewModel(data: .userAndRepo(user: username, repo: repo))
-        navigationController?.pushViewController(viewController, animated: true)
+        
+        let modelData: ModelData = .userAndRepo(user: username, repo: repo)
+        let router = IssueRouter(navigationController: self.navigationController, viewController: self)
+        router.routeIssues(data: modelData)
     }
 }
