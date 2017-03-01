@@ -30,6 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -60), for: .default)
 
+        guard let navigationController = window?.rootViewController as? UINavigationController,
+              let viewController = navigationController.viewControllers.first as? RepositoryServicesViewController
+        else { return false }
+        let interactor = GithubInteractor()
+        interactor.model = GithubRepositoryServiceModel()
+        let presenter = RepositoryServicesPresenter()
+        presenter.router = IssueRouter(navigationController: navigationController)
+        presenter.interactor = interactor
+        viewController.presenter = presenter
+
         return true
     }
 

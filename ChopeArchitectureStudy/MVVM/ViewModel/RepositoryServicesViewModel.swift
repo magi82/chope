@@ -8,10 +8,10 @@ import Foundation
 class RepositoryServicesViewModel {
     var accessTokenForGithub: String? {
         get {
-            return RepositoryServicesModel().githubAccessToken
+            return GithubRepositoryServiceModel().accessToken
         }
         set {
-            RepositoryServicesModel().githubAccessToken = newValue
+            GithubRepositoryServiceModel().accessToken = newValue
         }
     }
 }

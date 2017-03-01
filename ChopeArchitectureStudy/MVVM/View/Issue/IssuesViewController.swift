@@ -38,8 +38,8 @@ class IssuesViewController: ItemsViewController {
     }
 
     @objc func onAdd(_ barButtonItem: UIBarButtonItem) {
-        guard let viewModel = viewModel as? GithubItemsViewModel else { return }
-        let router = IssueRouter(navigationController: self.navigationController, viewController: self)
+        guard let navigationController = navigationController, let viewModel = viewModel as? GithubItemsViewModel else { return }
+        let router = IssueRouter(navigationController: navigationController)
         router.routeCreation(data: viewModel.data)
     }
 }
@@ -62,9 +62,10 @@ extension IssuesViewController: ItemsViewControllerDelegate {
 
     func itemsViewController(_ itemsViewController: ItemsViewController, didSelectItem item: Item, cellType: ItemCellType, atIndexPath indexPath: IndexPath) {
         guard let issue = item as? Issue,
-              let viewModel = viewModel as? GithubItemsViewModel
+              let viewModel = viewModel as? GithubItemsViewModel,
+              let navigationController = navigationController
         else { return }
-        let router = IssueRouter(navigationController: self.navigationController, viewController: self)
+        let router = IssueRouter(navigationController: navigationController)
         router.routeDetail(data: viewModel.data, issueNumber: issue.number)
     }
 }

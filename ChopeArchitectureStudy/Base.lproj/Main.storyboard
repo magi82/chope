@@ -29,7 +29,7 @@
         <!--Issues Browser-->
         <scene sceneID="JXA-SU-3P4">
             <objects>
-                <viewController id="efO-fz-XII" customClass="RepositoryServicesViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="repositoryServices" id="efO-fz-XII" customClass="RepositoryServicesViewController" customModule="ChopeArchitectureStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Hy-sW-StG"/>
                         <viewControllerLayoutGuide type="bottom" id="hzB-Z2-mMU"/>
@@ -118,7 +118,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uec-v7-dmb">
-                                                    <rect key="frame" x="12" y="12" width="318" height="9"/>
+                                                    <rect key="frame" x="12" y="12" width="318" height="8"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

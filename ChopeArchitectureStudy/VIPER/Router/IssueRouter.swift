@@ -5,12 +5,17 @@
 
 import UIKit
 
-class IssueRouter: NavigationRouter, PresentRouter {
+class IssueRouter: Router {
     var navigationController: UINavigationController?
     var viewController: UIViewController?
 
-    init(navigationController: UINavigationController?, viewController: UIViewController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.viewController = navigationController
+    }
+
+    init(viewController: UIViewController) {
+        self.navigationController = viewController.navigationController
         self.viewController = viewController
     }
 

@@ -5,26 +5,20 @@
 
 import UIKit
 
-protocol NavigationRouter {
+protocol Router {
     var navigationController: UINavigationController? { set get }
-
-    func push(viewController: UIViewController, animated: Bool)
-}
-
-protocol PresentRouter {
     var viewController: UIViewController? { set get }
 
+    func push(viewController: UIViewController, animated: Bool)
     func present(viewController: UIViewController, animated: Bool, completion: (()->Void)?)
 }
 
 
-extension NavigationRouter {
+extension Router {
     func push(viewController: UIViewController, animated: Bool) {
         navigationController?.pushViewController(viewController, animated: animated)
     }
-}
-
-extension PresentRouter {
+    
     func present(viewController: UIViewController, animated: Bool, completion: (()->Void)? = nil) {
         self.viewController?.present(viewController, animated: animated, completion: nil)
     }
