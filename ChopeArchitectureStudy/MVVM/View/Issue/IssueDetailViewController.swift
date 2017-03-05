@@ -42,8 +42,8 @@ class IssueDetailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedKeyboard(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedText(_:)), name: Notification.Name.UITextFieldTextDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: Notification.Name.ViewModel.addedComment, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssueDetail), name: Notification.Name.ViewModel.changedIssueDetail, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: Notification.Name.Interactor.addedComment, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssueDetail), name: Notification.Name.Interactor.changedIssueDetail, object: nil)
     }
 
     @objc func onChangedKeyboard(_ notification: Notification) {

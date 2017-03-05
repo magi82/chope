@@ -20,10 +20,36 @@ class IssueRouter: Router {
     }
 
     func routeIssues(data: ModelData) {
-        let viewModel = IssuesViewModel(data: data)
-        let viewController = IssuesViewController()
-        viewController.viewModel = viewModel
-        push(viewController: viewController, animated: true)
+        guard let navigationController = navigationController else { return }
+
+        let interactor = GithubIssuesInteractor()
+        interactor.model = IssuesModel(data: data)
+
+        let presenter = IssuesPresenter()
+        presenter.interactor = interactor
+        presenter.router = IssueRouter(navigationController: navigationController)
+
+        let vc = IssuesViewController()
+        vc.nib = { cellType in
+            switch cellType {
+            case .item:
+                return UINib(nibName: "IssueTableViewCell", bundle: nil)
+            case .header:
+                return nil
+            }
+        }
+        vc.customCell = { cell, viewData, indexPath in
+            guard let cell = cell as? IssueTableViewCell,
+                  let viewData = viewData as? IssueCellViewData
+            else { return }
+            cell.onTouchedUser = {
+                guard let url = viewData.userGithubURL else { return }
+                UIApplication.shared.open(url)
+            }
+        }
+        
+        vc.presenter = presenter
+        push(viewController: vc, animated: true)
     }
 
     func routeCreation(data: ModelData) {

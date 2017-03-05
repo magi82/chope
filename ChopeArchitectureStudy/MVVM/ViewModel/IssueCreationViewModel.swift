@@ -26,6 +26,6 @@ class IssueCreationViewModel {
     }
 
     @objc func onAddedIssue() {
-        NotificationCenter.default.post(name: Notification.Name.ViewModel.addedIssue, object: nil)
+        NotificationCenter.default.post(name: Notification.Name.Interactor.addedIssue, object: nil)
     }
 }

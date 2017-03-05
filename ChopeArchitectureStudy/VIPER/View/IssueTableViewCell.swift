@@ -10,16 +10,10 @@ import BonMot
 class IssueTableViewCell: UITableViewCell {
     var onTouchedUser: (()->Void)?
 
-    var viewModel: IssueCellViewModel! {
-        didSet {
-            display()
-        }
-    }
-
-    @IBOutlet fileprivate weak var titleLabel: UILabel!
-    @IBOutlet fileprivate weak var userImageButton: UserThumbnailButton!
-    @IBOutlet fileprivate weak var usernameLabel: UILabel!
-    @IBOutlet fileprivate weak var commentsLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var userImageButton: UserThumbnailButton!
+    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet private weak var commentsLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,13 +21,7 @@ class IssueTableViewCell: UITableViewCell {
         userImageButton.addTarget(self, action: #selector(onTouchedUserImage), for: .touchUpInside)
     }
 
-    private func display() {
-        set(number: viewModel.number, title: viewModel.title)
-        set(numberOfComments: viewModel.numberOfComments)
-        set(username: viewModel.username, imageURL: viewModel.userImageURL)
-    }
-
-    private func set(number: Int, title: String) {
+    func set(number: Int, title: String) {
         let styleOfId = StringStyle(
                 .font(UIFont.boldSystemFont(ofSize: 20))
         )
@@ -48,7 +36,7 @@ class IssueTableViewCell: UITableViewCell {
         ])
     }
 
-    private func set(numberOfComments: Int?) {
+    func set(numberOfComments: Int?) {
         guard let numberOfComments = numberOfComments else {
             commentsLabel.attributedText = nil
             return
@@ -71,7 +59,7 @@ class IssueTableViewCell: UITableViewCell {
         ])
     }
 
-    private func set(username: String?, imageURL: URL?) {
+    func set(username: String?, imageURL: URL?) {
         usernameLabel.text = username
         userImageButton.kf.setBackgroundImage(with: imageURL, for: .normal, placeholder: UIImage(named: "imgAvatarPlaceholder"))
     }

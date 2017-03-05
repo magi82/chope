@@ -27,7 +27,7 @@ class IssueCreationViewController: UIViewController {
         bodyTextView.adjustTextFieldBorderStyle()
 
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedKeyboard(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(addedIssue), name: Notification.Name.ViewModel.addedIssue, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addedIssue), name: Notification.Name.Interactor.addedIssue, object: nil)
     }
 
     func addedIssue() {

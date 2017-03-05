@@ -20,10 +20,10 @@ class IssuesModel: Model {
 
         api = IssueAPI(repositories: data.githubRepositories)
 
-        NotificationCenter.default.addObserver(forName: Notification.Name.Model.addedIssue, object: nil, queue: nil) { [weak self] notification in
+        NotificationCenter.model.addObserver(forName: Notification.Name.Model.addedIssue, object: nil, queue: nil) { [weak self] notification in
             guard let issue = notification.userInfo?["issue"] as? Issue else { return }
             self?.issues.insert(issue, at: 0)
-            NotificationCenter.default.post(name: Notification.Name.Model.changedIssues, object: nil)
+            NotificationCenter.model.post(name: Notification.Name.Model.changedIssues, object: nil)
         }
     }
 
@@ -32,7 +32,7 @@ class IssuesModel: Model {
 
         issuesRequest = api.issues(success: { [weak self] issues in
             self?.issues = issues
-            NotificationCenter.default.post(name: Notification.Name.Model.changedIssues, object: nil)
+            NotificationCenter.model.post(name: Notification.Name.Model.changedIssues, object: nil)
             self?.issuesRequest = nil
         }, failure: { [weak self] error in
             self?.issuesRequest = nil
@@ -44,7 +44,7 @@ class IssuesModel: Model {
 
         issuesRequest = api.loadNextPage(success: { [weak self] (issues: [Issue]) in
             self?.issues.append(contentsOf: issues)
-            NotificationCenter.default.post(name: Notification.Name.Model.changedIssues, object: nil)
+            NotificationCenter.model.post(name: Notification.Name.Model.changedIssues, object: nil)
             self?.issuesRequest = nil
         }, failure: { [weak self] error in
             self?.issuesRequest = nil

@@ -24,7 +24,7 @@ class IssueDetailModel: Model {
 
         api.issue(number: number, success: { [weak self] issue in
             self?.issue = issue
-            NotificationCenter.default.post(name: Notification.Name.Model.changedIssue, object: nil)
+            NotificationCenter.model.post(name: Notification.Name.Model.changedIssue, object: nil)
         }, failure: { error in
         })
     }
@@ -32,7 +32,7 @@ class IssueDetailModel: Model {
     func create(title: String, body: String, failure: ((Error)->Void)? = nil) {
         api.create(title: title, body: body, success: { [weak self] issue in
             self?.issue = issue
-            NotificationCenter.default.post(name: Notification.Name.Model.addedIssue, object: nil)
+            NotificationCenter.model.post(name: Notification.Name.Model.addedIssue, object: nil)
         }, failure: { error in
             failure?(error)
         })

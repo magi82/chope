@@ -71,7 +71,7 @@ class IssuesViewModel: GithubItemsViewModel {
     }
 
     @objc func onChangedIssues() {
-        NotificationCenter.default.post(name: Notification.Name.ViewModel.changedIssues, object: nil)
+        NotificationCenter.default.post(name: Notification.Name.Interactor.changedIssues, object: nil)
     }
 
     @objc func onAddedComment() {

@@ -20,7 +20,7 @@ class GithubInteractor: RepositoryServiceInteractor {
     }
     var username: String? {
         get {
-            return model.username
+            return model.username ?? "ArchitectureStudy"
         }
         set {
             model.username = username
@@ -28,7 +28,7 @@ class GithubInteractor: RepositoryServiceInteractor {
     }
     var repository: String? {
         get {
-            return model.repository
+            return model.repository ?? "study"
         }
         set {
             model.repository = repository
