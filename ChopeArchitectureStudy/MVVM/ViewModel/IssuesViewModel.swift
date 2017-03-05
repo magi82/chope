@@ -8,7 +8,7 @@ import CPGithub
 import ChopeLibrary
 
 extension Issue: Item {
-    
+
 }
 
 class IssuesViewModel: GithubItemsViewModel {

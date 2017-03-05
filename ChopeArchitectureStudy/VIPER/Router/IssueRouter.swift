@@ -21,34 +21,7 @@ class IssueRouter: Router {
 
     func routeIssues(data: ModelData) {
         guard let navigationController = navigationController else { return }
-
-        let interactor = GithubIssuesInteractor()
-        interactor.model = IssuesModel(data: data)
-
-        let presenter = IssuesPresenter()
-        presenter.interactor = interactor
-        presenter.router = IssueRouter(navigationController: navigationController)
-
-        let vc = IssuesViewController()
-        vc.nib = { cellType in
-            switch cellType {
-            case .item:
-                return UINib(nibName: "IssueTableViewCell", bundle: nil)
-            case .header:
-                return nil
-            }
-        }
-        vc.customCell = { cell, viewData, indexPath in
-            guard let cell = cell as? IssueTableViewCell,
-                  let viewData = viewData as? IssueCellViewData
-            else { return }
-            cell.onTouchedUser = {
-                guard let url = viewData.userGithubURL else { return }
-                UIApplication.shared.open(url)
-            }
-        }
-        
-        vc.presenter = presenter
+        let vc = UIViewController.issues(data: data, navigationController: navigationController)
         push(viewController: vc, animated: true)
     }
 
@@ -60,9 +33,65 @@ class IssueRouter: Router {
         present(viewController: navigationController, animated: true)
     }
 
-    func routeDetail(data: ModelData, issueNumber: Int) {
-        guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "issueDetail") as? IssueDetailViewController else { return }
-        viewController.viewModel = CommentsWithIssueViewModel(data: data, issueNumber: issueNumber)
-        push(viewController: viewController, animated: true)
+    func routeDetail(data: ModelData) {
+        guard let navigationController = navigationController else { return }
+        let vc = UIViewController.issueDetail(data: data, navigationController: navigationController)
+        push(viewController: vc, animated: true)
+    }
+}
+
+private extension UIViewController {
+    class func issues(data: ModelData, navigationController: UINavigationController) -> IssuesViewController {
+        switch data {
+        case .userAndRepo:
+            break
+        default:
+            assertionFailure()
+        }
+
+        let interactor = GithubIssuesInteractor()
+        interactor.model = IssuesModel(data: data)
+
+        let presenter = IssuesPresenter()
+        presenter.interactor = interactor
+        presenter.router = IssueRouter(navigationController: navigationController)
+
+        let vc = IssuesViewController()
+        vc.presenter = presenter
+        return vc
+    }
+
+    class func issueAndComments(data: ModelData, navigationController: UINavigationController) -> IssueAndCommentsViewController {
+        switch data {
+        case .userAndRepoWithNumber:
+            break
+        default:
+            assertionFailure()
+        }
+
+        let commentsInteractor = GithubCommentsInteractor()
+        commentsInteractor.model = CommentsModel(data: data)
+
+        let issueInteractor = GithubIssueInteractor()
+        issueInteractor.model = IssueDetailModel(data: data)
+
+        let presenter = IssueAndCommentsPresenter()
+        presenter.commentsInteractor = commentsInteractor
+        presenter.issueInteractor = issueInteractor
+        presenter.router = IssueRouter(navigationController: navigationController)
+
+        let vc = IssueAndCommentsViewController()
+        vc.presenter = presenter
+        return vc
+    }
+
+    class func issueDetail(data: ModelData, navigationController: UINavigationController) -> IssueDetailViewController {
+        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "issueDetail") as? IssueDetailViewController else {
+            assertionFailure()
+            return IssueDetailViewController()
+        }
+        let issueAndCommentsVC = issueAndComments(data: data, navigationController: navigationController)
+        vc.issueAndCommentsViewController = issueAndCommentsVC
+        return vc
     }
 }

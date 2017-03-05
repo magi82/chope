@@ -16,7 +16,7 @@ class IssuesPresenter: ViewDataPresenter {
     }
     
     var router: IssueRouter!
-    var interactor: RepositoryIssuesInteractor!
+    var interactor: IssuesInteractor!
 
     init() {
         NotificationCenter.interactor.addObserver(self, selector: #selector(changedIssues(notification:)), name: Notification.Name.Interactor.changedIssues, object: nil)
@@ -33,7 +33,7 @@ class IssuesPresenter: ViewDataPresenter {
 
     func touchIssue(index: Int) {
         let viewData = interactor.issues[index]
-        router.routeDetail(data: interactor.modelData, issueNumber: viewData.number)
+        router.routeDetail(data: interactor.modelData.withNumber(number: viewData.number))
     }
 
     func requestFirstPage() {

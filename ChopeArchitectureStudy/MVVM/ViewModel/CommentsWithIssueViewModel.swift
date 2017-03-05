@@ -82,7 +82,7 @@ class CommentsWithIssueViewModel: GithubItemsViewModel {
     }
 
     @objc func onChangedIssueDetail() {
-        NotificationCenter.default.post(name: Notification.Name.Interactor.changedIssueDetail, object: nil)
+        NotificationCenter.default.post(name: Notification.Name.Interactor.changedIssue, object: nil)
     }
 
     func postComment(body: String) {

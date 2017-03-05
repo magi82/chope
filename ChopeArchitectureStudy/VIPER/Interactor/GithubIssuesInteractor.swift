@@ -6,7 +6,7 @@
 import Foundation
 import CPGithub
 
-class GithubIssuesInteractor: RepositoryIssuesInteractor {
+class GithubIssuesInteractor: IssuesInteractor {
     var model: IssuesModel! {
         didSet {
             if case .userAndRepo(_, let repo) = model.data {

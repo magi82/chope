@@ -22,7 +22,7 @@ extension Notification.Name {
     struct Interactor {
         static let changedIssues: Notification.Name = Notification.Name("changedIssuesInInteractor")
         static let addedIssue: Notification.Name = Notification.Name("addedIssueInInteractor")
-        static let changedIssueDetail: Notification.Name = Notification.Name("changedIssueDetailInInteractor")
+        static let changedIssue: Notification.Name = Notification.Name("changedIssueDetailInInteractor")
         static let changedComments: Notification.Name = Notification.Name("changedCommentsInInteractor")
         static let addedComment: Notification.Name = Notification.Name("addedCommentInInteractor")
     }

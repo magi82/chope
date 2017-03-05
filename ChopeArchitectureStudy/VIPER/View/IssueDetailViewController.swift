@@ -11,11 +11,8 @@ import ChopeLibrary
 
 
 class IssueDetailViewController: UIViewController {
-    var viewModel: CommentsWithIssueViewModel! {
-        didSet {
-            commentsViewController.viewModel = viewModel
-        }
-    }
+    var presenter: IssueDetailPresenter!
+    var issueAndCommentsViewController: IssueAndCommentsViewController!
 
     @IBOutlet fileprivate weak var containerView: UIView!
     @IBOutlet fileprivate weak var bottomLayoutConstraint: NSLayoutConstraint!
@@ -24,8 +21,6 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet fileprivate weak var sendButton: UIButton!
     @IBOutlet fileprivate weak var bodyTextField: UITextField!
 
-    fileprivate var commentsViewController = CommentsViewController()
-
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -33,7 +28,8 @@ class IssueDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addChild(viewController: commentsViewController, in: containerView)
+        assert(issueAndCommentsViewController != nil)
+        addChild(viewController: issueAndCommentsViewController, in: containerView)
 
         bottomSeparatorLayoutConstraint.constant = CGFloat(1).px
         bottomSeparatorView.backgroundColor = UIColor.textFieldBorderColor
@@ -43,7 +39,7 @@ class IssueDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedKeyboard(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onChangedText(_:)), name: Notification.Name.UITextFieldTextDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onAddedComment), name: Notification.Name.Interactor.addedComment, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssueDetail), name: Notification.Name.Interactor.changedIssueDetail, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedIssueDetail), name: Notification.Name.Interactor.changedIssue, object: nil)
     }
 
     @objc func onChangedKeyboard(_ notification: Notification) {
@@ -69,11 +65,17 @@ class IssueDetailViewController: UIViewController {
     }
 
     @objc func onChangedIssueDetail() {
-        navigationItem.title = viewModel.title
+//        navigationItem.title = viewModel.title
     }
 
     @IBAction func onSend() {
         guard let body = bodyTextField.text else { return }
-        viewModel.postComment(body: body)
+//        viewModel.postComment(body: body)
+    }
+}
+
+extension IssueDetailViewController: IssueDetailView {
+    func set(title: String) {
+        self.title = title
     }
 }

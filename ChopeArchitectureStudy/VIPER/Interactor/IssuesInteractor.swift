@@ -5,11 +5,8 @@
 
 import Foundation
 
-protocol RepositoryIssuesInteractor {
+protocol IssuesInteractor: PaginationInteractor {
     var title: String { get set }
     var issues: [IssueCellViewData] { get set }
     var modelData: ModelData { get set }
-
-    func requestFirstPageIssues()
-    func requestNextPageIssues()
 }

@@ -20,7 +20,7 @@ class IssuesViewController: ViewDataViewController {
                 return nil
             }
         }
-        customCell = { cell, viewData, indexPath in
+        customCell = { cell, _, viewData, indexPath in
             guard let cell = cell as? IssueTableViewCell,
                   let viewData = viewData as? IssueCellViewData
             else { return }
@@ -36,8 +36,6 @@ class IssuesViewController: ViewDataViewController {
             guard let presenter = self?.presenter as? IssuesPresenter else { return }
             presenter.touchIssue(index: indexPath.row)
         }
-
-        presenter.view = self
 
         super.viewDidLoad()
     }

@@ -23,13 +23,13 @@ protocol ViewDataPresenter {
 
 protocol ViewDataView: class {
     func set(data: [ViewData])
+    func set(headerData: ViewData?)
 }
 
 class ViewDataViewController: UITableViewController {
     var presenter: ViewDataPresenter!
     var nib: ((ViewDataCellType) -> UINib?)?
-    var customCell: ((UITableViewCell, ViewData, IndexPath) -> Void)?
-    var customHeader: ((UITableViewHeaderFooterView) -> Void)?
+    var customCell: ((UITableViewCell, ViewDataCellType, ViewData, IndexPath) -> Void)?
     var didSelect: ((ViewData, IndexPath) -> Void)?
 
     fileprivate var data: [ViewData] = [] {
@@ -37,6 +37,12 @@ class ViewDataViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    fileprivate var headerData: ViewData? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    fileprivate var hasHeader: Bool = false
 
     private let headerCellIdentifier = "header"
     private let itemCellIdentifier = "item"
@@ -57,7 +63,8 @@ class ViewDataViewController: UITableViewController {
         refreshControl.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
 
         if let nib = nib?(.header) {
-            tableView.register(nib, forHeaderFooterViewReuseIdentifier: headerCellIdentifier)
+            tableView.register(nib, forCellReuseIdentifier: headerCellIdentifier)
+            hasHeader = true
         }
 
         guard let nib = nib?(.item) else { return }
@@ -79,19 +86,24 @@ class ViewDataViewController: UITableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if hasHeader {
+            return data.count + 1
+        }
         return data.count
     }
 
-    public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerCellIdentifier) else { return nil }
-        self.customHeader?(headerView)
-        return headerView
-    }
-
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 && hasHeader {
+            let cell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifier, for: indexPath)
+            if let headerData = headerData {
+                self.customCell?(cell, .header, headerData, indexPath)
+            }
+            return cell
+        }
+        let index = indexPath.row - (hasHeader ? 1 : 0)
         let cell = tableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath)
-        let viewData = data[indexPath.row]
-        self.customCell?(cell, viewData, indexPath)
+        let viewData = data[index]
+        self.customCell?(cell, .item, viewData, indexPath)
         return cell
     }
 
@@ -114,5 +126,9 @@ extension ViewDataViewController: ViewDataView {
     func set(data: [ViewData]) {
         self.data = data
         refreshControl?.endRefreshing()
+    }
+
+    func set(headerData: ViewData?) {
+        self.headerData = headerData
     }
 }
